@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
    <ul class="nav nav-list"> 
       <li id="baseManage"><a href="#" class="dropdown-toggle"> <i class="icon-dashboard"></i> <span class="menu-text"> 基本信息管理</span><b class="arrow icon-angle-down"></b> </a> 
        <ul class="submenu"> 
-        <li id="KeHuHuanLi"><a href="javascript:void()"> <i class="icon-double-angle-right"></i>客户信息管理 </a></li> 
+        <li id="KeHuGuanLi"><a href="coop/KeHuGuanLi.html"> <i class="icon-double-angle-right"></i>客户信息管理 </a></li> 
         <li id="ShangPinGuanLi"><a href="javascript:void()"> <i class="icon-double-angle-right"></i>商品信息管理 </a></li> 
         <li id="GongYingShangGuanLi"><a href="javascript:void()"> <i class="icon-double-angle-right"></i>供应商信息管理 </a></li> 
        </ul></li> 
@@ -40,4 +41,16 @@
         <li id="QuanXianGuanLi"><a href="javascript:void()"> <i class="icon-double-angle-right"></i> 权限管理 </a></li> 
        </ul></li> 
      </ul>
+     <input type="hidden" id="active" value="${active }"/>
+     <input type="hidden" id="baseActive" value="${baseActive }"/>
 <!-- /.nav-list --> 
+
+<script type="text/javascript">
+//点击那个就激活那个。。
+var result = $("#active").val();
+var result2 = $("#baseActive").val();
+$(document).ready(function() {
+	$("li[id="+result2+"]").addClass("active open");
+	$("li[id="+result+"]").addClass("active");
+});
+</script>

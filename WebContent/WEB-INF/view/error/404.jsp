@@ -35,7 +35,7 @@
      <!-- #sidebar-shortcuts --> 
      
       <!-- 导航条 -->
-     <jsp:include page="nav.jsp"></jsp:include>
+     <jsp:include page="/WEB-INF/view/nav.jsp"></jsp:include>
      
      <div class="sidebar-collapse" id="sidebar-collapse"> 
       <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i> 
@@ -107,7 +107,7 @@
     <!-- /.main-content --> 
     
     <!-- 工具导入 -->
-    <jsp:include page="tool.jsp"></jsp:include>
+    <jsp:include page="/WEB-INF/view/tool.jsp"></jsp:include>
     
    </div> 
    <!-- /.main-container-inner --> 

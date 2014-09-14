@@ -13,6 +13,11 @@ public class ErrorController implements GenericController {
 	public String notFound() {
 		return "error/404";
 	}
+	
+	@RequestMapping(value="internalServerError.html",method=RequestMethod.GET)
+	public String InternalServerError (){
+		return "error/500";
+	}
 
 	@RequestMapping(value = "badrequest.html", method = RequestMethod.GET)
 	public String badRequest() {

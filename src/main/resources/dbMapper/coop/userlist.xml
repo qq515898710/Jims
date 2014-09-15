@@ -5,5 +5,5 @@
 		select * from tb_userlist
 	</sql>
 	<select id="selectById" parameterType="String" resultMap="UserList">
-
 	</select>
+</mapper>

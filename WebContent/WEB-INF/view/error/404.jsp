@@ -33,10 +33,8 @@
       </div> 
      </div> 
      <!-- #sidebar-shortcuts --> 
-     
       <!-- 导航条 -->
      <jsp:include page="/WEB-INF/view/nav.jsp"></jsp:include>
-     
      <div class="sidebar-collapse" id="sidebar-collapse"> 
       <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i> 
      </div> 
@@ -105,10 +103,8 @@
      <!-- /.page-content --> 
     </div> 
     <!-- /.main-content --> 
-    
     <!-- 工具导入 -->
     <jsp:include page="/WEB-INF/view/tool.jsp"></jsp:include>
-    
    </div> 
    <!-- /.main-container-inner --> 
    <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse"> <i class="icon-double-angle-up icon-only bigger-110"></i> </a> 

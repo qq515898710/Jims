@@ -44,7 +44,6 @@
      <input type="hidden" id="active" value="${active }"/>
      <input type="hidden" id="baseActive" value="${baseActive }"/>
 <!-- /.nav-list --> 
-
 <script type="text/javascript">
 //点击那个就激活那个。。
 var result = $("#active").val();

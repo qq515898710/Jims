@@ -33,10 +33,8 @@
       </div> 
      </div> 
      <!-- #sidebar-shortcuts --> 
-     
      <!-- 导航条 -->
      <jsp:include page="nav.jsp"></jsp:include>
-     
      <div class="sidebar-collapse" id="sidebar-collapse"> 
       <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i> 
      </div> 
@@ -56,7 +54,7 @@
 					}
 				</script> 
       <ul class="breadcrumb"> 
-       <li><i class="icon-home home-icon"></i> <a href="javascript:void()">首页</a></li> 
+       <li><i class="icon-home home-icon"></i> <a href="home.html">首页</a></li> 
       </ul> 
       <!-- .breadcrumb --> 
       <div class="nav-search" id="nav-search"> 
@@ -87,10 +85,8 @@
      <!-- /.page-content --> 
     </div> 
     <!-- /.main-content --> 
-    
     <!-- 工具导入 -->
     <jsp:include page="tool.jsp"></jsp:include>
-    
     <!-- /#ace-settings-container --> 
    </div> 
    <!-- /.main-container-inner --> 

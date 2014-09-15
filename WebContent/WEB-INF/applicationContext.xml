@@ -25,5 +25,5 @@
 
 <!-- 	<import resource="MVC-Context.xml" /> -->
 	<!-- <import resource="security-Context.xml" /> -->
-	<!-- <import resource="mysql-Context.xml"/> -->
+	<import resource="mysql-Context.xml"/>
 </beans>

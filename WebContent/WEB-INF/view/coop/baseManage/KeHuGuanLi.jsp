@@ -54,7 +54,7 @@
 					}
 				</script> 
       <ul class="breadcrumb"> 
-       <li><i class="icon-home home-icon"></i> <a href="javascript:void()">首页</a></li> 
+       <li><i class="icon-home home-icon"></i> <a href="home.html">首页</a></li> 
       </ul> 
       <!-- .breadcrumb --> 
       <div class="nav-search" id="nav-search"> 

@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<jsp:include page="/WEB-INF/view/header.jsp"></jsp:include>
-<div class="main-container" id="main-container"> 
+<jsp:include page="/WEB-INF/view/header.jsp"></jsp:include> 
+  <div class="main-container" id="main-container"> 
    <script type="text/javascript">
 		try {
 			ace.settings.check('main-container', 'fixed')
@@ -55,6 +55,7 @@
 				</script> 
       <ul class="breadcrumb"> 
        <li><i class="icon-home home-icon"></i> <a href="home.html">首页</a></li> 
+       <li><a href="coop/KeHuGuanLi.html">客户信息管理</a></li> 
       </ul> 
       <!-- .breadcrumb --> 
       <div class="nav-search" id="nav-search"> 
@@ -67,29 +68,90 @@
      <div class="page-content"> 
       <div class="row"> 
        <div class="col-xs-12"> 
-        <h3 class="header smaller lighter blue">客户信息管理</h3> 
+        <h3 class="header smaller lighter blue"> <button id="bt-add-dialog" class="btn btn-success"><i class="icon-plus-sign align-top bigger-125"></i>添加 </button> 
+         <div id="add-dialog-message" class="hide"> 
+          <form id="add-form-dialog" class="form-horizontal" role="form"> 
+           <div class="form-group"> 
+            <label class="col-sm-4 control-label no-padding-right" for="form-field-1"> 供应商全称： </label> 
+            <div class="col-sm-8"> 
+             <input type="text" id="form-field-1" class="col-xs-10 col-sm-50 " /> 
+            </div> 
+           </div> 
+           <div class="form-group"> 
+            <label class="col-sm-4 control-label no-padding-right" for="form-field-1"> 简称： </label> 
+            <div class="col-sm-8"> 
+             <input type="text" id="form-field-1" class="col-xs-10 col-sm-50" /> 
+            </div> 
+           </div> 
+           <div class="form-group"> 
+            <label class="col-sm-4 control-label no-padding-right" for="form-field-1"> 邮政编码： </label> 
+            <div class="col-sm-8"> 
+             <input type="text" id="form-field-1" class="col-xs-10 col-sm-50" /> 
+            </div> 
+           </div> 
+           <div class="form-group"> 
+            <label class="col-sm-4 control-label no-padding-right" for="form-field-1">地址： </label> 
+            <div class="col-sm-8"> 
+             <input type="text" id="form-field-1" class="col-xs-10 col-sm-50" /> 
+            </div> 
+           </div> 
+           <div class="form-group"> 
+            <label class="col-sm-4 control-label no-padding-right" for="form-field-1"> 电话： </label> 
+            <div class="col-sm-8"> 
+             <input type="text" id="form-field-1" class="col-xs-10 col-sm-50" /> 
+            </div> 
+           </div> 
+           <div class="form-group"> 
+            <label class="col-sm-4 control-label no-padding-right" for="form-field-1"> 传真： </label> 
+            <div class="col-sm-8"> 
+             <input type="text" id="form-field-1" class="col-xs-10 col-sm-50" /> 
+            </div> 
+           </div> 
+           <div class="form-group"> 
+            <label class="col-sm-4 control-label no-padding-right" for="form-field-1"> 联系人： </label> 
+            <div class="col-sm-8"> 
+             <input type="text" id="form-field-1" class="col-xs-10 col-sm-50" /> 
+            </div> 
+           </div> 
+           <div class="form-group"> 
+            <label class="col-sm-4 control-label no-padding-right" for="form-field-1">联系人电话： </label> 
+            <div class="col-sm-8"> 
+             <input type="text" id="form-field-1" class="col-xs-10 col-sm-50" /> 
+            </div> 
+           </div> 
+           <div class="form-group"> 
+            <label class="col-sm-4 control-label no-padding-right" for="form-field-1"> 开户帐号： </label> 
+            <div class="col-sm-8"> 
+             <input type="text" id="form-field-1" class="col-xs-10 col-sm-50" /> 
+            </div> 
+           </div> 
+           <div class="form-group"> 
+            <label class="col-sm-4 control-label no-padding-right" for="form-field-1">电子邮箱： </label> 
+            <div class="col-sm-8"> 
+             <input type="text" id="form-field-1" class="col-xs-10 col-sm-50" /> 
+            </div> 
+           </div> 
+          </form> 
+         </div><!-- #add-dialog-message -->
+          <button id="bt-edit-dialog" class="btn btn-primary "><i class="icon-edit align-top bigger-125"></i>修改</button> 
+         <div id="edit-dialog-message" class="hide"> 
+          <p> This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon. </p> 
+          <div class="hr hr-12 hr-double"></div> 
+          <p> Currently using <b>36% of your storage space</b> . </p> 
+         </div> 
+         <!-- #edit-dialog-message --> <button id="bt-delete-dialog" class="btn btn-danger"><i class="icon-trash align-top bigger-125"></i>删除 </button> 
+         <jsp:include page="/WEB-INF/view/confirm.jsp"></jsp:include> </h3> 
         <div class="table-header">
-         所有信息
+          所有信息 
         </div> 
         <div class="table-responsive"> 
          <div id="sample-table-2_wrapper" class="dataTables_wrapper" role="grid"> 
-          <div class="row"> 
-           <div class="col-sm-6"> 
-            <div id="sample-table-2_length" class="dataTables_length"> 
-             <label>显示 <select size="1" name="sample-table-2_length" aria-controls="sample-table-2"><option value="10" selected="selected">10</option> <option value="25">25</option> <option value="50">50</option> <option value="100">100</option></select> 记录 </label> 
-            </div> 
-           </div> 
-           <div class="col-sm-6"> 
-            <div class="dataTables_filter" id="sample-table-2_filter"> 
-             <label>查找: <input type="text" aria-controls="sample-table-2" /></label> 
-            </div> 
-           </div> 
-          </div> 
+          <!-- 显示列表数据 --> 
           <table id="sample-table-2" class="table table-striped table-bordered table-hover dataTable" aria-describedby="sample-table-2_info"> 
            <thead> 
-            <tr role="row">
+            <tr role="row"> 
              <th class="center sorting_disabled" role="columnheader" rowspan="1" colspan="1" style="width: 57px;" aria-label=""> <label> <input type="checkbox" class="ace" /> <span class="lbl"></span> </label> </th> 
-             <th class="sorting_desc" role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 163px;" aria-sort="descending" aria-label="Domain: activate to sort column ascending">Domain</th> 
+             <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 163px;" aria-sort="descending" aria-label="Domain: activate to sort column ascending">Domain</th> 
              <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 122px;" aria-label="Price: activate to sort column ascending">Price</th> 
              <th class="hidden-480 sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 133px;" aria-label="Clicks: activate to sort column ascending">Clicks</th> 
              <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 193px;" aria-label="Update: activate to sort column ascending"> <i class="icon-time bigger-110 hidden-480"></i> Update </th> 
@@ -317,7 +379,7 @@
             <tr class="even"> 
              <td class="center"><label> <input type="checkbox" class="ace" /> <span class="lbl"></span> </label></td> 
              <td class=" sorting_1"><a href="#">pro.com</a></td> 
-             <td class="">$55</td> 
+             <td class="">moziqi</td> 
              <td class="hidden-480">4,250</td> 
              <td class="">Jan 21</td> 
              <td class="hidden-480 "><span class="label label-sm label-success">Registered</span></td> 
@@ -340,24 +402,6 @@
             </tr> 
            </tbody> 
           </table> 
-          <div class="row"> 
-           <div class="col-sm-6"> 
-            <div class="dataTables_info" id="sample-table-2_info">
-             Showing 1 to 10 of 23 entries
-            </div> 
-           </div> 
-           <div class="col-sm-6"> 
-            <div class="dataTables_paginate paging_bootstrap"> 
-             <ul class="pagination"> 
-              <li class="prev disabled"><a href="#"><i class="icon-double-angle-left"></i></a></li> 
-              <li class="active"><a href="#">1</a></li> 
-              <li><a href="#">2</a></li> 
-              <li><a href="#">3</a></li> 
-              <li class="next"><a href="#"><i class="icon-double-angle-right"></i></a></li> 
-             </ul> 
-            </div> 
-           </div> 
-          </div> 
          </div> 
         </div> 
        </div> 
@@ -369,19 +413,124 @@
     </div> 
     <!-- /.main-content --> 
     <script type="text/javascript">
-jQuery(function($) {
-	$('#loading-btn').on(ace.click_event, function () {
-		var btn = $(this);
-		btn.button('loading')
-		setTimeout(function () {
-			btn.button('reset')
-		}, 2000)
-	});
+	jQuery(function($) {
+		
+		var oTable1 = $('#sample-table-2').dataTable( {
+		"aoColumns": [
+	      { "bSortable": false },
+	      null, null,null, null, null,
+		  { "bSortable": false }
+		] } );
+		
+		$('table th input:checkbox').on('click' , function(){
+			var that = this;
+			$(this).closest('table').find('tr > td:first-child input:checkbox')
+			.each(function(){
+				this.checked = that.checked;
+				$(this).closest('tr').toggleClass('selected');
+			});
+		});
+		
+		$('[data-rel="tooltip"]').tooltip({placement: tooltip_placement});
+		function tooltip_placement(context, source) {
+			var $source = $(source);
+			var $parent = $source.closest('table')
+			var off1 = $parent.offset();
+			var w1 = $parent.width();
+			var off2 = $source.offset();
+			var w2 = $source.width();
+			if( parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2) ) return 'right';
+			return 'left';
+		}
+		
+		//覆盖对话框的标题功能允许HTML标题
+		$.widget("ui.dialog", $.extend({}, $.ui.dialog.prototype, {
+			_title: function(title) {
+				var $title = this.options.title || '&nbsp;'
+				if( ("title_html" in this.options) && this.options.title_html == true )
+					title.html($title);
+				else title.text($title);
+			}
+		}));
+		
+		//添加
+		$( "#bt-add-dialog" ).on('click', function(e) {
+			e.preventDefault();
+			var dialog = $( "#add-dialog-message" ).removeClass('hide').dialog({
+				modal: true,
+				title: "<div class='widget-header widget-header-small'><h4 class='smaller'><i class='icon-plus-sign'></i></h4></div>",
+				title_html: true,
+				buttons: [ 
+					{
+						text: "取消",
+						"class" : "btn btn-xs",
+						click: function() {
+							$( this ).dialog( "close" ); 
+						} 
+					},
+					{
+						text: "确定",
+						"class" : "btn btn-primary btn-xs",
+						click: function() {
+							$( this ).dialog( "close" ); 
+						} 
+					}
+				]
+			});
+		});
 
-	$('#id-button-borders').attr('checked' , 'checked').on('click', function(){
-			$('#default-buttons .btn').toggleClass('no-border');
+		$( "#bt-edit-dialog" ).on('click', function(e) {
+			e.preventDefault();
+			var dialog = $( "#edit-dialog-message" ).removeClass('hide').dialog({
+				modal: true,
+				title: "<div class='widget-header widget-header-small'><h4 class='smaller'><i class='icon-edit'></i></h4></div>",
+				title_html: true,
+				buttons: [ 
+					{
+						text: "取消",
+						"class" : "btn btn-xs",
+						click: function() {
+							$( this ).dialog( "close" ); 
+						} 
+					},
+					{
+						text: "确定",
+						"class" : "btn btn-primary btn-xs",
+						click: function() {
+							$( this ).dialog( "close" ); 
+						} 
+					}
+				]
+			});
+		});
+
+		//删除
+		$( "#bt-delete-dialog" ).on('click', function(e) {
+			e.preventDefault();
+			$( "#delete-dialog-confirm" ).removeClass('hide').dialog({
+				resizable: false,
+				modal: true,
+				title: "<div class='widget-header'><h4 class='smaller'><i class='icon-warning-sign red'></i> </h4></div>",
+				title_html: true,
+				buttons: [
+					{
+						html: "<i class='icon-trash bigger-110'></i>&nbsp;确定",
+						"class" : "btn btn-danger btn-xs",
+						click: function() {
+							$( this ).dialog( "close" );
+						}
+					},
+					{
+						html: "<i class='icon-remove bigger-110'></i>&nbsp; 取消",
+						"class" : "btn btn-xs",
+						click: function() {
+							$( this ).dialog( "close" );
+						}
+					}
+				]
+			});
+		});
 	});
-})
 </script> 
     <!-- 工具导入 --> 
     <jsp:include page="/WEB-INF/view/tool.jsp"></jsp:include> 

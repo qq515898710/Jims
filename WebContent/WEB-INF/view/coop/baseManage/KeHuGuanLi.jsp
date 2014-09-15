@@ -68,78 +68,12 @@
      <div class="page-content"> 
       <div class="row"> 
        <div class="col-xs-12"> 
-        <h3 class="header smaller lighter blue"> <button id="bt-add-dialog" class="btn btn-success"><i class="icon-plus-sign align-top bigger-125"></i>添加 </button> 
-         <div id="add-dialog-message" class="hide"> 
-          <form id="add-form-dialog" class="form-horizontal" role="form"> 
-           <div class="form-group"> 
-            <label class="col-sm-4 control-label no-padding-right" for="form-field-1"> 供应商全称： </label> 
-            <div class="col-sm-8"> 
-             <input type="text" id="form-field-1" class="col-xs-10 col-sm-50 " /> 
-            </div> 
-           </div> 
-           <div class="form-group"> 
-            <label class="col-sm-4 control-label no-padding-right" for="form-field-1"> 简称： </label> 
-            <div class="col-sm-8"> 
-             <input type="text" id="form-field-1" class="col-xs-10 col-sm-50" /> 
-            </div> 
-           </div> 
-           <div class="form-group"> 
-            <label class="col-sm-4 control-label no-padding-right" for="form-field-1"> 邮政编码： </label> 
-            <div class="col-sm-8"> 
-             <input type="text" id="form-field-1" class="col-xs-10 col-sm-50" /> 
-            </div> 
-           </div> 
-           <div class="form-group"> 
-            <label class="col-sm-4 control-label no-padding-right" for="form-field-1">地址： </label> 
-            <div class="col-sm-8"> 
-             <input type="text" id="form-field-1" class="col-xs-10 col-sm-50" /> 
-            </div> 
-           </div> 
-           <div class="form-group"> 
-            <label class="col-sm-4 control-label no-padding-right" for="form-field-1"> 电话： </label> 
-            <div class="col-sm-8"> 
-             <input type="text" id="form-field-1" class="col-xs-10 col-sm-50" /> 
-            </div> 
-           </div> 
-           <div class="form-group"> 
-            <label class="col-sm-4 control-label no-padding-right" for="form-field-1"> 传真： </label> 
-            <div class="col-sm-8"> 
-             <input type="text" id="form-field-1" class="col-xs-10 col-sm-50" /> 
-            </div> 
-           </div> 
-           <div class="form-group"> 
-            <label class="col-sm-4 control-label no-padding-right" for="form-field-1"> 联系人： </label> 
-            <div class="col-sm-8"> 
-             <input type="text" id="form-field-1" class="col-xs-10 col-sm-50" /> 
-            </div> 
-           </div> 
-           <div class="form-group"> 
-            <label class="col-sm-4 control-label no-padding-right" for="form-field-1">联系人电话： </label> 
-            <div class="col-sm-8"> 
-             <input type="text" id="form-field-1" class="col-xs-10 col-sm-50" /> 
-            </div> 
-           </div> 
-           <div class="form-group"> 
-            <label class="col-sm-4 control-label no-padding-right" for="form-field-1"> 开户帐号： </label> 
-            <div class="col-sm-8"> 
-             <input type="text" id="form-field-1" class="col-xs-10 col-sm-50" /> 
-            </div> 
-           </div> 
-           <div class="form-group"> 
-            <label class="col-sm-4 control-label no-padding-right" for="form-field-1">电子邮箱： </label> 
-            <div class="col-sm-8"> 
-             <input type="text" id="form-field-1" class="col-xs-10 col-sm-50" /> 
-            </div> 
-           </div> 
-          </form> 
-         </div><!-- #add-dialog-message -->
-          <button id="bt-edit-dialog" class="btn btn-primary "><i class="icon-edit align-top bigger-125"></i>修改</button> 
-         <div id="edit-dialog-message" class="hide"> 
-          <p> This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon. </p> 
-          <div class="hr hr-12 hr-double"></div> 
-          <p> Currently using <b>36% of your storage space</b> . </p> 
-         </div> 
-         <!-- #edit-dialog-message --> <button id="bt-delete-dialog" class="btn btn-danger"><i class="icon-trash align-top bigger-125"></i>删除 </button> 
+        <h3 class="header smaller lighter blue"> 
+          <button id="bt-add-dialog" class="btn btn-success"><i class="icon-plus-sign align-top bigger-125"></i>添加 </button> 
+          <jsp:include page="KeHuGuanLi_add.jsp"></jsp:include>
+          <button id="bt-edit-dialog" class="btn btn-primary "><i class="icon-edit align-top bigger-125"></i>修改</button>
+          <jsp:include page="KeHuGuanLi_edit.jsp"></jsp:include> 
+          <button id="bt-delete-dialog" class="btn btn-danger"><i class="icon-trash align-top bigger-125"></i>删除 </button> 
          <jsp:include page="/WEB-INF/view/confirm.jsp"></jsp:include> </h3> 
         <div class="table-header">
           所有信息 

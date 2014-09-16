@@ -8,7 +8,7 @@ import java.io.Serializable;
  * @author moziqi
  *
  */
-public class UserList implements Serializable {
+public class User implements Serializable {
 	/**
 	 * 
 	 */
@@ -18,11 +18,11 @@ public class UserList implements Serializable {
 	private String password;
 	private String permission;
 
-	public UserList() {
+	public User() {
 		super();
 	}
 
-	public UserList(String name, String username, String password,
+	public User(String name, String username, String password,
 			String permission) {
 		super();
 		this.name = name;

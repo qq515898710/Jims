@@ -28,7 +28,6 @@ public class DESUtils {
 			key = generator.generateKey();
 			generator = null;
 		} catch (Exception e) {
-			// TODO: handle exception
 			throw new RuntimeException(e);
 		}
 	}
@@ -48,7 +47,6 @@ public class DESUtils {
 			byte[] doFinal = cipher.doFinal(bytes);
 			return base64encoder.encode(doFinal);
 		} catch (Exception e) {
-			// TODO: handle exception
 			throw new RuntimeException(e);
 		}
 	}

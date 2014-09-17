@@ -76,9 +76,24 @@
          <button type="button" class="close" data-dismiss="alert"> <i class="icon-remove"></i> </button> 
          <i class="icon-ok green"></i> 欢迎使用 
          <strong class="green"> Ace进销存管理系统 <small>(v1.0)</small> </strong> 
-        </div> 
+        </div>
        </div> 
        <!-- /.col --> 
+       <div id="qzcode"></div>
+       <hr>
+       <div><img alt="条形码" src="barcode?msg=9787302337416" height="50px" width=130px/> </div>
+       
+       <script type="text/javascript">
+       var content= toUtf8("欢迎使用jscm,  本系统由莫梓奇开发,  博客:http://my.oschina.net/moziqi/blog");
+       jQuery(function(){
+    	   $("#qzcode").qrcode({ 
+    		    render: "table", //table方式 
+    		    width: 200, //宽度 
+    		    height:200, //高度 
+    		    text: content//任意内容 
+    		}); 
+    	})
+       </script>
       </div> 
       <!-- /.row --> 
      </div> 

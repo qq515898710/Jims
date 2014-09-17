@@ -43,6 +43,7 @@
             <fieldset> 
              <label class="block clearfix"> <span class="block input-icon input-icon-right"> <input type="text" class="form-control" placeholder="请输入用户名" /> <i class="icon-user"></i> </span> </label> 
              <label class="block clearfix"> <span class="block input-icon input-icon-right"> <input type="password" class="form-control" placeholder="请输入密码" /> <i class="icon-lock"></i> </span> </label> 
+             <label class="block clearfix"> <span class="block input-icon input-icon-right"> <input type="text " class="form-control" placeholder="验证码" /> <i class="icon-lock"></i><img src="2code.jpg" alt="验证码" style="float: right;"/> </span></label> 
              <div class="space"></div> 
              <div class="clearfix"> 
               <label class="inline"> <input type="checkbox" class="ace" /> <span class="lbl"> 记住</span> </label> 

@@ -33,6 +33,8 @@
 <script src="assets/js/jquery.ui.touch-punch.min.js"></script>
 <script src="assets/js/ace-elements.min.js"></script>
 <script src="assets/js/ace.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery.qrcode.js"></script>
+<script type="text/javascript" src="assets/js/scm.js"></script>
 </head>
 <body>
   <div class="navbar navbar-default" id="navbar"> 

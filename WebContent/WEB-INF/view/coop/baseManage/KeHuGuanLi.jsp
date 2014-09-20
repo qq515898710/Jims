@@ -69,12 +69,12 @@
       <div class="row"> 
        <div class="col-xs-12"> 
         <h3 class="header smaller lighter blue"> 
-          <button id="bt-add-dialog" class="btn btn-success"><i class="icon-plus-sign align-top bigger-125"></i>添加 </button> 
+          <button id="bt-add-dialog" class="btn btn-success" data-toggle="modal"  data-target="#add-dialog-message"><i class="icon-plus-sign align-top bigger-125"></i>添加 </button> 
           <jsp:include page="KeHuGuanLi_add.jsp"></jsp:include>
-          <button id="bt-edit-dialog" class="btn btn-primary "><i class="icon-edit align-top bigger-125"></i>修改</button>
+          <button id="bt-edit-dialog" class="btn btn-primary" data-toggle="modal"  data-target="#edit-dialog-message"><i class="icon-edit align-top bigger-125"></i>修改</button>
           <jsp:include page="KeHuGuanLi_edit.jsp"></jsp:include> 
-          <button id="bt-delete-dialog" class="btn btn-danger"><i class="icon-trash align-top bigger-125"></i>删除 </button> 
-         <jsp:include page="/WEB-INF/view/confirm.jsp"></jsp:include> </h3> 
+          <button id="bt-delete-dialog" class="btn btn-danger" data-toggle="modal"  data-target="#delete-dialog-message"><i class="icon-trash align-top bigger-125"></i>删除 </button> 
+         <jsp:include page="KeHuGuanLi_delete.jsp"></jsp:include> </h3> 
         <div class="table-header">
           所有信息 
         </div> 
@@ -377,93 +377,6 @@
 			return 'left';
 		}
 		
-		//覆盖对话框的标题功能允许HTML标题
-		$.widget("ui.dialog", $.extend({}, $.ui.dialog.prototype, {
-			_title: function(title) {
-				var $title = this.options.title || '&nbsp;'
-				if( ("title_html" in this.options) && this.options.title_html == true )
-					title.html($title);
-				else title.text($title);
-			}
-		}));
-		
-		//添加
-		$( "#bt-add-dialog" ).on('click', function(e) {
-			e.preventDefault();
-			var dialog = $( "#add-dialog-message" ).removeClass('hide').dialog({
-				modal: true,
-				title: "<div class='widget-header widget-header-small'><h4 class='smaller'><i class='icon-plus-sign'></i></h4></div>",
-				title_html: true,
-				buttons: [ 
-					{
-						text: "取消",
-						"class" : "btn btn-xs",
-						click: function() {
-							$( this ).dialog( "close" ); 
-						} 
-					},
-					{
-						text: "确定",
-						"class" : "btn btn-primary btn-xs",
-						click: function() {
-							$( this ).dialog( "close" ); 
-						} 
-					}
-				]
-			});
-		});
-
-		$( "#bt-edit-dialog" ).on('click', function(e) {
-			e.preventDefault();
-			var dialog = $( "#edit-dialog-message" ).removeClass('hide').dialog({
-				modal: true,
-				title: "<div class='widget-header widget-header-small'><h4 class='smaller'><i class='icon-edit'></i></h4></div>",
-				title_html: true,
-				buttons: [ 
-					{
-						text: "取消",
-						"class" : "btn btn-xs",
-						click: function() {
-							$( this ).dialog( "close" ); 
-						} 
-					},
-					{
-						text: "确定",
-						"class" : "btn btn-primary btn-xs",
-						click: function() {
-							$( this ).dialog( "close" ); 
-						} 
-					}
-				]
-			});
-		});
-
-		//删除
-		$( "#bt-delete-dialog" ).on('click', function(e) {
-			e.preventDefault();
-			$( "#delete-dialog-confirm" ).removeClass('hide').dialog({
-				resizable: false,
-				modal: true,
-				title: "<div class='widget-header'><h4 class='smaller'><i class='icon-warning-sign red'></i> </h4></div>",
-				title_html: true,
-				buttons: [
-					{
-						html: "<i class='icon-trash bigger-110'></i>&nbsp;确定",
-						"class" : "btn btn-danger btn-xs",
-						click: function() {
-							$( this ).dialog( "close" );
-						}
-					},
-					{
-						html: "<i class='icon-remove bigger-110'></i>&nbsp; 取消",
-						"class" : "btn btn-xs",
-						click: function() {
-							$( this ).dialog( "close" );
-						}
-					}
-				]
-			});
-		});
 	});
 </script> 
     <!-- 工具导入 --> 

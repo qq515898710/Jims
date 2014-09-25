@@ -36,7 +36,7 @@ public class TbUserRole implements Serializable {
 	 */
 	private java.util.Collection<TbUserPermission> tbUserPermission;
 	/** @pdRoleInfo migr=no name=TbUser assc=reference2 mult=0..1 side=A */
-	private TbUser tbUser;
+	private java.util.Collection<TbUser> tbUser;
 
 	public long getId() {
 		return id;
@@ -122,27 +122,57 @@ public class TbUserRole implements Serializable {
 		}
 	}
 
-	/** @pdGenerated default parent getter */
-	public TbUser getTbUser() {
+	public java.util.Collection<TbUser> getTbUser() {
+		if (tbUser == null)
+			tbUser = new java.util.HashSet<TbUser>();
 		return tbUser;
 	}
 
-	/**
-	 * @pdGenerated default parent setter
-	 * @param newTbUser
-	 */
-	public void setTbUser(TbUser newTbUser) {
-		if (this.tbUser == null || !this.tbUser.equals(newTbUser)) {
-			if (this.tbUser != null) {
-				TbUser oldTbUser = this.tbUser;
-				this.tbUser = null;
-				oldTbUser.removeTbUserRole(this);
-			}
-			if (newTbUser != null) {
-				this.tbUser = newTbUser;
-				this.tbUser.addTbUserRole(this);
-			}
+	public java.util.Iterator getIteratorTbUser() {
+		if (tbUser == null)
+			tbUser = new java.util.HashSet<TbUser>();
+		return tbUser.iterator();
+	}
+
+	public void setTbUser(java.util.Collection<TbUser> tbUser) {
+		this.tbUser = tbUser;
+	}
+
+	public void addTbUser(TbUser newTbUser) {
+		if (newTbUser == null)
+			return;
+		if (this.tbUser == null)
+			this.tbUser = new java.util.HashSet<TbUser>();
+		if (!this.tbUser.contains(newTbUser)) {
+			this.tbUser.add(newTbUser);
+			newTbUser.setTbUserRole(this);
 		}
 	}
 
+	/**
+	 * @pdGenerated default remove
+	 * @param oldTbUser
+	 */
+	public void removeTbUser(TbUser oldTbUser) {
+		if (oldTbUser == null)
+			return;
+		if (this.tbUser != null)
+			if (this.tbUser.contains(oldTbUser)) {
+				this.tbUser.remove(oldTbUser);
+				oldTbUser.setTbUserRole((TbUserRole) null);
+			}
+	}
+
+	/** @pdGenerated default removeAll */
+	public void removeAllTbUser() {
+		if (tbUser != null) {
+			TbUser oldTbUser;
+			for (java.util.Iterator iter = getIteratorTbUser(); iter
+					.hasNext();) {
+				oldTbUser = (TbUser) iter.next();
+				iter.remove();
+				oldTbUser.setTbUserRole((TbUserRole) null);
+			}
+		}
+	}
 }

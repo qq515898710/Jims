@@ -12,7 +12,7 @@ import java.io.Serializable;
  * 
  * @pdOid 5f5069a6-e3ba-47b0-a330-11cda2695c7e
  */
-public class TbUser implements Serializable{
+public class TbUser implements Serializable {
 	/**
 	 * 
 	 */
@@ -45,7 +45,7 @@ public class TbUser implements Serializable{
 	 * @pdRoleInfo migr=no name=TbUserRole assc=reference2
 	 *             coll=java.util.Collection impl=java.util.HashSet mult=0..*
 	 */
-	private java.util.Collection<TbUserRole> tbUserRole;
+	private TbUserRole tbUserRole;
 	/**
 	 * @pdRoleInfo migr=no name=TbSell assc=reference8 coll=java.util.Collection
 	 *             impl=java.util.HashSet mult=0..*
@@ -153,72 +153,6 @@ public class TbUser implements Serializable{
 				oldTbUserLog = (TbUserLog) iter.next();
 				iter.remove();
 				oldTbUserLog.setTbUser((TbUser) null);
-			}
-		}
-	}
-
-	/** @pdGenerated default getter */
-	public java.util.Collection<TbUserRole> getTbUserRole() {
-		if (tbUserRole == null)
-			tbUserRole = new java.util.HashSet<TbUserRole>();
-		return tbUserRole;
-	}
-
-	/** @pdGenerated default iterator getter */
-	public java.util.Iterator getIteratorTbUserRole() {
-		if (tbUserRole == null)
-			tbUserRole = new java.util.HashSet<TbUserRole>();
-		return tbUserRole.iterator();
-	}
-
-	/**
-	 * @pdGenerated default setter
-	 * @param newTbUserRole
-	 */
-	public void setTbUserRole(java.util.Collection<TbUserRole> newTbUserRole) {
-		removeAllTbUserRole();
-		for (java.util.Iterator iter = newTbUserRole.iterator(); iter.hasNext();)
-			addTbUserRole((TbUserRole) iter.next());
-	}
-
-	/**
-	 * @pdGenerated default add
-	 * @param newTbUserRole
-	 */
-	public void addTbUserRole(TbUserRole newTbUserRole) {
-		if (newTbUserRole == null)
-			return;
-		if (this.tbUserRole == null)
-			this.tbUserRole = new java.util.HashSet<TbUserRole>();
-		if (!this.tbUserRole.contains(newTbUserRole)) {
-			this.tbUserRole.add(newTbUserRole);
-			newTbUserRole.setTbUser(this);
-		}
-	}
-
-	/**
-	 * @pdGenerated default remove
-	 * @param oldTbUserRole
-	 */
-	public void removeTbUserRole(TbUserRole oldTbUserRole) {
-		if (oldTbUserRole == null)
-			return;
-		if (this.tbUserRole != null)
-			if (this.tbUserRole.contains(oldTbUserRole)) {
-				this.tbUserRole.remove(oldTbUserRole);
-				oldTbUserRole.setTbUser((TbUser) null);
-			}
-	}
-
-	/** @pdGenerated default removeAll */
-	public void removeAllTbUserRole() {
-		if (tbUserRole != null) {
-			TbUserRole oldTbUserRole;
-			for (java.util.Iterator iter = getIteratorTbUserRole(); iter
-					.hasNext();) {
-				oldTbUserRole = (TbUserRole) iter.next();
-				iter.remove();
-				oldTbUserRole.setTbUser((TbUser) null);
 			}
 		}
 	}
@@ -488,5 +422,26 @@ public class TbUser implements Serializable{
 			}
 		}
 	}
+	/** @pdGenerated default parent getter */
+	public TbUserRole getTbUserRole() {
+		return tbUserRole;
+	}
 
+	/**
+	 * @pdGenerated default parent setter
+	 * @param newTbUserRole
+	 */
+	public void setTbUserRole(TbUserRole newTbUserRole) {
+		if (this.tbUserRole == null || !this.tbUserRole.equals(newTbUserRole)) {
+			if (this.tbUserRole != null) {
+				TbUserRole oldTbUserRole = this.tbUserRole;
+				this.tbUserRole = null;
+				oldTbUserRole.removeTbUser(this);
+			}
+			if (newTbUserRole != null) {
+				this.tbUserRole = newTbUserRole;
+				this.tbUserRole.addTbUser(this);
+			}
+		}
+	}
 }

@@ -16,7 +16,7 @@ public class EncryptPropertyPlaceholderConfigurer extends
 	protected String convertProperty(String propertyName, String propertyValue) {
 		if (isEncryptProp(propertyName)) {
 			String decryptValue = DESUtils.getDecryptString(propertyValue);
-			System.out.println(propertyName + "解密内容:" + decryptValue);
+			//System.out.println(propertyName + "解密内容:" + decryptValue);
 			return decryptValue;
 		} else {
 			return propertyValue;

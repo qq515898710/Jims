@@ -52,7 +52,7 @@ public class TbStockReturn implements Serializable{
 	 * 
 	 * @pdOid b1a463b5-5482-405b-8423-b82ebc9c2073
 	 */
-	private java.lang.String check;
+	private java.lang.String check_conclusion;
 	/**
 	 * 退货时间
 	 * 
@@ -119,13 +119,14 @@ public class TbStockReturn implements Serializable{
 		this.sum = sum;
 	}
 
-	public java.lang.String getCheck() {
-		return check;
+	public java.lang.String getCheck_conclusion() {
+		return check_conclusion;
 	}
 
-	public void setCheck(java.lang.String check) {
-		this.check = check;
+	public void setCheck_conclusion(java.lang.String check_conclusion) {
+		this.check_conclusion = check_conclusion;
 	}
+
 
 	public java.util.Date getTime() {
 		return time;

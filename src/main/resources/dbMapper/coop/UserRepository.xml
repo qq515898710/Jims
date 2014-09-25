@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.mo.jims.coop.repository.UserRepository">
+
+	<sql id="select_user">SELECT name, username, password, rid FROM tb_user</sql>
+	
+	<sql id="selcet_user_role">SELECT id, type FROM tb_user_role </sql>
+	
+	<sql id="selcet_user_log">SELECT id, name, time FROM tb_user_role</sql>
+	
+	<sql id="selcet_tb_sell">SELECT id,gid,cid,uid,unit_cost,amount,sum,time,clearing_form,headler FROM tb_sell</sql>
+	
+	<sql id="selcet_tb_sell_return">SELECT id,gid,cid,uid,unit_cost,amount,sum,time,clearing_form,headler FROM tb_sell_return</sql>
+	
+	<sql id="selcet_tb_stock">SELECT id,pid,uid,gid,variety_amount,unit_cost,amount,sum,check_conclusion,time,clearing_form,handler FROM tb_stock</sql>
+	
+	<sql id="selcet_tb_stock_return">SELECT id,pid,uid,gid,variety_amount,unit_cost,amount,sum,check_conclusion,time,clearing_form,handler FROM tb_return</sql>
+	
+	<select id="selcetByName" resultMap="userResultMap">
+		<include refid="select_user"/>
+		WHERE name = #{name}
+	</select>
+	
+	<!-- userRole -->
+	<resultMap type="TbUserRole" id="userRoleResultMap">
+		<id property="id" column="id"/>
+		<result property="type" column="type"/>
+	</resultMap>
+	
+	<!-- user -->
+	<resultMap type="TbUser" id="userResultMap">
+		<id property="name" column="name" />
+		<result property="username" column="username"/>
+		<result property="password" column="password"/>
+		<association property="tbUserRole"  javaType="TbUserRole">
+			<id property="id" column="id"/>
+			<result property="type" column="type"/>
+		</association>
+<!-- 		<collection property="tbUserLog" ofType="TbUserLog"> -->
+<!-- 			<id property="id" column="id"/> -->
+<!-- 			<result property="name" column="name"/> -->
+<!-- 			<result property="time" column="time"/> -->
+<!-- 		</collection> -->
+<!-- 		<collection property="tbSell" ofType="TbSell"> -->
+<!-- 			<id property="id" column="id"/> -->
+<!-- 			<result property="gid" column="gid"/> -->
+<!-- 			<result property="cid" column="cid"/> -->
+<!-- 			<result property="uid" column="uid"/> -->
+<!-- 			<result property="unit_cost" column="unit_cost"/> -->
+<!-- 			<result property="amount" column="amount"/> -->
+<!-- 			<result property="sum" column="sum"/> -->
+<!-- 			<result property="time" column="time"/> -->
+<!-- 			<result property="clearing_form" column="clearing_form"/> -->
+<!-- 			<result property="headler" column="headler"/> -->
+<!-- 		</collection> -->
+<!-- 		<collection property="tbSellReturn" ofType="TbSellReturn"> -->
+<!-- 			<id property="id" column="id"/> -->
+<!-- 			<result property="gid" column="gid"/> -->
+<!-- 			<result property="cid" column="cid"/> -->
+<!-- 			<result property="uid" column="uid"/> -->
+<!-- 			<result property="unit_cost" column="unit_cost"/> -->
+<!-- 			<result property="amount" column="amount"/> -->
+<!-- 			<result property="sum" column="sum"/> -->
+<!-- 			<result property="time" column="time"/> -->
+<!-- 			<result property="clearing_form" column="clearing_form"/> -->
+<!-- 			<result property="headler" column="headler"/> -->
+<!-- 		</collection> -->
+<!-- 		<collection property="tbStock" ofType="TbStock"> -->
+<!-- 			<id property="id" column="id"/> -->
+<!-- 			<result property="gid" column="gid"/> -->
+<!-- 			<result property="cid" column="cid"/> -->
+<!-- 			<result property="uid" column="uid"/> -->
+<!-- 			<result property="variety_amount" column="variety_amount"/> -->
+<!-- 			<result property="unit_cost" column="unit_cost"/> -->
+<!-- 			<result property="amount" column="amount"/> -->
+<!-- 			<result property="sum" column="sum"/> -->
+<!-- 			<result property="check_conclusion" column="check_conclusion"/> -->
+<!-- 			<result property="time" column="time"/> -->
+<!-- 			<result property="clearing_form" column="clearing_form"/> -->
+<!-- 			<result property="headler" column="headler"/> -->
+<!-- 		</collection> -->
+<!-- 		<collection property="tbStockReturn" ofType="TbStockReturn"> -->
+<!-- 			<id property="id" column="id"/> -->
+<!-- 			<result property="gid" column="gid"/> -->
+<!-- 			<result property="cid" column="cid"/> -->
+<!-- 			<result property="uid" column="uid"/> -->
+<!-- 			<result property="variety_amount" column="variety_amount"/> -->
+<!-- 			<result property="unit_cost" column="unit_cost"/> -->
+<!-- 			<result property="amount" column="amount"/> -->
+<!-- 			<result property="sum" column="sum"/> -->
+<!-- 			<result property="check_conclusion" column="check_conclusion"/> -->
+<!-- 			<result property="time" column="time"/> -->
+<!-- 			<result property="clearing_form" column="clearing_form"/> -->
+<!-- 			<result property="headler" column="headler"/> -->
+<!-- 		</collection> -->
+	</resultMap>
+	
+</mapper>

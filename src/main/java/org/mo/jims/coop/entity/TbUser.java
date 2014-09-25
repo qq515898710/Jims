@@ -422,6 +422,7 @@ public class TbUser implements Serializable {
 			}
 		}
 	}
+
 	/** @pdGenerated default parent getter */
 	public TbUserRole getTbUserRole() {
 		return tbUserRole;
@@ -444,4 +445,14 @@ public class TbUser implements Serializable {
 			}
 		}
 	}
+
+	@Override
+	public String toString() {
+		return "TbUser [name=" + name + ", username=" + username
+				+ ", password=" + password + ", tbUserLog=" + tbUserLog
+				+ ", tbUserRole=" + tbUserRole + ", tbSell=" + tbSell
+				+ ", tbSellReturn=" + tbSellReturn + ", tbStock=" + tbStock
+				+ ", tbStockReturn=" + tbStockReturn + "]";
+	}
+
 }

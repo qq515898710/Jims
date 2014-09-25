@@ -1,9 +1,10 @@
 package org.mo.jims.coop.repository;
 
+import org.apache.ibatis.annotations.Param;
 import org.mo.jims.coop.entity.TbUser;
 import org.springframework.stereotype.Repository;
 
-@Repository
+@Repository("userRepository")
 public interface UserRepository {
 
 	public void insert(TbUser user);
@@ -12,6 +13,6 @@ public interface UserRepository {
 
 	public void update(TbUser user);
 
-	public TbUser selcetByName(String name);
+	public TbUser selcetByName(@Param("name") String name);
 	
 }

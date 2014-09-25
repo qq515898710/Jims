@@ -13,6 +13,8 @@
 		http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
 		http://www.springframework.org/schema/context 
 		http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+		
+	<!-- 使用覆写的类来读取配置文件 -->
 	<bean class="org.mo.open.common.util.EncryptPropertyPlaceholderConfigurer">
 		<property name="location" value="classpath:configs/dev.properties" />
 	</bean>
@@ -29,15 +31,15 @@
 			</list>
 		</property>
 		<!-- 读取mybatis配置 -->
-		<property name="configLocation" value="/WEB-INF/mybatis-config.xml" />
+<!-- 		<property name="configLocation" value="/WEB-INF/mybatis-config.xml"/> -->
 		<!-- 扫描coop实体bean -->
-		<property name="typeAliasesPackage" value="org.mo.jims.coop.domain" />
+		<property name="typeAliasesPackage" value="org.mo.jims.coop.entity" />
 	</bean>
 
 
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 	    <property name="sqlSessionFactoryBeanName" value="mysqlSqlSessionFactory"></property>
-		<property name="basePackage" value="org.mo.open.common.repository;org.mu.opencomm.coop.repository" />
+		<property name="basePackage" value="org.mo.open.common.repository;org.mo.jims.coop.repository" />
 	</bean>
 
 	<bean id="mysqltransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">

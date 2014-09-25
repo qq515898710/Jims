@@ -16,9 +16,36 @@
 	
 	<sql id="selcet_tb_stock_return">SELECT id,pid,uid,gid,variety_amount,unit_cost,amount,sum,check_conclusion,time,clearing_form,handler FROM tb_return</sql>
 	
+	<insert id="insert" parameterType="TbUser">
+		INSERT INTO tb_user(name,username,password,rid)
+		VALUE(#{name}, #{username}, #{password}, 2)
+	</insert>
+	
+	<update id="updateByPK" parameterType="TbUser">
+		UPDATE tb_user SET 
+			username=#{username},
+			password=#{password},
+			rid=#{tbUserRole.id}
+		WHERE name=#{name}
+	</update>
+	
+	<select id="selectByPK" resultMap="userResultMap">
+		<include refid="select_user"/>
+		WHERE name = #{id}
+	</select>
+	
 	<select id="selcetByName" resultMap="userResultMap">
 		<include refid="select_user"/>
 		WHERE name = #{name}
+	</select>
+		
+	<select id="countAll" resultType="int">
+		SELECT COUNT(*) FROM tb_user 
+	</select>
+	
+	<select id="selectAll" resultMap="userResultMap">
+		<include refid="select_user"/>
+		limit #{offset}, #{size}
 	</select>
 	
 	<!-- userRole -->
@@ -33,9 +60,11 @@
 		<result property="username" column="username"/>
 		<result property="password" column="password"/>
 		<association property="tbUserRole"  javaType="TbUserRole">
-			<id property="id" column="id"/>
+			<id property="id" column="rid"/>
 			<result property="type" column="type"/>
 		</association>
+	</resultMap>
+	
 <!-- 		<collection property="tbUserLog" ofType="TbUserLog"> -->
 <!-- 			<id property="id" column="id"/> -->
 <!-- 			<result property="name" column="name"/> -->
@@ -93,6 +122,4 @@
 <!-- 			<result property="clearing_form" column="clearing_form"/> -->
 <!-- 			<result property="headler" column="headler"/> -->
 <!-- 		</collection> -->
-	</resultMap>
-	
 </mapper>

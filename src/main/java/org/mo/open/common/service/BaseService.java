@@ -3,60 +3,58 @@ package org.mo.open.common.service;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.annotation.Resource;
+/**
+ * 
+ * @author moziqi
+ *
+ * @param <T>
+ * @param <PK>
+ */
+public interface BaseService<T extends Serializable, PK extends Serializable> {
+	/**
+	 * 通过id获得信息
+	 * 
+	 * @param id
+	 * @return
+	 */
+	public T getByPK(PK id);
 
-import org.mo.open.common.repository.BaseRepository;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+	/**
+	 * 获得所有信息
+	 * 
+	 * @return
+	 */
+	public List<T> gettAll();
 
-@Service
-public abstract class BaseService<T extends Serializable, PK extends Serializable> {
+	/**
+	 * 保存信息
+	 * 
+	 * @param entity
+	 * @return
+	 */
+	public boolean save(T entity);
 
-	public BaseRepository<T, PK> baseRepository;
+	/**
+	 * 更改信息
+	 * 
+	 * @param entity
+	 * @return
+	 */
+	public boolean alter(T entity);
 
-	public BaseRepository<T, PK> getBaseRepository() {
-		return baseRepository;
-	}
+	/**
+	 * 通过主键更改信息
+	 * 
+	 * @param id
+	 * @return
+	 */
+	public boolean alterByPK(PK id);
 
-	@Resource
-	public void setBaseRepository(BaseRepository<T, PK> baseRepository) {
-		this.baseRepository = baseRepository;
-	}
-
-	public T getById(PK id) {
-		return baseRepository.selectById(id);
-	}
-
-	public List<T> getAll() {
-		return baseRepository.selectAll();
-	}
-
-	public List<T> getAll(int offset, int size) {
-		return baseRepository.selectAll(offset, size);
-	}
-
-	@Transactional
-	public boolean save(T entity) {
-		return baseRepository.insert(entity);
-	}
-
-	@Transactional
-	public boolean update(T entity) {
-		return baseRepository.update(entity);
-	}
-
-	@Transactional
-	public boolean updateById(PK id) {
-		return baseRepository.updateById(id);
-	}
-
-	@Transactional
-	public boolean delete(T entity) {
-		return baseRepository.delete(entity);
-	}
-
-	@Transactional
-	public boolean deleteById(PK id) {
-		return baseRepository.deleteById(id);
-	}
+	/**
+	 * 移除信息
+	 * 
+	 * @param entity
+	 * @return
+	 */
+	public boolean remove(T entity);
 }

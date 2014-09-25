@@ -31,7 +31,7 @@
 			</list>
 		</property>
 		<!-- 读取mybatis配置 -->
-<!-- 		<property name="configLocation" value="/WEB-INF/mybatis-config.xml"/> -->
+		<!-- <property name="configLocation" value="/WEB-INF/mybatis-config.xml"/> -->
 		<!-- 扫描coop实体bean -->
 		<property name="typeAliasesPackage" value="org.mo.jims.coop.entity" />
 	</bean>
@@ -39,7 +39,7 @@
 
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 	    <property name="sqlSessionFactoryBeanName" value="mysqlSqlSessionFactory"></property>
-		<property name="basePackage" value="org.mo.open.common.repository;org.mo.jims.coop.repository" />
+		<property name="basePackage" value="org.mo.jims.coop.repository" />
 	</bean>
 
 	<bean id="mysqltransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">

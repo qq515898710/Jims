@@ -3,25 +3,41 @@ package org.mo.open.common.repository;
 import java.io.Serializable;
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
-
+/**
+ * 
+ * @author moziqi
+ *
+ * @param <T>
+ * @param <PK>
+ */
 public interface BaseRepository<T extends Serializable, PK extends Serializable> {
+	/**
+	 * 通过主键查询
+	 * 
+	 * @param id
+	 * @return
+	 */
+	public T selectByPK(PK id);
 
-	public T selectById(PK id);
+	/**
+	 * 插入数据
+	 * 
+	 * @param entity
+	 */
+	public void insert(T entity);
 
-	public List<T> selectAll();
+	/**
+	 * 通过主键更新数据
+	 * 
+	 * @param entity
+	 */
+	public void updateByPK(T entity);
 
-	public List<T> selectAll(@Param("offset") int offset,
-			@Param("size") int size);
-
-	public boolean insert(T entity);
-
-	public boolean update(T entity);
-
-	public boolean updateById(PK id);
-
-	public boolean delete(T entity);
-
-	public boolean deleteById(PK id);
+	/**
+	 * 通过主键删除数据
+	 * 
+	 * @param entity
+	 */
+	public void deleteByPK(PK id);
 
 }

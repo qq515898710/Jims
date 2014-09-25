@@ -446,13 +446,4 @@ public class TbUser implements Serializable {
 		}
 	}
 
-	@Override
-	public String toString() {
-		return "TbUser [name=" + name + ", username=" + username
-				+ ", password=" + password + ", tbUserLog=" + tbUserLog
-				+ ", tbUserRole=" + tbUserRole + ", tbSell=" + tbSell
-				+ ", tbSellReturn=" + tbSellReturn + ", tbStock=" + tbStock
-				+ ", tbStockReturn=" + tbStockReturn + "]";
-	}
-
 }

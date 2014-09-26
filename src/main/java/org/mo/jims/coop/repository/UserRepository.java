@@ -15,4 +15,5 @@ public interface UserRepository extends BaseRepository<TbUser, String> {
 	public int countAll();
 	
 	public List<TbUser> selectAll(@Param("offset") int offset, @Param("size") int size);
+	
 }

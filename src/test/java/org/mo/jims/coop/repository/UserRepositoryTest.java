@@ -70,26 +70,22 @@ public class UserRepositoryTest extends BaseTest {
 	}
 
 	@Test
-	public void testUpdate() {
+	public void testUpdateByPK() {
 		TbUser entity = new TbUser();
 		entity.setName("moziqi");
 		entity.setUsername("梓奇");
 		entity.setPassword("123456");
 		TbUserRole newTbUserRole = new TbUserRole();
-		newTbUserRole.setId(2);
-		newTbUserRole.setType(1);
+		newTbUserRole.setId(1);
+		newTbUserRole.setType(0);
 		entity.setTbUserRole(newTbUserRole);
 		userRepository.updateByPK(entity );
 	}
 
-	@Test
-	public void testUpdateByPK() {
-
-	}
 
 	@Test
-	public void testDelete() {
-
+	public void testDeleteByPK() {
+		userRepository.deleteByPK("n9");
 	}
 
 }

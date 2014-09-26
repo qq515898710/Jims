@@ -1,7 +1,6 @@
 package org.mo.open.common.repository;
 
 import java.io.Serializable;
-import java.util.List;
 
 /**
  * 

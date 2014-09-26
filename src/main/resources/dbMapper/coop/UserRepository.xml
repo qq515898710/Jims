@@ -6,7 +6,7 @@
 	
 	<sql id="selcet_user_role">SELECT id, type FROM tb_user_role </sql>
 	
-	<sql id="selcet_user_log">SELECT id, name, time FROM tb_user_role</sql>
+	<sql id="selcet_user_log">SELECT id, name, time FROM tb_user_log</sql>
 	
 	<sql id="selcet_tb_sell">SELECT id,gid,cid,uid,unit_cost,amount,sum,time,clearing_form,headler FROM tb_sell</sql>
 	
@@ -29,6 +29,10 @@
 		WHERE name=#{name}
 	</update>
 	
+	<delete id="deleteByPK" >
+		DELETE FROM tb_user WHERE name=#{id}
+	</delete>
+	
 	<select id="selectByPK" resultMap="userResultMap">
 		<include refid="select_user"/>
 		WHERE name = #{id}
@@ -45,7 +49,7 @@
 	
 	<select id="selectAll" resultMap="userResultMap">
 		<include refid="select_user"/>
-		limit #{offset}, #{size}
+		LIMIT #{offset}, #{size}
 	</select>
 	
 	<!-- userRole -->

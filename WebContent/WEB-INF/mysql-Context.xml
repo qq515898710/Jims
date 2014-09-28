@@ -31,7 +31,8 @@
 			</list>
 		</property>
 		<!-- 读取mybatis配置 -->
-		<!-- <property name="configLocation" value="/WEB-INF/mybatis-config.xml"/> -->
+		<property name="configLocation" value="classpath:configs/mybatis-config.xml"/>
+<!-- 		<property name="configLocation" value="/WEB-INF/mybatis-config.xml"/> -->
 		<!-- 扫描coop实体bean -->
 		<property name="typeAliasesPackage" value="org.mo.jims.coop.entity" />
 	</bean>

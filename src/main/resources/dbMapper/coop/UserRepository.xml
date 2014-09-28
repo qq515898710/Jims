@@ -49,6 +49,7 @@
 	
 	<select id="selectAll" resultMap="userResultMap">
 		<include refid="select_user"/>
+		
 		LIMIT #{offset}, #{size}
 	</select>
 	

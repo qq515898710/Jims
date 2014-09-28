@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.mo.jims.coop.repository.UserRoleRepository">
+
+	<sql id="selcet_user_role">SELECT id, type FROM tb_user_role </sql>
+	
+	<insert id="insert" parameterType="TbUserRole" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO tb_user_role(type)
+		VALUE(#{type})
+	</insert>
+	
+	<update id="updateByPK" parameterType="TbUserRole">
+		UPDATE tb_user_role SET 
+			username=#{username},
+			password=#{password},
+			rid=#{tbUserRole.id}
+		WHERE id=#{id}
+	</update>
+	
+	<delete id="deleteByPK" >
+		DELETE FROM tb_user_role WHERE id=#{id}
+	</delete>
+	
+	<select id="selectByPK" resultMap="userRoleResultMap">
+		<include refid="selcet_user_role"/>
+		WHERE id = #{id}
+	</select>
+	
+	<select id="countAll" resultType="int">
+		SELECT COUNT(*) FROM tb_user_role
+	</select>
+	
+	<select id="selectAll" resultMap="userRoleResultMap">
+		<include refid="selcet_user_role"/>
+		ORDER BY id DESC
+		LIMIT #{offset}, #{size}
+	</select>
+	
+	<!-- userRole -->
+	<resultMap type="TbUserRole" id="userRoleResultMap">
+		<id property="id" column="id" />
+		<result property="type" column="type"/>
+	</resultMap>
+	
+</mapper>

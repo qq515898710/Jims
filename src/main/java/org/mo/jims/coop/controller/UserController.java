@@ -17,7 +17,7 @@ public class UserController {
 	private UserService userService;
 	private TbUser user = null;
 	private int page = 1;
-	private int size = 10;
+	private int size = 5;
 
 	@RequestMapping(value = "CaoZuoYuanGuanLi.html", method = RequestMethod.GET)
 	public ModelAndView CaoZuoYuanGuanLi(ModelMap model) {

@@ -1,57 +1,57 @@
 /***********************************************************************
- * Module:  TbStock.java
- * Author:  YK
- * Purpose: Defines the Class TbStock
+ * Module:  TbStockReturn.java
+ * Author:  Administrator
+ * Purpose: Defines the Class TbStockReturn
  ***********************************************************************/
 
 import java.util.*;
 
-/** 入库信息主要内容
+/** 进货退货信息
  * 
- * @pdOid 8ebb042b-74ea-478c-b0e2-a366ad52d7d9 */
-public class TbStock {
+ * @pdOid e83d99f5-364f-46b6-8dd9-e974a1f52d56 */
+public class TbStockReturn {
    /** 入库编号,以"rk"字符串为前缀,加上商品的入库日期,再以3位数字作为后缀
     * 
-    * @pdOid 497419ac-c5ed-44c4-9358-6a8c49a026f0 */
+    * @pdOid cde07ba7-ab0d-405b-8538-30f5c7fa2f14 */
    public java.lang.String id;
    /** 品种数量
     * 
-    * @pdOid 20d6f463-b9f7-48a1-9da7-adc7e6e51abc */
+    * @pdOid 3dd6fd3f-19b5-4791-9379-da2039c14282 */
    public int varietyAmount;
    /** 单价
     * 
-    * @pdOid 118991ce-407e-4377-b2f2-198882759c15 */
+    * @pdOid f7b7bad1-1e7c-4c62-b8b3-29cc4fd2d0f6 */
    public float unitCost;
    /** 数量
     * 
-    * @pdOid ad0bdb13-a40f-4b08-80bd-e921baa5264b */
+    * @pdOid 66fb87a9-79aa-40fc-afab-8bcd5660a52e */
    public int amount;
    /** 合计金额
     * 
-    * @pdOid fe5f3f5f-864b-4fe6-8ed6-8d53ca214170 */
+    * @pdOid 1f2d4a08-b4f1-46ce-87e8-3d5e87527c69 */
    public float sum;
    /** 验收结论
     * 
-    * @pdOid 4fce28e6-f1dd-429d-89e3-1e25adc2b588 */
+    * @pdOid 6e8ac723-9c4d-47c0-8903-77e631e3356f */
    public java.lang.String check;
-   /** 入货时间
+   /** 退货时间
     * 
-    * @pdOid a97de47a-b159-429c-9250-646f50387966 */
+    * @pdOid d2455414-1fca-4c3a-b9df-4fc131c1fb14 */
    public java.util.Date time;
    /** 结算方式
     * 
-    * @pdOid a14feaaa-d062-4a64-9fcf-51ab7976e22b */
+    * @pdOid 4a1d7ef8-7f69-4e24-9d05-0f69386208e1 */
    public java.lang.String clearingForm;
    /** 经手人
     * 
-    * @pdOid 003d0e92-121e-45c0-84ac-8ac6aa85b6b7 */
+    * @pdOid f1d3f8c8-310c-4a35-9292-4f3493be7810 */
    public java.lang.String handler;
    
-   /** @pdRoleInfo migr=no name=TbProviderInfo assc=reference9 mult=0..1 side=A */
+   /** @pdRoleInfo migr=no name=TbProviderInfo assc=reference14 mult=0..1 side=A */
    public TbProviderInfo tbProviderInfo;
-   /** @pdRoleInfo migr=no name=TbUser assc=reference13 mult=0..1 side=A */
+   /** @pdRoleInfo migr=no name=TbUser assc=reference15 mult=0..1 side=A */
    public TbUser tbUser;
-   /** @pdRoleInfo migr=no name=TbGoodInfo assc=reference16 mult=0..1 side=A */
+   /** @pdRoleInfo migr=no name=TbGoodInfo assc=reference17 mult=0..1 side=A */
    public TbGoodInfo tbGoodInfo;
    
    
@@ -69,12 +69,12 @@ public class TbStock {
          {
             TbProviderInfo oldTbProviderInfo = this.tbProviderInfo;
             this.tbProviderInfo = null;
-            oldTbProviderInfo.removeTbStock(this);
+            oldTbProviderInfo.removeTbStockReturn(this);
          }
          if (newTbProviderInfo != null)
          {
             this.tbProviderInfo = newTbProviderInfo;
-            this.tbProviderInfo.addTbStock(this);
+            this.tbProviderInfo.addTbStockReturn(this);
          }
       }
    }
@@ -92,12 +92,12 @@ public class TbStock {
          {
             TbUser oldTbUser = this.tbUser;
             this.tbUser = null;
-            oldTbUser.removeTbStock(this);
+            oldTbUser.removeTbStockReturn(this);
          }
          if (newTbUser != null)
          {
             this.tbUser = newTbUser;
-            this.tbUser.addTbStock(this);
+            this.tbUser.addTbStockReturn(this);
          }
       }
    }
@@ -115,12 +115,12 @@ public class TbStock {
          {
             TbGoodInfo oldTbGoodInfo = this.tbGoodInfo;
             this.tbGoodInfo = null;
-            oldTbGoodInfo.removeTbStock(this);
+            oldTbGoodInfo.removeTbStockReturn(this);
          }
          if (newTbGoodInfo != null)
          {
             this.tbGoodInfo = newTbGoodInfo;
-            this.tbGoodInfo.addTbStock(this);
+            this.tbGoodInfo.addTbStockReturn(this);
          }
       }
    }

@@ -71,6 +71,34 @@ public class TbInventoryInfo implements Serializable{
 	 * @pdOid 205606a7-caf9-4f76-8691-2811f8d12740
 	 */
 	private int amount;
+	
+	   /** @pdRoleInfo migr=no name=TbUser assc=reference19 mult=0..1 side=A */
+	   public TbUser tbUser;
+	   
+	   
+	   /** @pdGenerated default parent getter */
+	   public TbUser getTbUser() {
+	      return tbUser;
+	   }
+	   
+	   /** @pdGenerated default parent setter
+	     * @param newTbUser */
+	   public void setTbUser(TbUser newTbUser) {
+	      if (this.tbUser == null || !this.tbUser.equals(newTbUser))
+	      {
+	         if (this.tbUser != null)
+	         {
+	            TbUser oldTbUser = this.tbUser;
+	            this.tbUser = null;
+	            oldTbUser.removeTbInventoryInfo(this);
+	         }
+	         if (newTbUser != null)
+	         {
+	            this.tbUser = newTbUser;
+	            this.tbUser.addTbInventoryInfo(this);
+	         }
+	      }
+	   }
 	public java.lang.String getId() {
 		return id;
 	}

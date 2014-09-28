@@ -1,6 +1,6 @@
 /***********************************************************************
  * Module:  TbUserPermission.java
- * Author:  YK
+ * Author:  Administrator
  * Purpose: Defines the Class TbUserPermission
  ***********************************************************************/
 
@@ -8,91 +8,91 @@ import java.util.*;
 
 /** 权限
  * 
- * @pdOid b93e9e09-bdff-4308-94f2-4e038ac5b8ea */
+ * @pdOid 502dadeb-2cf4-4526-9df3-e1cf0c46854d */
 public class TbUserPermission {
    /** 编号
     * 
-    * @pdOid 75ec6fda-2831-4b25-9997-c187f4cf08ad */
+    * @pdOid ed6ebadb-e251-47a1-9e00-c66abaf1dfa5 */
    public int id;
    /** 客户信息管理 
     * 
-    * @pdOid 8ff5b211-6974-4d27-8d6d-501780dc8a34 */
+    * @pdOid ea3b7e0f-6995-43cf-87a5-c9f8d6845b8c */
    public int keHuGuanLi;
    /** 商品信息管理 
     * 
-    * @pdOid f07faa76-df2c-4afe-b741-67ea65d7afd8 */
+    * @pdOid 84720bd5-1032-428d-a944-981d5aea3479 */
    public int shangPinGuanLi;
    /** 供应商信息管理 
     * 
-    * @pdOid c4f9905c-82ef-48bc-9f97-3ee96d8b039f */
+    * @pdOid 0609befc-7e07-46e8-a8ee-bd3f9eab3150 */
    public int gongYingShangGuanLi;
    /** 进货单 
     * 
-    * @pdOid c0f2575d-97af-4797-bae4-b5d5a63e8f6a */
+    * @pdOid fac0fb25-5c10-4576-98aa-e346daaca164 */
    public int jinHuoDan;
    /** 进货退货 
     * 
-    * @pdOid c6d8a829-91e4-400a-9448-2e7e8b7b1ee4 */
+    * @pdOid 46d349e7-f23b-4e26-ae22-e5128111979f */
    public int jinHuoTuiHuo;
    /**  销售单 
     * 
-    * @pdOid ed62145e-9e71-4590-a506-c40334876fd3 */
+    * @pdOid 32930a18-616f-4ba4-9946-822df52ad299 */
    public int xiaoShouDan;
    /**  销售退货 
     * 
-    * @pdOid 64a81445-eb7f-471a-a230-c491e0b5b8e0 */
+    * @pdOid dd78b3d4-f896-4a5a-9d8d-bad7e82b3327 */
    public int xiaoShouTuiHuo;
    /**  客户查询 
     * 
-    * @pdOid 8080ffc4-1adc-42c0-8b78-79fd6fd7fd08 */
+    * @pdOid 4affc172-bbee-4a18-b1b3-677a850e7e1c */
    public int keHuChaXun;
    /**  商品查询 
     * 
-    * @pdOid 013d6f2b-ca3f-4077-85ae-4ad4a40c8831 */
+    * @pdOid 10a4384e-590a-40fa-8edd-b9798fabf1ac */
    public int shangPinChaXun;
    /**  供应商查询 
     * 
-    * @pdOid bda3bbe5-f50a-4c68-8416-d738e8718566 */
+    * @pdOid a92c3504-467b-4a49-9823-10d52e29d7f2 */
    public int gongYingShangChaXun;
    /** 销售查询 
     * 
-    * @pdOid 59a76e29-5ca3-4c59-918f-fcd7b6e60fc2 */
+    * @pdOid ec2e1405-f510-4e56-9c01-8bf2583d2265 */
    public int xiaoShouChaXun;
    /** 销售退货查询
     * 
-    * @pdOid 019dbf4d-e9bd-4ac7-8fbc-fd3f1031b0f9 */
+    * @pdOid c88dc0b0-4e21-4d74-8a7d-e8d83727fa64 */
    public int xiaoShouTuiHuoChaXun;
    /** 入货查询
     * 
-    * @pdOid b33fd0be-e7a3-4b85-a80a-398c6abba5fc */
+    * @pdOid f01e0f06-0e40-42f3-8d4b-cacc340038c3 */
    public int ruKuChaXun;
    /** 入库退货查询
     * 
-    * @pdOid 44df8388-a38d-4bd3-94f9-e684410a852d */
+    * @pdOid a1d13f86-4006-4a6a-9a54-cc74eaa18ace */
    public int ruKuTuiHuoChaXun;
    /** 销售排行
     * 
-    * @pdOid 8e15a521-eee9-4dc0-b5ee-044bfdf387dc */
+    * @pdOid f4a0a8a0-fff4-4603-a009-e47536228a32 */
    public int xiaoShouPaiHang;
    /** 库存盘点
     * 
-    * @pdOid ffb100ee-905b-448c-9b7e-89049c78a08b */
+    * @pdOid af773e3f-59a7-4c6e-9524-4c94c6360e9e */
    public int kuCunPanDian;
    /** 价格调整
     * 
-    * @pdOid 69fefcb6-d1d2-4efa-a50a-726181347a30 */
+    * @pdOid c30da361-3280-44c6-ad5f-462d33de67f2 */
    public int jiaGeTiaoZheng;
    /** 操作员管理
     * 
-    * @pdOid a84d0903-0afd-430f-bb7b-51fa97853303 */
+    * @pdOid 61aa4aa0-a53a-438b-9ea3-2f3dab7d5b16 */
    public int caoZuoYuanGuanLi;
    /** 更改密码
     * 
-    * @pdOid 03cf826a-3556-4468-96e6-6f63eae3295f */
+    * @pdOid 19652713-ca7d-481e-8d34-ee265c772ab7 */
    public int gengGaiMiMa;
    /** 权限管理
     * 
-    * @pdOid 11418465-b69f-49cb-8f46-b8a5c3cd093d */
+    * @pdOid 4eff34ce-0e51-49bd-80d9-46a60de9dfdd */
    public int quanXianGuanLi;
    
    /** @pdRoleInfo migr=no name=TbUserRole assc=reference3 mult=0..1 side=A */

@@ -1,6 +1,6 @@
 /***********************************************************************
  * Module:  TbUserLog.java
- * Author:  YK
+ * Author:  Administrator
  * Purpose: Defines the Class TbUserLog
  ***********************************************************************/
 
@@ -8,15 +8,15 @@ import java.util.*;
 
 /** 登录日志信息
  * 
- * @pdOid dbf2b643-4e87-48dc-895f-7988b48ab82a */
+ * @pdOid fd64feed-a12d-4459-89b2-2c276a883e7a */
 public class TbUserLog {
    /** 编号
     * 
-    * @pdOid 5ad45ce9-280a-4d83-a882-c656ed6dc685 */
+    * @pdOid b7003600-1fa6-4690-ac86-95323788f46c */
    public long id;
    /** 登录时间
     * 
-    * @pdOid fbbe21d8-8d0c-4065-8bdb-146ef8b7a224 */
+    * @pdOid 4443b2c2-dd9f-47c4-b952-75f84bfeefdf */
    public java.util.Date time;
    
    /** @pdRoleInfo migr=no name=TbUser assc=reference1 mult=0..1 side=A */

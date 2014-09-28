@@ -1,47 +1,35 @@
 /***********************************************************************
- * Module:  TbSell.java
- * Author:  YK
- * Purpose: Defines the Class TbSell
+ * Module:  TbSellReturn.java
+ * Author:  Administrator
+ * Purpose: Defines the Class TbSellReturn
  ***********************************************************************/
 
 import java.util.*;
 
-/** 销售信息
+/** 销售退货信息
  * 
- * @pdOid 62ee0ae5-f8e3-4c42-a0d0-1984063ce58c */
-public class TbSell {
-   /** 前缀"s",后缀1000格式
-    * 
-    * @pdOid 6ccf4dc8-fa6a-4003-af5c-030efd818fac */
+ * @pdOid 7c6d1fd3-7bec-41f3-acb5-e5e78ad394a8 */
+public class TbSellReturn {
+   /** @pdOid 3a0f6936-0576-401f-a45f-69de50b36964 */
    public java.lang.String id;
-   /** 销售单价
-    * 
-    * @pdOid 03616cf5-e301-4d98-a3a0-e95124ae8f6d */
+   /** @pdOid 90acddfc-618b-4d7e-a49a-a1e9450684c7 */
    public float unitCost;
-   /** 数量
-    * 
-    * @pdOid 8fcea480-1ebb-4f11-a65b-417e3e085135 */
+   /** @pdOid 96e1b52a-00b8-496f-ad91-1c9e1df80233 */
    public int amount;
-   /** 金额
-    * 
-    * @pdOid f610dcef-8968-4691-adf9-43c5db5e4313 */
+   /** @pdOid 7b82b475-b090-42cb-a23a-d110c4135982 */
    public float sum;
-   /** 销售时间
-    * 
-    * @pdOid 88304e6e-ea93-48fd-8ee0-7e44ab698c75 */
+   /** @pdOid cee6f56b-79db-4ca9-8afa-f5f96ac2d7dd */
    public java.util.Date time;
-   /** 结算方式
-    * 
-    * @pdOid 682ded0a-ac83-4f4b-ae2b-2f2196065601 */
+   /** @pdOid 88ce8667-8a36-47b0-8ca0-0c1db0c9b82e */
    public java.lang.String clearingForm;
-   /** @pdOid 76bd86e5-a111-4c32-bc0e-948b80465785 */
-   public java.lang.String headler;
+   /** @pdOid 57f65e55-93e5-4770-ba95-5f3625b58899 */
+   public java.lang.String handler;
    
-   /** @pdRoleInfo migr=no name=TbGoodInfo assc=reference6 mult=0..1 side=A */
+   /** @pdRoleInfo migr=no name=TbGoodInfo assc=reference10 mult=0..1 side=A */
    public TbGoodInfo tbGoodInfo;
-   /** @pdRoleInfo migr=no name=TbCustomerInfo assc=reference7 mult=0..1 side=A */
+   /** @pdRoleInfo migr=no name=TbCustomerInfo assc=reference11 mult=0..1 side=A */
    public TbCustomerInfo tbCustomerInfo;
-   /** @pdRoleInfo migr=no name=TbUser assc=reference8 mult=0..1 side=A */
+   /** @pdRoleInfo migr=no name=TbUser assc=reference12 mult=0..1 side=A */
    public TbUser tbUser;
    
    
@@ -59,12 +47,12 @@ public class TbSell {
          {
             TbGoodInfo oldTbGoodInfo = this.tbGoodInfo;
             this.tbGoodInfo = null;
-            oldTbGoodInfo.removeTbSell(this);
+            oldTbGoodInfo.removeTbSellReturn(this);
          }
          if (newTbGoodInfo != null)
          {
             this.tbGoodInfo = newTbGoodInfo;
-            this.tbGoodInfo.addTbSell(this);
+            this.tbGoodInfo.addTbSellReturn(this);
          }
       }
    }
@@ -82,12 +70,12 @@ public class TbSell {
          {
             TbCustomerInfo oldTbCustomerInfo = this.tbCustomerInfo;
             this.tbCustomerInfo = null;
-            oldTbCustomerInfo.removeTbSell(this);
+            oldTbCustomerInfo.removeTbSellReturn(this);
          }
          if (newTbCustomerInfo != null)
          {
             this.tbCustomerInfo = newTbCustomerInfo;
-            this.tbCustomerInfo.addTbSell(this);
+            this.tbCustomerInfo.addTbSellReturn(this);
          }
       }
    }
@@ -105,12 +93,12 @@ public class TbSell {
          {
             TbUser oldTbUser = this.tbUser;
             this.tbUser = null;
-            oldTbUser.removeTbSell(this);
+            oldTbUser.removeTbSellReturn(this);
          }
          if (newTbUser != null)
          {
             this.tbUser = newTbUser;
-            this.tbUser.addTbSell(this);
+            this.tbUser.addTbSellReturn(this);
          }
       }
    }

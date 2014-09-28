@@ -66,6 +66,9 @@ public class TbUser implements Serializable {
 	 *             coll=java.util.Collection impl=java.util.HashSet mult=0..*
 	 */
 	private java.util.Collection<TbStockReturn> tbStockReturn;
+	
+	public java.util.Collection<TbInventoryInfo> tbInventoryInfo;
+	
 
 	public java.lang.String getName() {
 		return name;
@@ -445,5 +448,67 @@ public class TbUser implements Serializable {
 			}
 		}
 	}
-
+	
+	/** @pdGenerated default getter */
+	   public java.util.Collection<TbInventoryInfo> getTbInventoryInfo() {
+	      if (tbInventoryInfo == null)
+	         tbInventoryInfo = new java.util.HashSet<TbInventoryInfo>();
+	      return tbInventoryInfo;
+	   }
+	   
+	   /** @pdGenerated default iterator getter */
+	   public java.util.Iterator getIteratorTbInventoryInfo() {
+	      if (tbInventoryInfo == null)
+	         tbInventoryInfo = new java.util.HashSet<TbInventoryInfo>();
+	      return tbInventoryInfo.iterator();
+	   }
+	   
+	   /** @pdGenerated default setter
+	     * @param newTbInventoryInfo */
+	   public void setTbInventoryInfo(java.util.Collection<TbInventoryInfo> newTbInventoryInfo) {
+	      removeAllTbInventoryInfo();
+	      for (java.util.Iterator iter = newTbInventoryInfo.iterator(); iter.hasNext();)
+	         addTbInventoryInfo((TbInventoryInfo)iter.next());
+	   }
+	   
+	   /** @pdGenerated default add
+	     * @param newTbInventoryInfo */
+	   public void addTbInventoryInfo(TbInventoryInfo newTbInventoryInfo) {
+	      if (newTbInventoryInfo == null)
+	         return;
+	      if (this.tbInventoryInfo == null)
+	         this.tbInventoryInfo = new java.util.HashSet<TbInventoryInfo>();
+	      if (!this.tbInventoryInfo.contains(newTbInventoryInfo))
+	      {
+	         this.tbInventoryInfo.add(newTbInventoryInfo);
+	         newTbInventoryInfo.setTbUser(this);      
+	      }
+	   }
+	   
+	   /** @pdGenerated default remove
+	     * @param oldTbInventoryInfo */
+	   public void removeTbInventoryInfo(TbInventoryInfo oldTbInventoryInfo) {
+	      if (oldTbInventoryInfo == null)
+	         return;
+	      if (this.tbInventoryInfo != null)
+	         if (this.tbInventoryInfo.contains(oldTbInventoryInfo))
+	         {
+	            this.tbInventoryInfo.remove(oldTbInventoryInfo);
+	            oldTbInventoryInfo.setTbUser((TbUser)null);
+	         }
+	   }
+	   
+	   /** @pdGenerated default removeAll */
+	   public void removeAllTbInventoryInfo() {
+	      if (tbInventoryInfo != null)
+	      {
+	         TbInventoryInfo oldTbInventoryInfo;
+	         for (java.util.Iterator iter = getIteratorTbInventoryInfo(); iter.hasNext();)
+	         {
+	            oldTbInventoryInfo = (TbInventoryInfo)iter.next();
+	            iter.remove();
+	            oldTbInventoryInfo.setTbUser((TbUser)null);
+	         }
+	      }
+	   }
 }

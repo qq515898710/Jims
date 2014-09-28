@@ -1,64 +1,106 @@
 /***********************************************************************
- * Module:  TbGoodInfo.java
- * Author:  YK
- * Purpose: Defines the Class TbGoodInfo
+ * Module:  TbUser.java
+ * Author:  Administrator
+ * Purpose: Defines the Class TbUser
  ***********************************************************************/
 
 import java.util.*;
 
-/** 商品信息
+/** 操作员信息
  * 
- * @pdOid 6f763144-a1d3-484b-82c8-565f983f8ef2 */
-public class TbGoodInfo {
-   /** 商品编号是商品的唯一标识，它是商品信息表的主键，用于区分不同的商品，前缀使用“g”字符串
+ * @pdOid 7c09b79e-519b-45ae-924c-e3dd2502e602 */
+public class TbUser {
+   /** 帐号
     * 
-    * @pdOid c2cdf06e-125a-4a4e-a715-288750e279d1 */
-   public java.lang.String id;
-   /** 商品名字
+    * @pdOid 1ab073a4-857d-4d34-ada0-c41a871bc9c7 */
+   public java.lang.String name;
+   /** 用户名
     * 
-    * @pdOid c8286539-40b9-4ac0-8ab7-9462f8754129 */
-   public java.lang.String gname;
-   /** 简称
+    * @pdOid 2bab15dd-773a-4f29-87d9-46ff073e3586 */
+   public java.lang.String username;
+   /** 密码
     * 
-    * @pdOid 85e5c686-87eb-476b-8551-70b7fdf388d7 */
-   public java.lang.String abbreviation;
-   /** 产品
-    * 
-    * @pdOid 238dd909-2ca2-4a05-9c20-53090b5126f3 */
-   public java.lang.String origin;
-   /** 单位
-    * 
-    * @pdOid 118e89f0-111f-407e-9c9b-93ce8664d783 */
-   public java.lang.String units;
-   /** 包装
-    * 
-    * @pdOid 1c8e6e37-ecc3-472a-97b4-b61fa64369ac */
-   public java.lang.String pack;
-   /** 批准文号
-    * 
-    * @pdOid fdb6942a-ccde-481a-92af-c1a1635dc77a */
-   public java.lang.String approvalNum;
-   /** 批号
-    * 
-    * @pdOid 7f9f6859-1b02-46eb-9685-540ccaa75201 */
-   public java.lang.String batchNum;
-   /** 备忘录(简介)
-    * 
-    * @pdOid a101135d-775d-4b24-9fb4-67e56d64b2dd */
-   public java.lang.String memo;
+    * @pdOid 8114ae77-3873-4541-8862-b02e32136009 */
+   public java.lang.String password;
    
-   /** @pdRoleInfo migr=no name=TbSell assc=reference6 coll=java.util.Collection impl=java.util.HashSet mult=0..* */
+   /** @pdRoleInfo migr=no name=TbUserLog assc=reference1 coll=java.util.Collection impl=java.util.HashSet mult=0..* */
+   public java.util.Collection<TbUserLog> tbUserLog;
+   /** @pdRoleInfo migr=no name=TbSell assc=reference8 coll=java.util.Collection impl=java.util.HashSet mult=0..* */
    public java.util.Collection<TbSell> tbSell;
-   /** @pdRoleInfo migr=no name=TbSellReturn assc=reference10 coll=java.util.Collection impl=java.util.HashSet mult=0..* */
+   /** @pdRoleInfo migr=no name=TbSellReturn assc=reference12 coll=java.util.Collection impl=java.util.HashSet mult=0..* */
    public java.util.Collection<TbSellReturn> tbSellReturn;
-   /** @pdRoleInfo migr=no name=TbStock assc=reference16 coll=java.util.Collection impl=java.util.HashSet mult=0..* */
+   /** @pdRoleInfo migr=no name=TbStock assc=reference13 coll=java.util.Collection impl=java.util.HashSet mult=0..* */
    public java.util.Collection<TbStock> tbStock;
-   /** @pdRoleInfo migr=no name=TbStockReturn assc=reference17 coll=java.util.Collection impl=java.util.HashSet mult=0..* */
+   /** @pdRoleInfo migr=no name=TbStockReturn assc=reference15 coll=java.util.Collection impl=java.util.HashSet mult=0..* */
    public java.util.Collection<TbStockReturn> tbStockReturn;
-   /** @pdRoleInfo migr=no name=TbProviderInfo assc=reference5 mult=0..1 side=A */
-   public TbProviderInfo tbProviderInfo;
+   /** @pdRoleInfo migr=no name=TbInventoryInfo assc=reference19 coll=java.util.Collection impl=java.util.HashSet mult=0..* */
+   public java.util.Collection<TbInventoryInfo> tbInventoryInfo;
+   /** @pdRoleInfo migr=no name=TbUserRole assc=reference18 mult=0..1 side=A */
+   public TbUserRole tbUserRole;
    
    
+   /** @pdGenerated default getter */
+   public java.util.Collection<TbUserLog> getTbUserLog() {
+      if (tbUserLog == null)
+         tbUserLog = new java.util.HashSet<TbUserLog>();
+      return tbUserLog;
+   }
+   
+   /** @pdGenerated default iterator getter */
+   public java.util.Iterator getIteratorTbUserLog() {
+      if (tbUserLog == null)
+         tbUserLog = new java.util.HashSet<TbUserLog>();
+      return tbUserLog.iterator();
+   }
+   
+   /** @pdGenerated default setter
+     * @param newTbUserLog */
+   public void setTbUserLog(java.util.Collection<TbUserLog> newTbUserLog) {
+      removeAllTbUserLog();
+      for (java.util.Iterator iter = newTbUserLog.iterator(); iter.hasNext();)
+         addTbUserLog((TbUserLog)iter.next());
+   }
+   
+   /** @pdGenerated default add
+     * @param newTbUserLog */
+   public void addTbUserLog(TbUserLog newTbUserLog) {
+      if (newTbUserLog == null)
+         return;
+      if (this.tbUserLog == null)
+         this.tbUserLog = new java.util.HashSet<TbUserLog>();
+      if (!this.tbUserLog.contains(newTbUserLog))
+      {
+         this.tbUserLog.add(newTbUserLog);
+         newTbUserLog.setTbUser(this);      
+      }
+   }
+   
+   /** @pdGenerated default remove
+     * @param oldTbUserLog */
+   public void removeTbUserLog(TbUserLog oldTbUserLog) {
+      if (oldTbUserLog == null)
+         return;
+      if (this.tbUserLog != null)
+         if (this.tbUserLog.contains(oldTbUserLog))
+         {
+            this.tbUserLog.remove(oldTbUserLog);
+            oldTbUserLog.setTbUser((TbUser)null);
+         }
+   }
+   
+   /** @pdGenerated default removeAll */
+   public void removeAllTbUserLog() {
+      if (tbUserLog != null)
+      {
+         TbUserLog oldTbUserLog;
+         for (java.util.Iterator iter = getIteratorTbUserLog(); iter.hasNext();)
+         {
+            oldTbUserLog = (TbUserLog)iter.next();
+            iter.remove();
+            oldTbUserLog.setTbUser((TbUser)null);
+         }
+      }
+   }
    /** @pdGenerated default getter */
    public java.util.Collection<TbSell> getTbSell() {
       if (tbSell == null)
@@ -91,7 +133,7 @@ public class TbGoodInfo {
       if (!this.tbSell.contains(newTbSell))
       {
          this.tbSell.add(newTbSell);
-         newTbSell.setTbGoodInfo(this);      
+         newTbSell.setTbUser(this);      
       }
    }
    
@@ -104,7 +146,7 @@ public class TbGoodInfo {
          if (this.tbSell.contains(oldTbSell))
          {
             this.tbSell.remove(oldTbSell);
-            oldTbSell.setTbGoodInfo((TbGoodInfo)null);
+            oldTbSell.setTbUser((TbUser)null);
          }
    }
    
@@ -117,7 +159,7 @@ public class TbGoodInfo {
          {
             oldTbSell = (TbSell)iter.next();
             iter.remove();
-            oldTbSell.setTbGoodInfo((TbGoodInfo)null);
+            oldTbSell.setTbUser((TbUser)null);
          }
       }
    }
@@ -153,7 +195,7 @@ public class TbGoodInfo {
       if (!this.tbSellReturn.contains(newTbSellReturn))
       {
          this.tbSellReturn.add(newTbSellReturn);
-         newTbSellReturn.setTbGoodInfo(this);      
+         newTbSellReturn.setTbUser(this);      
       }
    }
    
@@ -166,7 +208,7 @@ public class TbGoodInfo {
          if (this.tbSellReturn.contains(oldTbSellReturn))
          {
             this.tbSellReturn.remove(oldTbSellReturn);
-            oldTbSellReturn.setTbGoodInfo((TbGoodInfo)null);
+            oldTbSellReturn.setTbUser((TbUser)null);
          }
    }
    
@@ -179,7 +221,7 @@ public class TbGoodInfo {
          {
             oldTbSellReturn = (TbSellReturn)iter.next();
             iter.remove();
-            oldTbSellReturn.setTbGoodInfo((TbGoodInfo)null);
+            oldTbSellReturn.setTbUser((TbUser)null);
          }
       }
    }
@@ -215,7 +257,7 @@ public class TbGoodInfo {
       if (!this.tbStock.contains(newTbStock))
       {
          this.tbStock.add(newTbStock);
-         newTbStock.setTbGoodInfo(this);      
+         newTbStock.setTbUser(this);      
       }
    }
    
@@ -228,7 +270,7 @@ public class TbGoodInfo {
          if (this.tbStock.contains(oldTbStock))
          {
             this.tbStock.remove(oldTbStock);
-            oldTbStock.setTbGoodInfo((TbGoodInfo)null);
+            oldTbStock.setTbUser((TbUser)null);
          }
    }
    
@@ -241,7 +283,7 @@ public class TbGoodInfo {
          {
             oldTbStock = (TbStock)iter.next();
             iter.remove();
-            oldTbStock.setTbGoodInfo((TbGoodInfo)null);
+            oldTbStock.setTbUser((TbUser)null);
          }
       }
    }
@@ -277,7 +319,7 @@ public class TbGoodInfo {
       if (!this.tbStockReturn.contains(newTbStockReturn))
       {
          this.tbStockReturn.add(newTbStockReturn);
-         newTbStockReturn.setTbGoodInfo(this);      
+         newTbStockReturn.setTbUser(this);      
       }
    }
    
@@ -290,7 +332,7 @@ public class TbGoodInfo {
          if (this.tbStockReturn.contains(oldTbStockReturn))
          {
             this.tbStockReturn.remove(oldTbStockReturn);
-            oldTbStockReturn.setTbGoodInfo((TbGoodInfo)null);
+            oldTbStockReturn.setTbUser((TbUser)null);
          }
    }
    
@@ -303,30 +345,92 @@ public class TbGoodInfo {
          {
             oldTbStockReturn = (TbStockReturn)iter.next();
             iter.remove();
-            oldTbStockReturn.setTbGoodInfo((TbGoodInfo)null);
+            oldTbStockReturn.setTbUser((TbUser)null);
+         }
+      }
+   }
+   /** @pdGenerated default getter */
+   public java.util.Collection<TbInventoryInfo> getTbInventoryInfo() {
+      if (tbInventoryInfo == null)
+         tbInventoryInfo = new java.util.HashSet<TbInventoryInfo>();
+      return tbInventoryInfo;
+   }
+   
+   /** @pdGenerated default iterator getter */
+   public java.util.Iterator getIteratorTbInventoryInfo() {
+      if (tbInventoryInfo == null)
+         tbInventoryInfo = new java.util.HashSet<TbInventoryInfo>();
+      return tbInventoryInfo.iterator();
+   }
+   
+   /** @pdGenerated default setter
+     * @param newTbInventoryInfo */
+   public void setTbInventoryInfo(java.util.Collection<TbInventoryInfo> newTbInventoryInfo) {
+      removeAllTbInventoryInfo();
+      for (java.util.Iterator iter = newTbInventoryInfo.iterator(); iter.hasNext();)
+         addTbInventoryInfo((TbInventoryInfo)iter.next());
+   }
+   
+   /** @pdGenerated default add
+     * @param newTbInventoryInfo */
+   public void addTbInventoryInfo(TbInventoryInfo newTbInventoryInfo) {
+      if (newTbInventoryInfo == null)
+         return;
+      if (this.tbInventoryInfo == null)
+         this.tbInventoryInfo = new java.util.HashSet<TbInventoryInfo>();
+      if (!this.tbInventoryInfo.contains(newTbInventoryInfo))
+      {
+         this.tbInventoryInfo.add(newTbInventoryInfo);
+         newTbInventoryInfo.setTbUser(this);      
+      }
+   }
+   
+   /** @pdGenerated default remove
+     * @param oldTbInventoryInfo */
+   public void removeTbInventoryInfo(TbInventoryInfo oldTbInventoryInfo) {
+      if (oldTbInventoryInfo == null)
+         return;
+      if (this.tbInventoryInfo != null)
+         if (this.tbInventoryInfo.contains(oldTbInventoryInfo))
+         {
+            this.tbInventoryInfo.remove(oldTbInventoryInfo);
+            oldTbInventoryInfo.setTbUser((TbUser)null);
+         }
+   }
+   
+   /** @pdGenerated default removeAll */
+   public void removeAllTbInventoryInfo() {
+      if (tbInventoryInfo != null)
+      {
+         TbInventoryInfo oldTbInventoryInfo;
+         for (java.util.Iterator iter = getIteratorTbInventoryInfo(); iter.hasNext();)
+         {
+            oldTbInventoryInfo = (TbInventoryInfo)iter.next();
+            iter.remove();
+            oldTbInventoryInfo.setTbUser((TbUser)null);
          }
       }
    }
    /** @pdGenerated default parent getter */
-   public TbProviderInfo getTbProviderInfo() {
-      return tbProviderInfo;
+   public TbUserRole getTbUserRole() {
+      return tbUserRole;
    }
    
    /** @pdGenerated default parent setter
-     * @param newTbProviderInfo */
-   public void setTbProviderInfo(TbProviderInfo newTbProviderInfo) {
-      if (this.tbProviderInfo == null || !this.tbProviderInfo.equals(newTbProviderInfo))
+     * @param newTbUserRole */
+   public void setTbUserRole(TbUserRole newTbUserRole) {
+      if (this.tbUserRole == null || !this.tbUserRole.equals(newTbUserRole))
       {
-         if (this.tbProviderInfo != null)
+         if (this.tbUserRole != null)
          {
-            TbProviderInfo oldTbProviderInfo = this.tbProviderInfo;
-            this.tbProviderInfo = null;
-            oldTbProviderInfo.removeTbGoodInfo(this);
+            TbUserRole oldTbUserRole = this.tbUserRole;
+            this.tbUserRole = null;
+            oldTbUserRole.removeTbUser(this);
          }
-         if (newTbProviderInfo != null)
+         if (newTbUserRole != null)
          {
-            this.tbProviderInfo = newTbProviderInfo;
-            this.tbProviderInfo.addTbGoodInfo(this);
+            this.tbUserRole = newTbUserRole;
+            this.tbUserRole.addTbUser(this);
          }
       }
    }

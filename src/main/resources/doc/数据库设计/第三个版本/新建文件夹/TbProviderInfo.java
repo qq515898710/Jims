@@ -1,6 +1,6 @@
 /***********************************************************************
  * Module:  TbProviderInfo.java
- * Author:  YK
+ * Author:  Administrator
  * Purpose: Defines the Class TbProviderInfo
  ***********************************************************************/
 
@@ -8,51 +8,51 @@ import java.util.*;
 
 /** 供应商信息
  * 
- * @pdOid 5b8cef88-08bb-4d4c-9e36-0766924f8e23 */
+ * @pdOid 82476b17-334e-4302-a747-559f337289c9 */
 public class TbProviderInfo {
    /** 以"p"作为前缀,加上4位数做编号的后缀
     * 
-    * @pdOid 39d989df-15aa-473d-9bec-04307935a40b */
+    * @pdOid 8347a3c1-4fc9-495b-abb5-01eacb258f79 */
    public java.lang.String id;
    /** 供应商名称
     * 
-    * @pdOid 3a6cc5af-41cb-43a2-9401-730002f6a22b */
+    * @pdOid dc994aa7-e3d0-47c1-bb17-26dda9ea2f79 */
    public java.lang.String pname;
    /** 简称
     * 
-    * @pdOid 2ecd342c-a3e4-4671-9237-67e34323ce67 */
+    * @pdOid 36e12419-b6fb-4f4f-a22c-357d51868b0a */
    public java.lang.String abbreviation;
    /** 地址
     * 
-    * @pdOid 885e415e-b346-417a-94d9-e7b4f2aa742a */
+    * @pdOid ce797de3-cd3f-4767-b0d1-19691457e2f6 */
    public java.lang.String address;
    /** 邮政编码
     * 
-    * @pdOid 3380e973-5007-4168-9398-b6aa8b121179 */
+    * @pdOid d586c4bd-bc89-41e8-9587-973d42ece5ec */
    public java.lang.String postalCode;
    /** 电话
     * 
-    * @pdOid 84f9f8ab-7248-4378-b829-6ae1ff0576d1 */
+    * @pdOid 3181b9e7-4210-4c3e-a6d1-1e70010ffb93 */
    public java.lang.String phone;
    /** 传真
     * 
-    * @pdOid 13000f02-21b4-43de-a3e8-a74f97eb82bc */
+    * @pdOid 74d9c7b6-6102-4a8a-9d4b-74f4dc37dcd9 */
    public java.lang.String fax;
    /** 联系人
     * 
-    * @pdOid 3b9ccb51-3132-4582-a3e4-717c63347615 */
+    * @pdOid 5485c824-4aca-4428-a891-9ea2cfa76a2e */
    public java.lang.String contacts;
    /** 联系人电话
     * 
-    * @pdOid 7959daf6-b91b-49e6-9247-76a4a8c968c3 */
+    * @pdOid 9a365d67-5683-4159-9112-aeb0aa6c662d */
    public java.lang.String telephone;
    /** 开户行
     * 
-    * @pdOid e9106df2-090f-4fc5-8c9a-938f6efa92c0 */
+    * @pdOid 3192d883-fb7c-4399-a892-7ba718a7bdc0 */
    public java.lang.String depositBank;
    /** 电子邮箱
     * 
-    * @pdOid 0fa9e5f9-bebe-4fb7-b8b2-5d9c45e7d25b */
+    * @pdOid ac89b4a4-ba57-43d9-beb2-cfdd5a601e81 */
    public java.lang.String email;
    
    /** @pdRoleInfo migr=no name=TbGoodInfo assc=reference5 coll=java.util.Collection impl=java.util.HashSet mult=0..* */

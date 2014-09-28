@@ -36,7 +36,7 @@
        </ul></li> 
       <li id="sysManage"><a href="#" class="dropdown-toggle"> <i class="icon-tag"></i> <span class="menu-text"> 系统管理 </span> <b class="arrow icon-angle-down"></b> </a> 
        <ul class="submenu"> 
-        <li id="CaoZuoYuanGuanLi"><a href="javascript:void()"> <i class="icon-double-angle-right"></i> 操作员管理 </a></li> 
+        <li id="CaoZuoYuanGuanLi"><a href="coop/sys/CaoZuoYuanGuanLi.html"> <i class="icon-double-angle-right"></i> 操作员管理 </a></li> 
         <li id="GengGaiMiMa"><a href="javascript:void()"> <i class="icon-double-angle-right"></i> 更改密码 </a></li> 
         <li id="QuanXianGuanLi"><a href="javascript:void()"> <i class="icon-double-angle-right"></i> 权限管理 </a></li> 
        </ul></li> 

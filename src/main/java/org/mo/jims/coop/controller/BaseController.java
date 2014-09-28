@@ -16,4 +16,5 @@ public class BaseController {
 		model.put("active", "KeHuGuanLi");
 		return new ModelAndView("coop/baseManage/KeHuGuanLi");
 	}
+	
 }

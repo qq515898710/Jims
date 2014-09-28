@@ -32,7 +32,12 @@
 	</select>
 		
 	<select id="countAll" resultType="int">
-		SELECT COUNT(*) FROM tb_user 
+		SELECT COUNT(*) FROM tb_user
+		<where>
+			<if test="tbUser.name != null and tbUser.name != ''">name LIKE CONCAT('%', #{tbUser.name},'%')</if>
+			<if test="tbUser.username != null and tbUser.username != ''">AND username LIKE CONCAT('%', #{tbUser.username}, '%')</if>
+			<if test="tbUser.password != null and tbUser.password !=''">AND password=#{tbUser.password}</if>
+		</where>
 	</select>
 	
 	<select id="selectAll" resultMap="userResultMap" >

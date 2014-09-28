@@ -43,13 +43,13 @@ public class UserService {
 	 * @return
 	 */
 	@Transactional(readOnly = true, propagation = Propagation.NOT_SUPPORTED)
-	public Page<TbUser> getALLUserInfo(int page, int size) {
+	public Page<TbUser> getALLUserInfo(TbUser user,int page, int size) {
 		Page<TbUser> userPage = new Page<TbUser>();
 //		userPage.setTotalElement(userRepository.countAll(), size);
 //		if (userPage.getTotalElement() == 0) {
 //			return userPage;
 //		}
-		List<TbUser> selectAll = userRepository.selectAll(page * size, size);
+		List<TbUser> selectAll = userRepository.selectAll(user,page * size, size);
 		userPage.setContent(selectAll);
 		return userPage;
 

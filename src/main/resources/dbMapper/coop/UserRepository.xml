@@ -4,18 +4,6 @@
 
 	<sql id="select_user">SELECT name, username, password, rid FROM tb_user</sql>
 	
-	<sql id="selcet_user_role">SELECT id, type FROM tb_user_role </sql>
-	
-	<sql id="selcet_user_log">SELECT id, name, time FROM tb_user_log</sql>
-	
-	<sql id="selcet_tb_sell">SELECT id,gid,cid,uid,unit_cost,amount,sum,time,clearing_form,headler FROM tb_sell</sql>
-	
-	<sql id="selcet_tb_sell_return">SELECT id,gid,cid,uid,unit_cost,amount,sum,time,clearing_form,headler FROM tb_sell_return</sql>
-	
-	<sql id="selcet_tb_stock">SELECT id,pid,uid,gid,variety_amount,unit_cost,amount,sum,check_conclusion,time,clearing_form,handler FROM tb_stock</sql>
-	
-	<sql id="selcet_tb_stock_return">SELECT id,pid,uid,gid,variety_amount,unit_cost,amount,sum,check_conclusion,time,clearing_form,handler FROM tb_return</sql>
-	
 	<insert id="insert" parameterType="TbUser">
 		INSERT INTO tb_user(name,username,password,rid)
 		VALUE(#{name}, #{username}, #{password}, 2)
@@ -47,9 +35,13 @@
 		SELECT COUNT(*) FROM tb_user 
 	</select>
 	
-	<select id="selectAll" resultMap="userResultMap">
+	<select id="selectAll" resultMap="userResultMap" >
 		<include refid="select_user"/>
-		
+		<where>
+			<if test="tbUser.name != null and tbUser.name != ''">name LIKE CONCAT('%', #{tbUser.name},'%')</if>
+			<if test="tbUser.username != null and tbUser.username != ''">AND username LIKE CONCAT('%', #{tbUser.username}, '%')</if>
+			<if test="tbUser.password != null and tbUser.password !=''">AND password=#{tbUser.password}</if>
+		</where>
 		LIMIT #{offset}, #{size}
 	</select>
 	

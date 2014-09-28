@@ -50,9 +50,11 @@ public class UserServiceTest extends BaseTest {
 
 	@Test
 	public void testGetALLUserInfo() {
-		Page<TbUser> allUserInfo = userService.getALLUserInfo(0, 10);
+		user = new TbUser();
+		user.setName("moziqi");
+		Page<TbUser> allUserInfo = userService.getALLUserInfo(user,0, 10);
 		List<TbUser> content = allUserInfo.getContent();
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < content.size(); i++) {
 			TbUser tbUser = content.get(i);
 			System.out.println("--------------------" + tbUser.getName());
 		}

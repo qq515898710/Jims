@@ -29,8 +29,6 @@
 <script src="assets/js/jquery-2.0.3.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
 <script src="assets/js/typeahead-bs2.min.js"></script>
-<script src="assets/js/jquery.dataTables.min.js"></script>
-<script src="assets/js/jquery.dataTables.bootstrap.js"></script>
 <script src="assets/js/jquery-ui-1.10.3.full.min.js"></script>
 <script src="assets/js/jquery.ui.touch-punch.min.js"></script>
 <script src="assets/js/ace-elements.min.js"></script>

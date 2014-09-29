@@ -58,18 +58,14 @@
        <li><a href="coop/sys/CaoZuoYuanGuanLi.html">操作员管理</a></li> 
       </ul> 
       <!-- .breadcrumb --> 
-      <div class="nav-search" id="nav-search"> 
-       <form class="form-search"> 
-        <span class="input-icon"> <input type="text" placeholder="请输入查询的内容" class="nav-search-input" id="nav-search-input" autocomplete="off" /> <i class="icon-search nav-search-icon"></i> </span> 
-       </form> 
-      </div> 
-      <!-- #nav-search --> 
+      <!-- 可添加div--> 
      </div> 
      <div class="page-content"> 
       <div class="row"> 
        <div class="col-xs-12"> 
         <h3 class="header smaller lighter blue">
-          <button id="bt-add-dialog" class="btn btn-success hide-option" data-toggle="modal"  data-target="#add-dialog-message" title="添加"><i class="icon-plus-sign align-top bigger-125"></i>添加 </button> 
+          <button id="bt-add-dialog" class="btn hide-option" data-toggle="modal"  data-target="#add-dialog-message" title="查找"><i class="icon-search align-top bigger-125"></i>查找 </button>
+          <button id="bt-add-dialog" class="btn btn-success hide-option" data-toggle="modal"  data-target="#add-dialog-message" title="添加"><i class="icon-plus-sign align-top bigger-125"></i>添加 </button>
           <button id="bt-edit-dialog" class="btn btn-primary hide-option" data-toggle="modal"  data-target="#edit-dialog-message" title="修改"><i class="icon-edit align-top bigger-125"></i>修改</button>
           <button id="bt-delete-dialog" class="btn btn-danger hide-option" data-toggle="modal"  data-target="#delete-dialog-message" title="删除"><i class="icon-trash align-top bigger-125"></i>删除 </button>
                    <button id="bt-delete-dialog" class="btn btn-purple hide-option" data-toggle="modal"  data-target="#delete-dialog-message"  title="模版execl表格导入,点&lt;更多&gt;下载 " ><i class=" icon-cloud-upload align-top bigger-125"></i>导入 </button>  
@@ -87,18 +83,29 @@
           所有信息 
         </div> 
         <div class="table-responsive"> 
-         <div id="sample-table-2_wrapper" class="dataTables_wrapper" role="grid"> 
+         <div id="sample-table-2_wrapper" class="dataTables_wrapper" role="grid">
+         <div class="row">
+            <div class="col-sm-6">
+               <div id="page" >
+                  <label>显示 
+                    <select size="1" name="size"  id="size">
+                      <option value="10" selected="selected">10</option>
+                      <option value="25">25</option><option value="50">50</option>
+                      <option value="100">100</option></select> 记录</label>
+             </div ><!--#sample-table-2_length  -->
+           </div><!--.col-sm-6  -->
+         </div><!--.row  -->
           <!-- 显示列表数据 --> 
           <table id="sample-table-2" class="table table-striped table-bordered table-hover dataTable" aria-describedby="sample-table-2_info"> 
            <thead> 
             <tr role="row"> 
-             <th class="center sorting_disabled" role="columnheader" rowspan="1" colspan="1" style="width: 57px;" aria-label=""> <label> <input type="checkbox" class="ace" /> <span class="lbl"></span> </label> </th> 
-             <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 163px;" aria-sort="descending" aria-label="Domain: activate to sort column ascending">序号</th> 
-             <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 122px;" aria-label="Price: activate to sort column ascending">帐号</th> 
-             <th class="hidden-480 sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 133px;" aria-label="Clicks: activate to sort column ascending">姓名</th> 
-             <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 193px;" aria-label="Update: activate to sort column ascending"> <i class="icon-time bigger-110 hidden-480"></i> 密码 </th> 
-             <th class="hidden-480 sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 170px;" aria-label="Status: activate to sort column ascending">用户类型</th> 
-             <th class="sorting_disabled" role="columnheader" rowspan="1" colspan="1" style="width: 156px;" aria-label=""></th> 
+             <th class="center" role="columnheader" rowspan="1" colspan="1" style="width: 57px;" aria-label=""> <label> <input type="checkbox" class="ace" /> <span class="lbl"></span> </label> </th> 
+             <th  role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 57px;" >序号</th> 
+             <th  role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 163px;">帐号</th> 
+             <th  role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 133px;" >姓名</th> 
+             <th  role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 193px;" > <i class="icon-time bigger-110 hidden-480"></i> 密码 </th> 
+             <th role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 170px;" >用户类型</th> 
+             <th  role="columnheader" rowspan="1" colspan="1" style="width: 156px;" ></th> 
             </tr> 
            </thead> 
            <tbody role="alert" aria-live="polite" aria-relevant="all">
@@ -134,7 +141,30 @@
             </tr> 
            </c:forEach>
            </tbody> 
-          </table> 
+          </table>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="dataTables_info" id="sample-table-2_info">显示 1 到 10 记录，共 101 记录</div>
+            </div><!--.col-sm-6  -->
+            <div class="col-sm-6">
+              <div class="dataTables_paginate paging_bootstrap">
+                <ul class="pagination">
+                  <li class="prev disabled">
+                    <a href="#"><i class="icon-double-angle-left"></i></a>
+                  </li>
+                  <li class="active">
+                    <a href="#">1</a>
+                  </li>
+                  <li>
+                    <a href="#">2</a>
+                  </li>
+                  <li class="next">
+                    <a href="#"><i class="icon-double-angle-right"></i></a>
+                   </li>
+                </ul><!--.pagination  -->
+              </div><!--.dataTables_paginate  -->
+            </div><!--.col-sm-6  -->
+          </div><!--.row  -->
          </div> 
         </div> 
        </div> 
@@ -147,40 +177,13 @@
     <!-- /.main-content --> 
     <script type="text/javascript">
 	jQuery(function($) {
+		
 		$( ".hide-option" ).tooltip({
 			hide: {
 				effect: "explode",
 				delay: 250
 			}
 		});
-		
-		var oTable1 = $('#sample-table-2').dataTable( {
-		"aoColumns": [
-	      { "bSortable": false },
-	      null, null,null, null, null,
-		  { "bSortable": false }
-		] } );
-		
-		$('table th input:checkbox').on('click' , function(){
-			var that = this;
-			$(this).closest('table').find('tr > td:first-child input:checkbox')
-			.each(function(){
-				this.checked = that.checked;
-				$(this).closest('tr').toggleClass('selected');
-			});
-		});
-		
-		$('[data-rel="tooltip"]').tooltip({placement: tooltip_placement});
-		function tooltip_placement(context, source) {
-			var $source = $(source);
-			var $parent = $source.closest('table')
-			var off1 = $parent.offset();
-			var w1 = $parent.width();
-			var off2 = $source.offset();
-			var w2 = $source.width();
-			if( parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2) ) return 'right';
-			return 'left';
-		}
 		
 	});
 </script> 

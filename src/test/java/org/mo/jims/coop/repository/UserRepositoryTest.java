@@ -60,9 +60,9 @@ public class UserRepositoryTest extends BaseTest {
 	@Test
 	public void testInsert() {
 		tbUser = new TbUser();
-		for (int i = 0; i < 10; i++) {
-			tbUser.setName("n" + i);
-			tbUser.setUsername("u" + i);
+		for (int i = 60; i > 20; i--) {
+			tbUser.setName("name" + i);
+			tbUser.setUsername("uname" + i);
 			tbUser.setPassword("123465");
 			userRepository.insert(tbUser);
 		}

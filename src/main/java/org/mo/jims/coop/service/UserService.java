@@ -50,7 +50,7 @@ public class UserService {
 		// return userPage;
 		// }
 		List<TbUser> selectAll = userRepository.selectAll(user.getName(),
-				user.getUsername(), page * size, size);
+				user.getUsername(), (page - 1) * size, size);
 		userPage.setContent(selectAll);
 		return userPage;
 

@@ -41,7 +41,7 @@ public class UserRepositoryTest extends BaseTest {
 
 	@Test
 	public void testCountAll() {
-		int countAll = userRepository.countAll(tbUser);
+		int countAll = userRepository.countAll();
 		System.out.println(countAll);
 	}
 
@@ -49,7 +49,7 @@ public class UserRepositoryTest extends BaseTest {
 	public void testSelectAll() {
 		int offset = 10;
 		int size = 5;
-		List<TbUser> selectAll = userRepository.selectAll(tbUser,offset, size);
+		List<TbUser> selectAll = userRepository.selectAll(tbUser.getName(),tbUser.getUsername(),offset, size);
 		Iterator<TbUser> iterator = selectAll.iterator();
 		while (iterator.hasNext()) {
 			TbUser next = iterator.next();

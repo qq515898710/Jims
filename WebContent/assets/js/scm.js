@@ -1,3 +1,4 @@
+/**二维码**/
 function toUtf8(str) {
 	var out, i, len, c;
 	out = "";

@@ -1,20 +1,29 @@
 package org.mo.open.common.util;
 
+import java.io.Serializable;
 import java.util.Iterator;
 import java.util.List;
 
-public class Page<T> implements Iterable<T> {
-	
-	private long totalElement;
-	
-	private int currentPage;
-	
-	private int totalPage;
-	
-	private List<T> content;
-	
-	public Page() {}
-	
+public class Page<T> implements Iterable<T>, Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private long totalElement;// 总数
+
+	private int totalPage;// 总页数
+
+	private int currentPage;// 当前页
+
+	private int size;// 行数
+
+	private List<T> content;// 内容
+
+	public Page() {
+	}
+
 	public boolean isEmpty() {
 		return totalElement == 0;
 	}
@@ -35,11 +44,11 @@ public class Page<T> implements Iterable<T> {
 	public long getTotalElement() {
 		return totalElement;
 	}
-	
+
 	public int getTotalPage() {
 		return totalPage;
 	}
-	
+
 	public List<T> getContent() {
 		return content;
 	}
@@ -49,6 +58,14 @@ public class Page<T> implements Iterable<T> {
 		return content.iterator();
 	}
 
+	public void setTotalElement(long totalElement) {
+		this.totalElement = totalElement;
+	}
+
+	public void setTotalPage(int totalPage) {
+		this.totalPage = totalPage;
+	}
+
 	public int getCurrentPage() {
 		return currentPage;
 	}
@@ -56,4 +73,13 @@ public class Page<T> implements Iterable<T> {
 	public void setCurrentPage(int currentPage) {
 		this.currentPage = currentPage;
 	}
+
+	public int getSize() {
+		return size;
+	}
+
+	public void setSize(int size) {
+		this.size = size;
+	}
+
 }

@@ -3,125 +3,126 @@
 <mapper namespace="org.mo.jims.coop.repository.UserRepository">
 
 	<sql id="select_user">SELECT name, username, password, rid FROM tb_user</sql>
-	
+
 	<insert id="insert" parameterType="TbUser">
-		INSERT INTO tb_user(name,username,password,rid)
-		VALUE(#{name}, #{username}, #{password}, 2)
+		INSERT INTO
+		tb_user(name,username,password,rid)
+		VALUE(#{name}, #{username},
+		#{password}, 2)
 	</insert>
-	
+
 	<update id="updateByPK" parameterType="TbUser">
-		UPDATE tb_user SET 
-			username=#{username},
-			password=#{password},
-			rid=#{tbUserRole.id}
-		WHERE name=#{name}
+		UPDATE tb_user SET
+		username=#{username},
+		password=#{password},
+		rid=#{tbUserRole.id}
+		WHERE
+		name=#{name}
 	</update>
-	
-	<delete id="deleteByPK" >
+
+	<delete id="deleteByPK">
 		DELETE FROM tb_user WHERE name=#{id}
 	</delete>
-	
+
 	<select id="selectByPK" resultMap="userResultMap">
-		<include refid="select_user"/>
+		<include refid="select_user" />
 		WHERE name = #{id}
 	</select>
-	
+
 	<select id="selcetByName" resultMap="userResultMap">
-		<include refid="select_user"/>
+		<include refid="select_user" />
 		WHERE name = #{name}
 	</select>
-		
+
 	<select id="countAll" resultType="int">
 		SELECT COUNT(*) FROM tb_user
 		<where>
 			<if test="name != null and name != ''">name LIKE CONCAT('%', #{name},'%')</if>
 			<if test="username != null and username != ''">AND username LIKE CONCAT('%', #{username}, '%')</if>
-<!-- 			<if test="tbUser.username != null and tbUser.username != ''">username LIKE CONCAT('%', #{tbUser.username}, '%')</if> -->
-<!-- 			<if test="tbUser.password != null and tbUser.password !=''">AND password=#{tbUser.password}</if> -->
 		</where>
 	</select>
-	
-	<select id="selectAll" resultMap="userResultMap" >
-		<include refid="select_user"/>
+
+	<select id="selectAll" resultMap="userResultMap">
+		<include refid="select_user" />
 		<where>
 			<if test="name != null and name != ''">name LIKE CONCAT('%', #{name},'%')</if>
 			<if test="username != null and username != ''">AND username LIKE CONCAT('%', #{username}, '%')</if>
 		</where>
 		LIMIT #{offset}, #{size}
 	</select>
-	
+
 	<!-- userRole -->
 	<resultMap type="TbUserRole" id="userRoleResultMap">
-		<id property="id" column="id"/>
-		<result property="type" column="type"/>
+		<id property="id" column="id" />
+		<result property="type" column="type" />
 	</resultMap>
-	
+
 	<!-- user -->
 	<resultMap type="TbUser" id="userResultMap">
 		<id property="name" column="name" />
-		<result property="username" column="username"/>
-		<result property="password" column="password"/>
-		<association property="tbUserRole"  javaType="TbUserRole">
-			<id property="id" column="rid"/>
-			<result property="type" column="type"/>
+		<result property="username" column="username" />
+		<result property="password" column="password" />
+		<association property="tbUserRole" javaType="TbUserRole">
+			<id property="id" column="rid" />
+			<result property="type" column="type" />
 		</association>
 	</resultMap>
-	
-<!-- 		<collection property="tbUserLog" ofType="TbUserLog"> -->
-<!-- 			<id property="id" column="id"/> -->
-<!-- 			<result property="name" column="name"/> -->
-<!-- 			<result property="time" column="time"/> -->
-<!-- 		</collection> -->
-<!-- 		<collection property="tbSell" ofType="TbSell"> -->
-<!-- 			<id property="id" column="id"/> -->
-<!-- 			<result property="gid" column="gid"/> -->
-<!-- 			<result property="cid" column="cid"/> -->
-<!-- 			<result property="uid" column="uid"/> -->
-<!-- 			<result property="unit_cost" column="unit_cost"/> -->
-<!-- 			<result property="amount" column="amount"/> -->
-<!-- 			<result property="sum" column="sum"/> -->
-<!-- 			<result property="time" column="time"/> -->
-<!-- 			<result property="clearing_form" column="clearing_form"/> -->
-<!-- 			<result property="headler" column="headler"/> -->
-<!-- 		</collection> -->
-<!-- 		<collection property="tbSellReturn" ofType="TbSellReturn"> -->
-<!-- 			<id property="id" column="id"/> -->
-<!-- 			<result property="gid" column="gid"/> -->
-<!-- 			<result property="cid" column="cid"/> -->
-<!-- 			<result property="uid" column="uid"/> -->
-<!-- 			<result property="unit_cost" column="unit_cost"/> -->
-<!-- 			<result property="amount" column="amount"/> -->
-<!-- 			<result property="sum" column="sum"/> -->
-<!-- 			<result property="time" column="time"/> -->
-<!-- 			<result property="clearing_form" column="clearing_form"/> -->
-<!-- 			<result property="headler" column="headler"/> -->
-<!-- 		</collection> -->
-<!-- 		<collection property="tbStock" ofType="TbStock"> -->
-<!-- 			<id property="id" column="id"/> -->
-<!-- 			<result property="gid" column="gid"/> -->
-<!-- 			<result property="cid" column="cid"/> -->
-<!-- 			<result property="uid" column="uid"/> -->
-<!-- 			<result property="variety_amount" column="variety_amount"/> -->
-<!-- 			<result property="unit_cost" column="unit_cost"/> -->
-<!-- 			<result property="amount" column="amount"/> -->
-<!-- 			<result property="sum" column="sum"/> -->
-<!-- 			<result property="check_conclusion" column="check_conclusion"/> -->
-<!-- 			<result property="time" column="time"/> -->
-<!-- 			<result property="clearing_form" column="clearing_form"/> -->
-<!-- 			<result property="headler" column="headler"/> -->
-<!-- 		</collection> -->
-<!-- 		<collection property="tbStockReturn" ofType="TbStockReturn"> -->
-<!-- 			<id property="id" column="id"/> -->
-<!-- 			<result property="gid" column="gid"/> -->
-<!-- 			<result property="cid" column="cid"/> -->
-<!-- 			<result property="uid" column="uid"/> -->
-<!-- 			<result property="variety_amount" column="variety_amount"/> -->
-<!-- 			<result property="unit_cost" column="unit_cost"/> -->
-<!-- 			<result property="amount" column="amount"/> -->
-<!-- 			<result property="sum" column="sum"/> -->
-<!-- 			<result property="check_conclusion" column="check_conclusion"/> -->
-<!-- 			<result property="time" column="time"/> -->
-<!-- 			<result property="clearing_form" column="clearing_form"/> -->
-<!-- 			<result property="headler" column="headler"/> -->
-<!-- 		</collection> -->
+
+	<!-- <collection property="tbUserLog" ofType="TbUserLog"> -->
+	<!-- <id property="id" column="id"/> -->
+	<!-- <result property="name" column="name"/> -->
+	<!-- <result property="time" column="time"/> -->
+	<!-- </collection> -->
+	<!-- <collection property="tbSell" ofType="TbSell"> -->
+	<!-- <id property="id" column="id"/> -->
+	<!-- <result property="gid" column="gid"/> -->
+	<!-- <result property="cid" column="cid"/> -->
+	<!-- <result property="uid" column="uid"/> -->
+	<!-- <result property="unit_cost" column="unit_cost"/> -->
+	<!-- <result property="amount" column="amount"/> -->
+	<!-- <result property="sum" column="sum"/> -->
+	<!-- <result property="time" column="time"/> -->
+	<!-- <result property="clearing_form" column="clearing_form"/> -->
+	<!-- <result property="headler" column="headler"/> -->
+	<!-- </collection> -->
+	<!-- <collection property="tbSellReturn" ofType="TbSellReturn"> -->
+	<!-- <id property="id" column="id"/> -->
+	<!-- <result property="gid" column="gid"/> -->
+	<!-- <result property="cid" column="cid"/> -->
+	<!-- <result property="uid" column="uid"/> -->
+	<!-- <result property="unit_cost" column="unit_cost"/> -->
+	<!-- <result property="amount" column="amount"/> -->
+	<!-- <result property="sum" column="sum"/> -->
+	<!-- <result property="time" column="time"/> -->
+	<!-- <result property="clearing_form" column="clearing_form"/> -->
+	<!-- <result property="headler" column="headler"/> -->
+	<!-- </collection> -->
+	<!-- <collection property="tbStock" ofType="TbStock"> -->
+	<!-- <id property="id" column="id"/> -->
+	<!-- <result property="gid" column="gid"/> -->
+	<!-- <result property="cid" column="cid"/> -->
+	<!-- <result property="uid" column="uid"/> -->
+	<!-- <result property="variety_amount" column="variety_amount"/> -->
+	<!-- <result property="unit_cost" column="unit_cost"/> -->
+	<!-- <result property="amount" column="amount"/> -->
+	<!-- <result property="sum" column="sum"/> -->
+	<!-- <result property="check_conclusion" column="check_conclusion"/> -->
+	<!-- <result property="time" column="time"/> -->
+	<!-- <result property="clearing_form" column="clearing_form"/> -->
+	<!-- <result property="headler" column="headler"/> -->
+	<!-- </collection> -->
+	<!-- <collection property="tbStockReturn" ofType="TbStockReturn"> -->
+	<!-- <id property="id" column="id"/> -->
+	<!-- <result property="gid" column="gid"/> -->
+	<!-- <result property="cid" column="cid"/> -->
+	<!-- <result property="uid" column="uid"/> -->
+	<!-- <result property="variety_amount" column="variety_amount"/> -->
+	<!-- <result property="unit_cost" column="unit_cost"/> -->
+	<!-- <result property="amount" column="amount"/> -->
+	<!-- <result property="sum" column="sum"/> -->
+	<!-- <result property="check_conclusion" column="check_conclusion"/> -->
+	<!-- <result property="time" column="time"/> -->
+	<!-- <result property="clearing_form" column="clearing_form"/> -->
+	<!-- <result property="headler" column="headler"/> -->
+	<!-- </collection> -->
 </mapper>

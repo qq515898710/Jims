@@ -152,12 +152,10 @@
                   <li class="prev disabled">
                     <a href="#"><i class="icon-double-angle-left"></i></a>
                   </li>
-                  <li class="active">
-                    <a href="#">1</a>
-                  </li>
-                  <li>
-                    <a href="#">2</a>
-                  </li>
+                  <c:forEach var="i" begin="1" end="${page.totalPage }" step="1">
+                     <li><a href="#">${i }</a></li>
+<%--                      <c:when test="${i eq 5 }"></c:when> --%>
+                  </c:forEach>
                   <li class="next">
                     <a href="#"><i class="icon-double-angle-right"></i></a>
                    </li>

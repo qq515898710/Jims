@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/coop/")
 public class BaseController {
 
-	@RequestMapping(value = "KeHuGuanLi.html", method = RequestMethod.GET)
+	@RequestMapping(value = "cZKs8DCjl7PhWwE5HP9FeA==.html", method = RequestMethod.GET)
 	public ModelAndView KeHuGuanLi(ModelMap model) {
 		model.put("baseActive", "baseManage");
 		model.put("active", "KeHuGuanLi");

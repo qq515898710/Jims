@@ -41,7 +41,8 @@ public class UserRepositoryTest extends BaseTest {
 
 	@Test
 	public void testCountAll() {
-		int countAll = userRepository.countAll();
+		int countAll = userRepository.countAll(tbUser.getName(),
+				tbUser.getUsername());
 		System.out.println(countAll);
 	}
 
@@ -49,7 +50,8 @@ public class UserRepositoryTest extends BaseTest {
 	public void testSelectAll() {
 		int offset = 10;
 		int size = 5;
-		List<TbUser> selectAll = userRepository.selectAll(tbUser.getName(),tbUser.getUsername(),offset, size);
+		List<TbUser> selectAll = userRepository.selectAll(tbUser.getName(),
+				tbUser.getUsername(), offset, size);
 		Iterator<TbUser> iterator = selectAll.iterator();
 		while (iterator.hasNext()) {
 			TbUser next = iterator.next();
@@ -79,9 +81,8 @@ public class UserRepositoryTest extends BaseTest {
 		newTbUserRole.setId(1);
 		newTbUserRole.setType(0);
 		entity.setTbUserRole(newTbUserRole);
-		userRepository.updateByPK(entity );
+		userRepository.updateByPK(entity);
 	}
-
 
 	@Test
 	public void testDeleteByPK() {

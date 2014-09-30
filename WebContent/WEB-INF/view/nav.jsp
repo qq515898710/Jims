@@ -4,7 +4,7 @@
    <ul class="nav nav-list"> 
       <li id="baseManage"><a href="#" class="dropdown-toggle"> <i class="icon-dashboard"></i> <span class="menu-text"> 基本信息管理</span><b class="arrow icon-angle-down"></b> </a> 
        <ul class="submenu"> 
-        <li id="KeHuGuanLi"><a href="coop/KeHuGuanLi.html"> <i class="icon-double-angle-right"></i>客户信息管理 </a></li> 
+        <li id="KeHuGuanLi"><a href="coop/cZKs8DCjl7PhWwE5HP9FeA==.html"> <i class="icon-double-angle-right"></i>客户信息管理 </a></li> 
         <li id="ShangPinGuanLi"><a href="javascript:void()"> <i class="icon-double-angle-right"></i>商品信息管理 </a></li> 
         <li id="GongYingShangGuanLi"><a href="javascript:void()"> <i class="icon-double-angle-right"></i>供应商信息管理 </a></li> 
        </ul></li> 
@@ -36,7 +36,7 @@
        </ul></li> 
       <li id="sysManage"><a href="#" class="dropdown-toggle"> <i class="icon-tag"></i> <span class="menu-text"> 系统管理 </span> <b class="arrow icon-angle-down"></b> </a> 
        <ul class="submenu"> 
-        <li id="CaoZuoYuanGuanLi"><a href="coop/sys/CaoZuoYuanGuanLi.html"> <i class="icon-double-angle-right"></i> 操作员管理 </a></li> 
+        <li id="CaoZuoYuanGuanLi"><a href="coop/sys/IIk15dX0+6BqWuCaUE0kEh8kB9Ww/4zb.html"> <i class="icon-double-angle-right"></i> 操作员管理 </a></li> 
         <li id="GengGaiMiMa"><a href="javascript:void()"> <i class="icon-double-angle-right"></i> 更改密码 </a></li> 
         <li id="QuanXianGuanLi"><a href="javascript:void()"> <i class="icon-double-angle-right"></i> 权限管理 </a></li> 
        </ul></li> 

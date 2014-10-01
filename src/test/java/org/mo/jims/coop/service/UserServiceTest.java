@@ -22,15 +22,10 @@ public class UserServiceTest extends BaseTest {
 		this.userService = userService;
 	}
 
-	@Test
-	public void testSaveUserLoginLog() {
-		user = userService.getUserByName("moziqi");
-		userService.saveUserLoginLog(user);
-	}
 
 	@Test
 	public void testGetUserByName() {
-		user = userService.getUserByName("moziqi");
+		user = userService.getByPK("moziqi");
 		System.out.println("-------------------" + user.getUsername());
 	}
 
@@ -40,7 +35,7 @@ public class UserServiceTest extends BaseTest {
 		user.setName("moziqi2");
 		user.setUsername("管理员");
 		user.setPassword("123456456");
-		boolean saveUser = userService.saveUser(user);
+		boolean saveUser = userService.save(user);
 		if (saveUser) {
 			System.out.println("保存成功");
 		} else {

@@ -19,12 +19,6 @@ public interface BaseService<T extends Serializable, PK extends Serializable> {
 	 */
 	public T getByPK(PK id);
 
-	/**
-	 * 获得所有信息
-	 * 
-	 * @return
-	 */
-	public List<T> gettAll();
 
 	/**
 	 * 保存信息
@@ -43,18 +37,10 @@ public interface BaseService<T extends Serializable, PK extends Serializable> {
 	public boolean alter(T entity);
 
 	/**
-	 * 通过主键更改信息
+	 * 通过主键移除信息
 	 * 
 	 * @param id
 	 * @return
 	 */
-	public boolean alterByPK(PK id);
-
-	/**
-	 * 移除信息
-	 * 
-	 * @param entity
-	 * @return
-	 */
-	public boolean remove(T entity);
+	public boolean removeByPK(PK id);
 }

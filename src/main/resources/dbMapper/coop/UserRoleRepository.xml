@@ -11,9 +11,7 @@
 	
 	<update id="updateByPK" parameterType="TbUserRole">
 		UPDATE tb_user_role SET 
-			username=#{username},
-			password=#{password},
-			rid=#{tbUserRole.id}
+			type=#{type},
 		WHERE id=#{id}
 	</update>
 	
@@ -33,7 +31,6 @@
 	<select id="selectAll" resultMap="userRoleResultMap">
 		<include refid="selcet_user_role"/>
 		ORDER BY id DESC
-		LIMIT #{offset}, #{size}
 	</select>
 	
 	<!-- userRole -->

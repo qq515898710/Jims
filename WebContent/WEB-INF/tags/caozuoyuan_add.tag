@@ -9,67 +9,31 @@
      <div class="modal-body"> 
       <form id="add-form-dialog" class="form-horizontal" role="form"> 
        <div class="form-group"> 
-        <label class="col-sm-3 control-label no-padding-right font" for="form-field-1"> 供应商全称： </label> 
+        <label class="col-sm-3 control-label no-padding-right font" for="form-field-1"> 工号： </label> 
         <div class="col-sm-9"> 
-         <input type="text" id="form-field-1" class="col-xs-10" /> 
+         <input type="text" id="name" name="name" class="col-xs-10" /> 
         </div> 
        </div> 
        <div class="form-group"> 
-        <label class="col-sm-3 control-label no-padding-right font" for="form-field-1"> 简称： </label> 
+        <label class="col-sm-3 control-label no-padding-right font" for="form-field-1"> 姓名： </label> 
         <div class="col-sm-9"> 
-         <input type="text" id="form-field-1" class="col-xs-10" /> 
+         <input type="text" id="username" name="username" class="col-xs-10" /> 
         </div> 
        </div> 
        <div class="form-group"> 
-        <label class="col-sm-3 control-label no-padding-right font" for="form-field-1"> 邮政编码： </label> 
+        <label class="col-sm-3 control-label no-padding-right font" for="form-field-1"> 密码： </label> 
         <div class="col-sm-9"> 
-         <input type="text" id="form-field-1" class="col-xs-10" /> 
+         <input type="text" id="password" name="password" class="col-xs-10" /> 
         </div> 
        </div> 
        <div class="form-group"> 
-        <label class="col-sm-3 control-label no-padding-right font" for="form-field-1">地址： </label> 
+        <label class="col-sm-3 control-label no-padding-right font" for="form-field-1">用户类型： </label> 
         <div class="col-sm-9"> 
-         <input type="text" id="form-field-1" class="col-xs-10" /> 
+         <select id="form-field-1" class="col-xs-10"> <option value="">&nbsp;</option> <option value="">&nbsp;</option> </select> 
         </div> 
-       </div> 
-       <div class="form-group"> 
-        <label class="col-sm-3 control-label no-padding-right font" for="form-field-1"> 电话： </label> 
-        <div class="col-sm-9"> 
-         <input type="text" id="form-field-1" class="col-xs-10" /> 
-        </div> 
-       </div> 
-       <div class="form-group"> 
-        <label class="col-sm-3 control-label no-padding-right font" for="form-field-1"> 传真： </label> 
-        <div class="col-sm-9"> 
-         <input type="text" id="form-field-1" class="col-xs-10" /> 
-        </div> 
-       </div> 
-       <div class="form-group"> 
-        <label class="col-sm-3 control-label no-padding-right font" for="form-field-1"> 联系人： </label> 
-        <div class="col-sm-9"> 
-         <input type="text" id="form-field-1" class="col-xs-10" /> 
-        </div> 
-       </div> 
-       <div class="form-group"> 
-        <label class="col-sm-3 control-label no-padding-right font" for="form-field-1">联系人电话： </label> 
-        <div class="col-sm-9"> 
-         <input type="text" id="form-field-1" class="col-xs-10" /> 
-        </div> 
-       </div> 
-       <div class="form-group"> 
-        <label class="col-sm-3 control-label no-padding-right font" for="form-field-1"> 开户帐号： </label> 
-        <div class="col-sm-9"> 
-         <input type="text" id="form-field-1" class="col-xs-10" /> 
-        </div> 
-       </div> 
-       <div class="form-group"> 
-        <label class="col-sm-3 control-label no-padding-right font" for="form-field-1">电子邮箱： </label> 
-        <div class="col-sm-9"> 
-         <input type="text" id="form-field-1" class="col-xs-10 " /> 
-        </div> 
-       </div> 
+       </div>
       </form> 
-     </div> 
+     </div>
      <div class="modal-footer"> 
       <button type="button" class="btn btn-default" data-dismiss="modal"><i class="icon-remove bigger-110"></i>取消</button> 
       <button type="button" class="btn btn-primary"><i class="icon-ok bigger-110"></i>确定</button> 

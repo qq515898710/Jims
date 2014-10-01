@@ -9,11 +9,10 @@ import org.mo.open.common.repository.BaseRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository("userRoleRepository")
-public interface UserRoleRepository extends BaseRepository<TbUserRole, Integer> {
+public interface UserRoleRepository extends BaseRepository<TbUserRole, Long> {
 	
-	public int countAll(@Param("name")String name);
+	public int countAll();
 	
-	public List<TbUserLog> selectAll(@Param("name") String name, @Param("offset") int offset, 
-			@Param("size") int size);
+	public List<TbUserRole> selectAll();
 	
 }

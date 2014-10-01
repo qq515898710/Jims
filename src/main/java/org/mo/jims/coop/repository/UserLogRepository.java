@@ -8,7 +8,7 @@ import org.mo.open.common.repository.BaseRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository("userLogRepository")
-public interface UserLogRepository extends BaseRepository<TbUserLog, Integer> {
+public interface UserLogRepository extends BaseRepository<TbUserLog, Long> {
 	
 	public int countAllByName(@Param("name")String name);
 	

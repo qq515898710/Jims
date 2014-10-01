@@ -65,13 +65,13 @@
       <div class="row"> 
        <div class="col-xs-12"> 
         <h3 class="header smaller lighter blue">
-          <button id="bt-add-dialog" class="btn hide-option" data-toggle="modal"  data-target="#add-dialog-m2essage" title="查找"><i class="icon-search align-top bigger-125"></i>查找 </button>
+          <button id="bt-search-dialog" class="btn hide-option" data-toggle="modal"  data-target="#search-dialog-message" title="查找"><i class="icon-search align-top bigger-125"></i>查找 </button>
           <button id="bt-add-dialog" class="btn btn-success hide-option" data-toggle="modal"  data-target="#add-dialog-message" title="添加"><i class="icon-plus-sign align-top bigger-125"></i>添加 </button>
           <tags:caozuoyuan_add></tags:caozuoyuan_add>
           <button id="bt-edit-dialog" class="btn btn-primary hide-option" data-toggle="modal"  data-target="#edit-dialog-message" title="修改"><i class="icon-edit align-top bigger-125"></i>修改</button>
           <button id="bt-delete-dialog" class="btn btn-danger hide-option" data-toggle="modal"  data-target="#delete-dialog-message" title="删除"><i class="icon-trash align-top bigger-125"></i>删除 </button>
-                   <button id="bt-delete-dialog" class="btn btn-purple hide-option" data-toggle="modal"  data-target="#delete-dialog-message"  title="模版execl表格导入,点&lt;更多&gt;下载 " ><i class=" icon-cloud-upload align-top bigger-125"></i>导入 </button>  
-          <button id="bt-delete-dialog" class="btn btn-grey hide-option" data-toggle="modal"  data-target="#delete-dialog-message" title="导出"><i class="icon-cloud-download align-top bigger-125"></i>导出 </button>  
+                   <button id="bt-import-dialog" class="btn btn-purple hide-option" data-toggle="modal"  data-target="#delete-dialog-message"  title="模版execl表格导入,点&lt;更多&gt;下载 " ><i class=" icon-cloud-upload align-top bigger-125"></i>导入 </button>  
+          <button id="bt-outport-dialog" class="btn btn-grey hide-option" data-toggle="modal"  data-target="#delete-dialog-message" title="导出"><i class="icon-cloud-download align-top bigger-125"></i>导出 </button>  
         <div class="btn-group"> 
    <button data-toggle="dropdown" class="btn btn-pink dropdown-toggle btn-lg "><i class="icon-stackexchange" ></i> 更多<i class="icon-angle-down icon-on-right"></i></button> 
    <ul class="dropdown-menu"> 

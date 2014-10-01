@@ -1,5 +1,6 @@
 package org.mo.jims.coop.repository;
 
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -62,10 +63,11 @@ public class UserRepositoryTest extends BaseTest {
 	@Test
 	public void testInsert() {
 		tbUser = new TbUser();
-		for (int i = 60; i > 20; i--) {
+		for (int i = 1; i < 30; i++) {
 			tbUser.setName("name" + i);
 			tbUser.setUsername("uname" + i);
 			tbUser.setPassword("123465");
+			tbUser.setCreateDate(new Date(System.currentTimeMillis()));
 			userRepository.insert(tbUser);
 		}
 

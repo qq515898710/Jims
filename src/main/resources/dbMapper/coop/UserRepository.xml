@@ -6,16 +6,15 @@
 
 	<insert id="insert" parameterType="TbUser">
 		INSERT INTO
-		tb_user(name,username,password,rid)
-		VALUE(#{name}, #{username,create_date},
-		#{password}, 2)
+		tb_user(name,username,password,create_date,rid)
+		VALUE(#{name}, #{username},#{password},#{createDate}, 2)
 	</insert>
 
 	<update id="updateByPK" parameterType="TbUser">
 		UPDATE tb_user SET
 		username=#{username},
 		password=#{password},
-		create_date=#{create_date},
+		create_date=#{createDate},
 		rid=#{tbUserRole.id}
 		WHERE
 		name=#{name}

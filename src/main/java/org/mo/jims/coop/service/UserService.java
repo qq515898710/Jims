@@ -36,28 +36,27 @@ public class UserService {
 	}
 
 	/**
-	 * 分页显示用户信息
+	 * 分页显示用户信息, 从1算起
 	 * 
 	 * @param page
-	 * @param size
+	 * @param pageSize
 	 * @return
 	 */
 	@Transactional(readOnly = true, propagation = Propagation.NOT_SUPPORTED)
-	public Page<TbUser> getALLUserInfo(TbUser user, int page, int size) {
+	public Page<TbUser> getALLUserInfo(TbUser user, int page, int pageSize) {
 		Page<TbUser> userPage = new Page<TbUser>();
 		userPage.setCurrentPage(page);
-		userPage.setSize(size);
+		userPage.setPageSize(pageSize);
 		userPage.setTotalElement(
 				userRepository.countAll(user.getName(), user.getUsername()),
-				size);
+				pageSize);
 		if (userPage.getTotalElement() == 0) {
 			return userPage;
 		}
 		List<TbUser> selectAll = userRepository.selectAll(user.getName(),
-				user.getUsername(), page * size, size);
+				user.getUsername(), (page - 1) * pageSize, pageSize);
 		userPage.setContent(selectAll);
 		return userPage;
-
 	}
 
 	/**

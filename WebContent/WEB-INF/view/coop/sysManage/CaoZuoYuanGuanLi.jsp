@@ -1,7 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<jsp:include page="/WEB-INF/view/header.jsp"></jsp:include> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>  
+<%@ taglib tagdir="/WEB-INF/tags" prefix="tags"%>  
+<jsp:include page="/WEB-INF/view/header.jsp"></jsp:include>
   <div class="main-container" id="main-container"> 
    <script type="text/javascript">
 		try {
@@ -55,7 +56,7 @@
 				</script> 
       <ul class="breadcrumb"> 
        <li><i class="icon-home home-icon"></i> <a href="home.html">首页</a></li> 
-       <li><a href="coop/sys/CaoZuoYuanGuanLi.html">操作员管理</a></li> 
+       <li><a href="coop/sys/IIk15dX0+6BqWuCaUE0kEh8kB9Ww/4zb.html/1/10">操作员管理</a></li> 
       </ul> 
       <!-- .breadcrumb --> 
       <!-- 可添加div--> 
@@ -84,84 +85,60 @@
         </div> 
         <div class="table-responsive"> 
          <div id="sample-table-2_wrapper" class="dataTables_wrapper" role="grid">
-         <div class="row">
-            <div class="col-sm-6">
-               <div id="page" >
-                  <label>显示 
-                    <select size="1" name="size"  id="size">
-                      <option value="10" selected="selected">10</option>
-                      <option value="25">25</option><option value="50">50</option>
-                      <option value="100">100</option></select> 记录</label>
-             </div ><!--#sample-table-2_length  -->
-           </div><!--.col-sm-6  -->
-         </div><!--.row  -->
+           <div class="row">
+            <tags:pager pagerRange="6"  totalElement="${allUserInfo.totalElement }" pageSize="${allUserInfo.pageSize}"  totalPage="${allUserInfo.totalPage}" currentPage="${allUserInfo.currentPage}" formId="queryForm"></tags:pager>
+          </div><!--.row  -->
           <!-- 显示列表数据 --> 
-          <table id="sample-table-2" class="table table-striped table-bordered table-hover dataTable" aria-describedby="sample-table-2_info"> 
-           <thead> 
-            <tr role="row"> 
-             <th class="center" role="columnheader" rowspan="1" colspan="1" style="width: 57px;" aria-label=""> <label> <input type="checkbox" class="ace" /> <span class="lbl"></span> </label> </th> 
-             <th  role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 57px;" >序号</th> 
-             <th  role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 163px;">帐号</th> 
-             <th  role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 133px;" >姓名</th> 
-             <th  role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 193px;" > <i class="icon-time bigger-110 hidden-480"></i> 密码 </th> 
-             <th role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 170px;" >用户类型</th> 
-             <th  role="columnheader" rowspan="1" colspan="1" style="width: 156px;" ></th> 
-            </tr> 
-           </thead> 
-           <tbody role="alert" aria-live="polite" aria-relevant="all">
-           <c:forEach items="${page.content}" var="userlist" varStatus="status">
-           <tr> 
-             <td class="center"><label> <input type="checkbox" class="ace" /> <span class="lbl"></span> </label></td> 
-             <td >${ status.index + 1}</td> 
-             <td ><a href="#">${userlist.name}</a></td> 
-             <td>${userlist.username}</td> 
-             <td>${userlist.password }</td> 
-             <td><span class="label label-sm label-warning">
-               <c:choose>
-                 <c:when test="${userlist.tbUserRole.id eq 1}">管理员</c:when>
-                 <c:when test="${userlist.tbUserRole.id eq 2}">操作员</c:when>
-               </c:choose></span>
-             </td> 
-             <td> 
-              <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons"> 
-               <a class="blue" href="#"> <i class="icon-zoom-in bigger-130"></i> </a> 
-               <a class="green" href="#"> <i class="icon-pencil bigger-130"></i> </a> 
-               <a class="red" href="#"> <i class="icon-trash bigger-130"></i> </a> 
-              </div> 
-              <div class="visible-xs visible-sm hidden-md hidden-lg"> 
-               <div class="inline position-relative"> 
-                <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown"> <i class="icon-caret-down icon-only bigger-120"></i> </button> 
-                <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close"> 
-                 <li><a href="#" class="tooltip-info" data-rel="tooltip" title="View"> <span class="blue"> <i class="icon-zoom-in bigger-120"></i> </span> </a></li> 
-                 <li><a href="#" class="tooltip-success" data-rel="tooltip" title="Edit"> <span class="green"> <i class="icon-edit bigger-120"></i> </span> </a></li> 
-                 <li><a href="#" class="tooltip-error" data-rel="tooltip" title="Delete"> <span class="red"> <i class="icon-trash bigger-120"></i> </span> </a></li> 
-                </ul> 
-               </div> 
-              </div> </td> 
-            </tr> 
-           </c:forEach>
-           </tbody> 
-          </table>
+          <form action="coop/sys/IIk15dX0+6BqWuCaUE0kEh8kB9Ww/4zb.html" id="queryform" method="get">
+            <table id="sample-table-2" class="table table-striped table-bordered table-hover dataTable" aria-describedby="sample-table-2_info"> 
+             <thead> 
+              <tr role="row"> 
+               <th class="center" role="columnheader" rowspan="1" colspan="1" style="width: 57px;" aria-label=""> <label> <input type="checkbox" class="ace" /> <span class="lbl"></span> </label> </th> 
+               <th  role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 57px;" >序号</th> 
+               <th  role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 163px;">帐号</th> 
+               <th  role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 133px;" >姓名</th> 
+               <th  role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 193px;" > <i class="icon-time bigger-110 hidden-480"></i> 密码 </th> 
+               <th role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 170px;" >用户类型</th> 
+               <th  role="columnheader" rowspan="1" colspan="1" style="width: 156px;" ></th> 
+              </tr> 
+             </thead> 
+             <tbody role="alert" aria-live="polite" aria-relevant="all">
+             <c:forEach items="${allUserInfo.content}" var="userlist" varStatus="status">
+             <tr> 
+               <td class="center"><label> <input type="checkbox" class="ace" /> <span class="lbl"></span> </label></td> 
+               <td >${ status.index + 1}</td> 
+               <td ><a href="#">${userlist.name}</a></td> 
+               <td>${userlist.username}</td> 
+               <td>${userlist.password }</td> 
+               <td><span class="label label-sm label-warning">
+                 <c:choose>
+                   <c:when test="${userlist.tbUserRole.id eq 1}">管理员</c:when>
+                   <c:when test="${userlist.tbUserRole.id eq 2}">操作员</c:when>
+                 </c:choose></span>
+               </td> 
+               <td> 
+                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons"> 
+                 <a class="blue" href="#"> <i class="icon-zoom-in bigger-130"></i> </a> 
+                 <a class="green" href="#"> <i class="icon-pencil bigger-130"></i> </a> 
+                 <a class="red" href="#"> <i class="icon-trash bigger-130"></i> </a> 
+                </div> 
+                <div class="visible-xs visible-sm hidden-md hidden-lg"> 
+                 <div class="inline position-relative"> 
+                  <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown"> <i class="icon-caret-down icon-only bigger-120"></i> </button> 
+                  <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close"> 
+                   <li><a href="#" class="tooltip-info" data-rel="tooltip" title="View"> <span class="blue"> <i class="icon-zoom-in bigger-120"></i> </span> </a></li> 
+                   <li><a href="#" class="tooltip-success" data-rel="tooltip" title="Edit"> <span class="green"> <i class="icon-edit bigger-120"></i> </span> </a></li> 
+                   <li><a href="#" class="tooltip-error" data-rel="tooltip" title="Delete"> <span class="red"> <i class="icon-trash bigger-120"></i> </span> </a></li> 
+                  </ul> 
+                 </div> 
+                </div> </td> 
+              </tr> 
+             </c:forEach>
+             </tbody> 
+            </table>
+          </form>
           <div class="row">
-            <div class="col-sm-6">
-              <div class="dataTables_info" id="sample-table-2_info">显示 1 到 10 记录，共 101 记录</div>
-            </div><!--.col-sm-6  -->
-            <div class="col-sm-6">
-              <div class="dataTables_paginate paging_bootstrap">
-                <ul class="pagination">
-                  <li class="prev disabled">
-                    <a href="#"><i class="icon-double-angle-left"></i></a>
-                  </li>
-                  <c:forEach var="i" begin="1" end="${page.totalPage }" step="1">
-                     <li><a href="#">${i }</a></li>
-<%--                      <c:when test="${i eq 5 }"></c:when> --%>
-                  </c:forEach>
-                  <li class="next">
-                    <a href="#"><i class="icon-double-angle-right"></i></a>
-                   </li>
-                </ul><!--.pagination  -->
-              </div><!--.dataTables_paginate  -->
-            </div><!--.col-sm-6  -->
+            <tags:pager pagerRange="6"  totalElement="${allUserInfo.totalElement }" pageSize="${allUserInfo.pageSize}"  totalPage="${allUserInfo.totalPage}" currentPage="${allUserInfo.currentPage}" formId="queryForm"></tags:pager>
           </div><!--.row  -->
          </div> 
         </div> 
@@ -183,6 +160,15 @@
 			}
 		});
 		
+		function gotoPage(pageIndex){  
+		    var queryForm = document.getElementById("queryForm");  
+		    var action = queryForm.action;  
+		    var pageSize = document.getElementById("p_pageSizeSelect").value;  
+		    action += "/" + pageIndex + "/" + pageSize;  
+		    alert(action);  
+		    queryForm.action = action;  
+		    queryForm.submit();  
+		} 
 	});
 </script> 
     <!-- 工具导入 --> 

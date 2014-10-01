@@ -17,7 +17,7 @@ public class Page<T> implements Iterable<T>, Serializable {
 
 	private int currentPage;// 当前页
 
-	private int size;// 行数
+	private int pageSize;// 行数
 
 	private List<T> content;// 内容
 
@@ -74,12 +74,12 @@ public class Page<T> implements Iterable<T>, Serializable {
 		this.currentPage = currentPage;
 	}
 
-	public int getSize() {
-		return size;
+	public int getPageSize() {
+		return pageSize;
 	}
 
-	public void setSize(int size) {
-		this.size = size;
+	public void setPageSize(int pageSize) {
+		this.pageSize = pageSize;
 	}
 
 }

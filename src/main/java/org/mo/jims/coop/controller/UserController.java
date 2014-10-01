@@ -9,6 +9,7 @@ import org.mo.open.common.util.JsonResponse;
 import org.mo.open.common.util.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,18 +20,19 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/coop/sys/")
 public class UserController {
-	
+
 	private UserService userService;
 	private UserDTO userDTO;
 
-	@RequestMapping(value = "IIk15dX0+6BqWuCaUE0kEh8kB9Ww/4zb.html", method = RequestMethod.GET)
-	public ModelAndView caoZuoYuanGuanLiInfo(ModelMap model) {
+	@RequestMapping(value = "IIk15dX0+6BqWuCaUE0kEh8kB9Ww/4zb.html/{page}/{size}", method = RequestMethod.GET)
+	public ModelAndView caoZuoYuanGuanLi(@PathVariable int page,
+			@PathVariable int size, ModelMap model) {
 		userDTO = new UserDTO();
 		Page<TbUser> allUserInfo = userService.getALLUserInfo(
-				userDTO.toObject(), 1, 10);
+				userDTO.toObject(), page, size);
 		model.put("baseActive", "sysManage");
 		model.put("active", "CaoZuoYuanGuanLi");
-		model.put("page", allUserInfo);
+		model.put("allUserInfo", allUserInfo);
 		return new ModelAndView("coop/sysManage/CaoZuoYuanGuanLi", model);
 	}
 

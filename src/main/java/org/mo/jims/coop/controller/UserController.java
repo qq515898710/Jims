@@ -24,7 +24,7 @@ public class UserController {
 	private UserService userService;
 	private UserDTO userDTO;
 
-	@RequestMapping(value = "IIk15dX0+6BqWuCaUE0kEh8kB9Ww/4zb.html/{page}/{size}", method = RequestMethod.GET)
+	@RequestMapping(value = "caozuoyuanguanli.html/{page}/{size}", method = RequestMethod.GET)
 	public ModelAndView caoZuoYuanGuanLi(@PathVariable int page,
 			@PathVariable int size, ModelMap model) {
 		userDTO = new UserDTO();

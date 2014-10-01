@@ -1,4 +1,4 @@
-/**二维码**/
+/** 二维码* */
 function toUtf8(str) {
 	var out, i, len, c;
 	out = "";
@@ -17,4 +17,13 @@ function toUtf8(str) {
 		}
 	}
 	return out;
+}
+// 分页caozuoyuanguanli.jsp
+function gotoPage(pageIndex) {
+	var action = $('#queryform').attr('action');
+	var pageSize = $("#p_pageSizeSelect").val();
+	action += "/" + pageIndex + "/" + pageSize;
+	// alert(action);
+	$("#queryform").attr("action", action);
+	$("#queryform").submit();
 }

@@ -89,7 +89,7 @@
             <tags:pager pagerRange="6"  totalElement="${allUserInfo.totalElement }" pageSize="${allUserInfo.pageSize}"  totalPage="${allUserInfo.totalPage}" currentPage="${allUserInfo.currentPage}" formId="queryForm"></tags:pager>
           </div><!--.row  -->
           <!-- 显示列表数据 --> 
-          <form action="coop/sys/IIk15dX0+6BqWuCaUE0kEh8kB9Ww/4zb.html" id="queryform" method="get">
+          <form action="coop/sys/caozuoyuanguanli.html" id="queryform" method="get">
             <table id="sample-table-2" class="table table-striped table-bordered table-hover dataTable" aria-describedby="sample-table-2_info"> 
              <thead> 
               <tr role="row"> 
@@ -97,7 +97,7 @@
                <th  role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 57px;" >序号</th> 
                <th  role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 163px;">帐号</th> 
                <th  role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 133px;" >姓名</th> 
-               <th  role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 193px;" > <i class="icon-time bigger-110 hidden-480"></i> 密码 </th> 
+               <th  role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 193px;" > <i class="icon-time bigger-110 hidden-480"></i> 创建时间 </th> 
                <th role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 170px;" >用户类型</th> 
                <th  role="columnheader" rowspan="1" colspan="1" style="width: 156px;" ></th> 
               </tr> 
@@ -108,8 +108,8 @@
                <td class="center"><label> <input type="checkbox" class="ace" /> <span class="lbl"></span> </label></td> 
                <td >${ status.index + 1}</td> 
                <td ><a href="#">${userlist.name}</a></td> 
-               <td>${userlist.username}</td> 
-               <td>${userlist.password }</td> 
+               <td>${userlist.username}</td>
+               <td><fmt:formatDate value="${userlist.createDate}" pattern="yyyy-MM-dd HH:mm:ss"/>  </td> 
                <td><span class="label label-sm label-warning">
                  <c:choose>
                    <c:when test="${userlist.tbUserRole.id eq 1}">管理员</c:when>
@@ -159,16 +159,6 @@
 				delay: 250
 			}
 		});
-		
-		function gotoPage(pageIndex){  
-		    var queryForm = document.getElementById("queryForm");  
-		    var action = queryForm.action;  
-		    var pageSize = document.getElementById("p_pageSizeSelect").value;  
-		    action += "/" + pageIndex + "/" + pageSize;  
-		    alert(action);  
-		    queryForm.action = action;  
-		    queryForm.submit();  
-		} 
 	});
 </script> 
     <!-- 工具导入 --> 

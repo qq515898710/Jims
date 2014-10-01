@@ -16,7 +16,7 @@
 <div class="col-sm-6">
 <div id="pager" >
 	<label>显示 
-		<select size="1" onchange="gotoPage(<%=currentPage%>)" id="p_pageSizeSelect">
+		<select size="1" onchange="javascript:gotoPage(<%=currentPage%>)" id="p_pageSizeSelect">
 			<option value="10"  <c:if test="${pageSize==10}">selected</c:if>>10</option>
 			<option value="25"  <c:if test="${pageSize==25}">selected</c:if>>25</option>
 			<option value="50"  <c:if test="${pageSize==50}">selected</c:if>>50</option>
@@ -42,7 +42,7 @@
 						<li class="active"><a href="javascript:void(0)">${i }</a></li>
 					</c:when>
 					<c:otherwise>
-						<li><a href="javascript:gotoPage(${i })">${i }</a></li>
+						<li><a href="javascript:gotoPage(${i })" >${i }</a></li>
 					</c:otherwise>
 				</c:choose>
 			</c:forEach>

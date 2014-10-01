@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.util.PropertyResourceBundle"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%PropertyResourceBundle configBundle = (PropertyResourceBundle)PropertyResourceBundle.getBundle("configs/scm"); %>
 <jsp:include page="header.jsp"></jsp:include>
 <div class="main-container" id="main-container"> 
    <script type="text/javascript">
@@ -54,7 +54,7 @@
 					}
 				</script> 
       <ul class="breadcrumb"> 
-       <li><i class="icon-home home-icon"></i> <a href="home.html">首页</a></li> 
+       <li><i class="icon-home home-icon"></i> <a href="home.html"><%=configBundle.getString("index") %></a></li> 
       </ul> 
       <!-- .breadcrumb --> 
       <div class="nav-search" id="nav-search"> 
@@ -74,8 +74,8 @@
         <!-- PAGE CONTENT BEGINS --> 
         <div class="alert alert-block alert-success"> 
          <button type="button" class="close" data-dismiss="alert"> <i class="icon-remove"></i> </button> 
-         <i class="icon-ok green"></i> 欢迎使用 
-         <strong class="green"> Ace进销存管理系统 <small>(v1.0)</small> </strong> 
+         <i class="icon-ok green"></i><%=configBundle.getString("weclome") %><%=configBundle.getString("use") %>
+         <strong class="green"><%=configBundle.getString("title") %><small><%=configBundle.getString("version") %></small> </strong> 
         </div>
        </div> 
        <!-- /.col --> 
@@ -84,7 +84,7 @@
        <div><img alt="条形码" src="barcode?msg=9787302337416" height="50px" width=130px/> </div>
        
        <script type="text/javascript">
-       var content= toUtf8("欢迎使用jscm,  本系统由莫梓奇开发,  博客:http://my.oschina.net/moziqi/blog");
+       var content= toUtf8("欢迎使用jscm,  本系统由莫梓奇开发");
        jQuery(function(){
     	   $("#qzcode").qrcode({ 
     		    render: "table", //table方式 

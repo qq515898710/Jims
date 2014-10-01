@@ -1,7 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>  
-<%@ taglib tagdir="/WEB-INF/tags" prefix="tags"%>  
+<%@ taglib tagdir="/WEB-INF/tags" prefix="tags"%>
 <jsp:include page="/WEB-INF/view/header.jsp"></jsp:include>
   <div class="main-container" id="main-container"> 
    <script type="text/javascript">
@@ -65,8 +65,9 @@
       <div class="row"> 
        <div class="col-xs-12"> 
         <h3 class="header smaller lighter blue">
-          <button id="bt-add-dialog" class="btn hide-option" data-toggle="modal"  data-target="#add-dialog-message" title="查找"><i class="icon-search align-top bigger-125"></i>查找 </button>
+          <button id="bt-add-dialog" class="btn hide-option" data-toggle="modal"  data-target="#add-dialog-m2essage" title="查找"><i class="icon-search align-top bigger-125"></i>查找 </button>
           <button id="bt-add-dialog" class="btn btn-success hide-option" data-toggle="modal"  data-target="#add-dialog-message" title="添加"><i class="icon-plus-sign align-top bigger-125"></i>添加 </button>
+          <tags:caozuoyuan_add></tags:caozuoyuan_add>
           <button id="bt-edit-dialog" class="btn btn-primary hide-option" data-toggle="modal"  data-target="#edit-dialog-message" title="修改"><i class="icon-edit align-top bigger-125"></i>修改</button>
           <button id="bt-delete-dialog" class="btn btn-danger hide-option" data-toggle="modal"  data-target="#delete-dialog-message" title="删除"><i class="icon-trash align-top bigger-125"></i>删除 </button>
                    <button id="bt-delete-dialog" class="btn btn-purple hide-option" data-toggle="modal"  data-target="#delete-dialog-message"  title="模版execl表格导入,点&lt;更多&gt;下载 " ><i class=" icon-cloud-upload align-top bigger-125"></i>导入 </button>  

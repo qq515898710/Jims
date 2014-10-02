@@ -5,7 +5,8 @@ import javax.annotation.Resource;
 import org.mo.jims.coop.entity.TbUserLog;
 import org.mo.jims.coop.repository.UserLogRepository;
 import org.mo.open.common.service.BaseService;
-
+import org.springframework.stereotype.Service;
+@Service("userLogService")
 public class UserLogService implements BaseService<TbUserLog, Long> {
 	
 	private UserLogRepository userLogRepository;

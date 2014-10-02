@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-@Service(value = "userService")
+@Service("userService")
 public class UserService implements BaseService<TbUser, String> {
 
 	private UserRepository userRepository;

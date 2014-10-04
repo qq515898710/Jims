@@ -39,15 +39,22 @@
            <h4 class="header blue lighter bigger"> <i class="icon-coffee green"></i> 欢迎使用 </h4> 
            <div class="space-6"></div> 
            <!-- 登录表单 --> 
-           <form id="login" class="form-horizontal"> 
+           <form id="login" method="post" action="checklogin"> 
             <fieldset> 
-             <label class="block clearfix"> <span class="block input-icon input-icon-right"> <input type="text" class="form-control" placeholder="请输入用户名" /> <i class="icon-user"></i> </span> </label> 
-             <label class="block clearfix"> <span class="block input-icon input-icon-right"> <input type="password" class="form-control" placeholder="请输入密码" /> <i class="icon-lock"></i> </span> </label> 
-             <label class="block clearfix"> <span class="block input-icon input-icon-right"> <input type="text " class="form-control"  placeholder="验证码" /><a href="javascript:void(0)"><img src="2code.jpg" alt="验证码" /></a> </span></label> 
+             <label class="block clearfix"> <span class="block input-icon input-icon-right"> 
+                <input type="text" class="form-control" placeholder="请输入用户名" id="name" name="name" /> <i class="icon-user"></i> </span> 
+             </label> 
+             <label class="block clearfix"> <span class="block input-icon input-icon-right"> 
+                <input type="password" class="form-control" placeholder="请输入密码"  id="password" name="password"/> <i class="icon-lock"></i> </span> 
+             </label> 
+             <label class="block clearfix"> <span class="block input-icon input-icon-right"> 
+                <input type="text "  placeholder="验证码"  id="code" name="code"/>
+                <img src="captcha-image" alt="验证码" width="60 " height="30" style="margin-bottom: -3px"  id="codeImage"/></span>
+             </label> 
              <div class="space"></div> 
              <div class="clearfix"> 
               <label class="inline"> <input type="checkbox" class="ace" /> <span class="lbl"> 记住</span> </label> 
-              <button type="button" class="width-35 pull-right btn btn-sm btn-primary"> <i class="icon-key"></i>登录 </button> 
+              <button type="submit" class="width-35 pull-right btn btn-sm btn-primary"> <i class="icon-key"></i>登录 </button> 
              </div> 
              <div class="space-4"></div> 
             </fieldset> 
@@ -131,6 +138,13 @@
   <!-- .main-container --> 
   <script src="assets/js/jquery-2.0.3.min.js"></script> 
   <script type="text/javascript">
+	  $(function(){
+	      $('#codeImage').click(function () {//生成验证码
+	      	$(this).attr('src', 'captcha-image?' + Math.floor(Math.random()*100) ).fadeIn(); 
+	      })
+	      	
+	  });
+	  
 		function show_box(id) {
 			jQuery('.widget-box.visible').removeClass('visible');
 			jQuery('#' + id).addClass('visible');

@@ -21,6 +21,14 @@ public class UserService {
 	private UserRepository userRepository;
 	private UserLogRepository userLogRepository;
 
+	public boolean checkLogin(TbUser user){
+		TbUser login = null;
+		login = userRepository.selectUserByNameAndPassword(user.getName(), user.getPassword());
+		if (login != null) {
+			return true;
+		}
+		return false;
+	}
 	/**
 	 * 分页显示用户信息, 从1算起
 	 * 

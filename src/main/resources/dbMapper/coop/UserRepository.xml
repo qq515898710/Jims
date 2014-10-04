@@ -49,6 +49,11 @@
 		</where>
 		LIMIT #{offset}, #{size}
 	</select>
+	
+	<select id="selectUserByNameAndPassword" resultMap="userResultMap">
+		<include refid="select_user" />
+		 WHERE name = #{name} AND password = #{password}
+	</select>
 
 	<!-- userRole -->
 	<resultMap type="TbUserRole" id="userRoleResultMap">

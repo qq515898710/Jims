@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import org.mo.jims.coop.entity.TbUser;
 
-public class UserLoginDTO implements Serializable {
+public class LoginDTO implements Serializable {
 	/**
 	 * 
 	 */

@@ -1,15 +1,22 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
 	<modelVersion>4.0.0</modelVersion>
+	
 	<groupId>org</groupId>
+	
 	<artifactId>Jims</artifactId>
+	
 	<version>0.0.1-SNAPSHOT</version>
+	
 	<packaging>war</packaging>
+	
 	<properties>
 		<logback.version>1.0.9</logback.version>
 		<jackson.version>1.9.13</jackson.version>
 		<spring.security.version>3.2.5.RELEASE</spring.security.version>
 	</properties>
+	
 	<dependencies>
 	
 		<!-- 二维码 -->

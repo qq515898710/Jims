@@ -19,4 +19,6 @@ public interface UserRepository extends BaseRepository<TbUser, String> {
 			@Param("username") String username, @Param("offset") int offset,
 			@Param("size") int size);
 
+	public TbUser selectUserByNameAndPassword(@Param("name")String name, @Param("password")String password);
+
 }

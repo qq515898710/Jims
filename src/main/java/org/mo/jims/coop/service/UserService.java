@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service("userService")
-public class UserService implements BaseService<TbUser, String> {
+public class UserService {
 
 	private UserRepository userRepository;
 	private UserLogRepository userLogRepository;
@@ -65,7 +65,6 @@ public class UserService implements BaseService<TbUser, String> {
 	 * @return
 	 */
 	@Transactional(readOnly = true, propagation = Propagation.NOT_SUPPORTED)
-	@Override
 	public TbUser getByPK(String name) {
 		TbUser tbUser = null;
 		tbUser = userRepository.selcetByName(name);
@@ -79,7 +78,6 @@ public class UserService implements BaseService<TbUser, String> {
 	 * @return
 	 */
 	@Transactional(noRollbackFor = Exception.class)
-	@Override
 	public boolean save(TbUser entity) {
 		TbUser userByName = this.getByPK(entity.getName());
 		if (userByName != null) {
@@ -96,14 +94,12 @@ public class UserService implements BaseService<TbUser, String> {
 	 * @param tbUser
 	 */
 	@Transactional(noRollbackFor = Exception.class)
-	@Override
 	public boolean alter(TbUser entity) {
 		userRepository.updateByPK(entity);
 		return true;
 	}
 
 	@Transactional(noRollbackFor = Exception.class)
-	@Override
 	public boolean removeByPK(String id) {
 		userRepository.deleteByPK(id);
 		return true;

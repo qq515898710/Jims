@@ -11,8 +11,9 @@
 	
 	<update id="updateByPK" parameterType="TbUserRole">
 		UPDATE tb_user_role SET 
-			type=#{type},
-		WHERE id=#{id}
+			type=#{type}
+		WHERE 
+			id=#{id}
 	</update>
 	
 	<delete id="deleteByPK" >

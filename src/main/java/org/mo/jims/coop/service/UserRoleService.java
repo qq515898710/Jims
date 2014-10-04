@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service( "userRoleService")
-public class UserRoleService implements BaseService<TbUserRole, Long> {
+public class UserRoleService  {
 	private UserRoleRepository userRoleRepository;
 
 	@Transactional(readOnly = true, propagation = Propagation.NOT_SUPPORTED)
@@ -21,27 +21,23 @@ public class UserRoleService implements BaseService<TbUserRole, Long> {
 	}
 
 	@Transactional(readOnly = true, propagation = Propagation.NOT_SUPPORTED)
-	@Override
 	public TbUserRole getByPK(Long id) {
 		return userRoleRepository.selectByPK(id);
 	}
 
 	@Transactional(noRollbackFor = Exception.class)
-	@Override
 	public boolean save(TbUserRole entity) {
 		userRoleRepository.insert(entity);
 		return true;
 	}
 
 	@Transactional(noRollbackFor = Exception.class)
-	@Override
 	public boolean alter(TbUserRole entity) {
 		userRoleRepository.updateByPK(entity);
 		return true;
 	}
 
 	@Transactional(noRollbackFor = Exception.class)
-	@Override
 	public boolean removeByPK(Long id) {
 		userRoleRepository.deleteByPK(id);
 		return true;

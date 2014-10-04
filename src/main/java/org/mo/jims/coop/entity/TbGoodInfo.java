@@ -6,6 +6,7 @@
 package org.mo.jims.coop.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * 商品信息
@@ -94,6 +95,28 @@ public class TbGoodInfo implements Serializable{
 	private java.util.Collection<TbStockReturn> tbStockReturn;
 	/** @pdRoleInfo migr=no name=TbProviderInfo assc=reference5 mult=0..1 side=A */
 	private TbProviderInfo tbProviderInfo;
+
+	public TbGoodInfo() {
+		super();
+	}
+
+	public TbGoodInfo(String gname, String abbreviation,
+			String origin, String units, String pack, String approvalNum,
+			String batchNum, String memo) {
+		super();
+		long currentTimeMillis = System.currentTimeMillis();
+		Date date = new Date(currentTimeMillis);
+		this.id = "g" + date.toString();
+		this.gname = gname;
+		this.abbreviation = abbreviation;
+		this.origin = origin;
+		this.units = units;
+		this.pack = pack;
+		this.approvalNum = approvalNum;
+		this.batchNum = batchNum;
+		this.memo = memo;
+	}
+
 
 	public java.lang.String getId() {
 		return id;

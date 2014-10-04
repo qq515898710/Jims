@@ -36,7 +36,9 @@ public class TbUser implements Serializable {
 	 * @pdOid 9a8402ff-e740-43bc-ae54-69bedd67ec7f
 	 */
 	private java.lang.String password;
-
+	/**
+	 * 创建时间
+	 */
 	private Date createDate;
 	/**
 	 * @pdRoleInfo migr=no name=TbUserLog assc=reference1
@@ -70,6 +72,20 @@ public class TbUser implements Serializable {
 	private java.util.Collection<TbStockReturn> tbStockReturn;
 
 	public java.util.Collection<TbInventoryInfo> tbInventoryInfo;
+
+	public TbUser() {
+		super();
+	}
+
+	public TbUser(String username, String password, Date createDate) {
+		super();
+		long currentTimeMillis = System.currentTimeMillis();
+		Date date = new Date(currentTimeMillis);
+		this.name = "u" + date.toString();
+		this.username = username;
+		this.password = password;
+		this.createDate = createDate;
+	}
 
 	public java.lang.String getName() {
 		return name;

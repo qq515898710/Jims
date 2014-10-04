@@ -6,6 +6,7 @@
 package org.mo.jims.coop.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * 入库信息主要内容
@@ -18,7 +19,7 @@ public class TbStock implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	/**
-	 * 入库编号,以"rk"字符串为前缀,加上商品的入库日期,再以3位数字作为后缀
+	 * 入库编号,以"stock"字符串为前缀,加上商品的入库日期,再以3位数字作为后缀
 	 * 
 	 * @pdOid 497419ac-c5ed-44c4-9358-6a8c49a026f0
 	 */
@@ -75,9 +76,30 @@ public class TbStock implements Serializable {
 	/** @pdRoleInfo migr=no name=TbProviderInfo assc=reference9 mult=0..1 side=A */
 	private TbProviderInfo tbProviderInfo;
 	/** @pdRoleInfo migr=no name=TbUser assc=reference13 mult=0..1 side=A */
-	public TbUser tbUser;
+	private TbUser tbUser;
 	/** @pdRoleInfo migr=no name=TbGoodInfo assc=reference16 mult=0..1 side=A */
 	private TbGoodInfo tbGoodInfo;
+
+	public TbStock() {
+		super();
+	}
+
+	public TbStock(int varietyAmount, float unitCost, int amount, float sum,
+			String check_conclusion, Date time, String clearingForm,
+			String handler) {
+		super();
+		long currentTimeMillis = System.currentTimeMillis();
+		Date date = new Date(currentTimeMillis);
+		this.id = "stock" + date.toString();
+		this.varietyAmount = varietyAmount;
+		this.unitCost = unitCost;
+		this.amount = amount;
+		this.sum = sum;
+		this.check_conclusion = check_conclusion;
+		this.time = time;
+		this.clearingForm = clearingForm;
+		this.handler = handler;
+	}
 
 	public java.lang.String getId() {
 		return id;

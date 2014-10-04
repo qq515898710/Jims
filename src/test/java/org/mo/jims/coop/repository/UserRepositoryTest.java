@@ -26,10 +26,10 @@ public class UserRepositoryTest extends BaseTest {
 
 	@Test
 	public void testSelcetByName() {
-		TbUser selcetByName = userRepository.selcetByName("moziqi");
+		TbUser selcetByName = userRepository.selcetByName("es");
 		System.out.println(selcetByName.getUsername()
-				+ selcetByName.getTbUserRole().getId()
-				+ selcetByName.getTbUserRole().getType());
+				+"-"+ selcetByName.getTbUserRole().getId()
+				+"-"+ selcetByName.getTbUserRole().getType());
 	}
 
 	@Test

@@ -2,61 +2,95 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="org.mo.jims.coop.repository.UserPermissionRepository">
 
-	<sql id="select_user">SELECT name, username, password, rid FROM tb_user</sql>
+	<sql id="select_user_permission">SELECT * FROM tb_user_permission</sql>
 	
-	<sql id="selcet_user_role">SELECT id, type FROM tb_user_role </sql>
-	
-	<sql id="selcet_user_log">SELECT id, name, time FROM tb_user_log</sql>
-	
-	<sql id="selcet_tb_sell">SELECT id,gid,cid,uid,unit_cost,amount,sum,time,clearing_form,headler FROM tb_sell</sql>
-	
-	<sql id="selcet_tb_sell_return">SELECT id,gid,cid,uid,unit_cost,amount,sum,time,clearing_form,headler FROM tb_sell_return</sql>
-	
-	<sql id="selcet_tb_stock">SELECT id,pid,uid,gid,variety_amount,unit_cost,amount,sum,check_conclusion,time,clearing_form,handler FROM tb_stock</sql>
-	
-	<sql id="selcet_tb_stock_return">SELECT id,pid,uid,gid,variety_amount,unit_cost,amount,sum,check_conclusion,time,clearing_form,handler FROM tb_return</sql>
-	
-	<insert id="insert" parameterType="TbUserLog" useGeneratedKeys="true" keyProperty="id">
-		INSERT INTO tb_user_log(name, time)
-		VALUE(#{tbUser.name}, #{time})
+	<insert id="insert" parameterType="TbUserPermission" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO tb_user_permission(rid,KeHuGuanLi,
+			ShangPinGuanLi,GongYingShangGuanLi,JinHuoDan,JinHuoTuiHuo,
+			XiaoShouDan,XiaoShouTuiHuo,KeHuChaXun,ShangPinChaXun,
+			GongYingShangChaXun,XiaoShouChaXun,XiaoShouTuiHuoChaXun,
+			RuKuChaXun,RuKuTuiHuoChaXun,XiaoShouPaiHang,
+			KuCunPanDian,JiaGeTiaoZheng,CaoZuoYuanGuanLi,GengGaiMiMa,
+			QuanXianGuanLi)
+		VALUE(#{tbUserRole.id}, #{keHuGuanLi},#{shangPinGuanLi},#{gongYingShangGuanLi},
+			#{jinHuoDan},#{jinHuoTuiHuo},#{xiaoShouDan},#{xiaoShouTuiHuo},
+			#{keHuChaXun},#{shangPinChaXun},#{gongYingShangChaXun},
+			#{xiaoShouChaXun},#{xiaoShouTuiHuoChaXun},#{ruKuChaXun},
+			#{ruKuTuiHuoChaXun},#{xiaoShouPaiHang},#{kuCunPanDian},
+			#{jiaGeTiaoZheng},#{caoZuoYuanGuanLi},#{gengGaiMiMa},
+			#{quanXianGuanLi})
 	</insert>
 	
-	<update id="updateByPK" parameterType="TbUserLog">
+	<update id="updateByPK" parameterType="TbUserPermission">
 		UPDATE tb_user_log SET 
-			username=#{username},
-			password=#{password},
-			rid=#{tbUserRole.id}
-		WHERE id=#{id}
+			rid=#{tbUserRole.id},
+			KeHuGuanLi=#{keHuGuanLi},
+			ShangPinGuanLi=#{shangPinGuanLi},
+			GongYingShangGuanLi=#{gongYingShangGuanLi},
+			JinHuoDan=#{jinHuoDan},
+			JinHuoTuiHuo=#{jinHuoTuiHuo},
+			XiaoShouDan=#{xiaoShouTuiHuo},
+			XiaoShouTuiHuo=#{xiaoShouTuiHuo},
+			KeHuChaXun=#{keHuChaXun},
+			ShangPinChaXun=#{shangPinChaXun},
+			GongYingShangChaXun=#{gongYingShangChaXun},
+			XiaoShouChaXun=#{xiaoShouChaXun},
+			XiaoShouTuiHuoChaXun=#{xiaoShouTuiHuoChaXun},
+			RuKuChaXun=#{ruKuChaXun},
+			RuKuTuiHuoChaXun=#{ruKuTuiHuoChaXun},
+			XiaoShouPaiHang=#{xiaoShouPaiHang},
+			KuCunPanDian=#{kuCunPanDian},
+			JiaGeTiaoZheng=#{jiaGeTiaoZheng},
+			CaoZuoYuanGuanLi=#{caoZuoYuanGuanLi},
+			GengGaiMiMa=#{GengGaiMiMa},
+			QuanXianGuanLi=#{quanXianGuanLi}
+		WHERE 
+			id=#{id}
 	</update>
 	
 	<delete id="deleteByPK" >
-		DELETE FROM tb_user_log WHERE id=#{id}
+		DELETE FROM tb_user_log_permission WHERE id=#{id}
 	</delete>
 	
-	<select id="selectByPK" resultMap="userLogResultMap">
-		<include refid="selcet_user_log"/>
+	<select id="selectByPK" resultMap="userPermissionResultMap">
+		<include refid="select_user_permission"/>
 		WHERE id = #{id}
 	</select>
 	
-	<select id="countAllByName" resultType="int">
-		SELECT COUNT(*) FROM tb_user_log WHERE name=#{name}
+	<select id="countAll" resultType="int">
+		SELECT COUNT(*) FROM tb_user_permission
 	</select>
 	
-	<select id="selectAllByName" resultMap="userLogResultMap">
-		<include refid="selcet_user_log"/>
-		WHERE name=#{name} 
+	<select id="selectAll" resultMap="userPermissionResultMap">
+		<include refid="select_user_permission"/>
 		ORDER BY id DESC
-		LIMIT #{offset}, #{size}
 	</select>
 	
-	<!-- userLog -->
-	<resultMap type="TbUserLog" id="userLogResultMap">
+	<!-- userPermission -->
+	<resultMap type="TbUserPermission" id="userPermissionResultMap">
 		<id property="id" column="id" />
-		<result property="time" column="time"/>
-		<association property="tbUser"  javaType="TbUser">
-			<id property="name" column="name"/>
-			<result property="username" column="username"/>
-			<result property="password" column="password"/>
+		<result property="keHuGuanLi" column="KeHuGuanLi"/>
+		<result property="shangPinGuanLi" column="ShangPinGuanLi"/>
+		<result property="gongYingShangGuanLi" column="GongYingShangGuanLi"/>
+		<result property="jinHuoDan" column="JinHuoDan"/>
+		<result property="jinHuoTuiHuo" column="JinHuoTuiHuo"/>
+		<result property="xiaoShouDan" column="XiaoShouDan"/>
+		<result property="xiaoShouTuiHuo" column="XiaoShouTuiHuo"/>
+		<result property="keHuChaXun" column="KeHuChaXun"/>
+		<result property="shangPinChaXun" column="ShangPinChaXun"/>
+		<result property="gongYingShangChaXun" column="GongYingShangChaXun"/>
+		<result property="xiaoShouChaXun" column="XiaoShouChaXun"/>
+		<result property="xiaoShouTuiHuoChaXun" column="XiaoShouTuiHuoChaXun"/>
+		<result property="ruKuChaXun" column="RuKuChaXun"/>
+		<result property="ruKuTuiHuoChaXun" column="RuKuTuiHuoChaXun"/>
+		<result property="kuCunPanDian" column="KuCunPanDian"/>
+		<result property="jiaGeTiaoZheng" column="JiaGeTiaoZheng"/>
+		<result property="caoZuoYuanGuanLi" column="CaoZuoYuanGuanLi"/>
+		<result property="gengGaiMiMa" column="GengGaiMiMa"/>
+		<result property="quanXianGuanLi" column="QuanXianGuanLi"/>
+		<association property="tbUserRole"  javaType="TbUserRole">
+			<id property="id" column="rid"/>
+			<result property="type" column="type"/>
 		</association>
 	</resultMap>
 	

@@ -6,13 +6,14 @@
 package org.mo.jims.coop.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * 销售退货信息
  * 
  * @pdOid b0f3b7c2-6e6d-4372-9738-fd3a97855e0c
  */
-public class TbSellReturn implements Serializable{
+public class TbSellReturn implements Serializable {
 	/**
 	 * 
 	 */
@@ -38,6 +39,24 @@ public class TbSellReturn implements Serializable{
 	private TbCustomerInfo tbCustomerInfo;
 	/** @pdRoleInfo migr=no name=TbUser assc=reference12 mult=0..1 side=A */
 	private TbUser tbUser;
+
+	public TbSellReturn() {
+		super();
+	}
+
+	public TbSellReturn(float unitCost, int amount, float sum, Date time,
+			String clearingForm, String handler) {
+		super();
+		long currentTimeMillis = System.currentTimeMillis();
+		Date date = new Date(currentTimeMillis);
+		this.id = "sellr" + date.toString();
+		this.unitCost = unitCost;
+		this.amount = amount;
+		this.sum = sum;
+		this.time = time;
+		this.clearingForm = clearingForm;
+		this.handler = handler;
+	}
 
 	public java.lang.String getId() {
 		return id;

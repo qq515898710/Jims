@@ -6,6 +6,7 @@
 package org.mo.jims.coop.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * 供应商信息
@@ -99,6 +100,29 @@ public class TbProviderInfo implements Serializable{
 	 *             coll=java.util.Collection impl=java.util.HashSet mult=0..*
 	 */
 	private java.util.Collection<TbStockReturn> tbStockReturn;
+
+	public TbProviderInfo() {
+		super();
+	}
+
+	public TbProviderInfo(String pname, String abbreviation,
+			String address, String postalCode, String phone, String fax,
+			String contacts, String telephone, String depositBank, String email) {
+		super();
+		long currentTimeMillis = System.currentTimeMillis();
+		Date date = new Date(currentTimeMillis);
+		this.id = "p" + date.toString();
+		this.pname = pname;
+		this.abbreviation = abbreviation;
+		this.address = address;
+		this.postalCode = postalCode;
+		this.phone = phone;
+		this.fax = fax;
+		this.contacts = contacts;
+		this.telephone = telephone;
+		this.depositBank = depositBank;
+		this.email = email;
+	}
 
 	public java.lang.String getId() {
 		return id;

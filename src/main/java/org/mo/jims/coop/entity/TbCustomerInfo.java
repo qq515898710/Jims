@@ -6,6 +6,7 @@
 package org.mo.jims.coop.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * 客户信息
@@ -100,6 +101,31 @@ public class TbCustomerInfo implements Serializable {
 	 *             coll=java.util.Collection impl=java.util.HashSet mult=0..*
 	 */
 	private java.util.Collection<TbSellReturn> tbSellReturn;
+
+	public TbCustomerInfo() {
+		super();
+	}
+
+	public TbCustomerInfo(String cname, String abbreviation, String address,
+			String postalCode, String phone, String fax, String contacts,
+			String telephone, String email, String depositBank,
+			String accountBank) {
+		super();
+		long currentTimeMillis = System.currentTimeMillis();
+		Date date = new Date(currentTimeMillis);
+		this.id = "c" + date.toString();
+		this.cname = cname;
+		this.abbreviation = abbreviation;
+		this.address = address;
+		this.postalCode = postalCode;
+		this.phone = phone;
+		this.fax = fax;
+		this.contacts = contacts;
+		this.telephone = telephone;
+		this.email = email;
+		this.depositBank = depositBank;
+		this.accountBank = accountBank;
+	}
 
 	public java.lang.String getId() {
 		return id;

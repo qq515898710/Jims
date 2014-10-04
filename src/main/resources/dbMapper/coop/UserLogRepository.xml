@@ -11,9 +11,8 @@
 	
 	<update id="updateByPK" parameterType="TbUserLog">
 		UPDATE tb_user_log SET 
-			username=#{username},
-			password=#{password},
-			rid=#{tbUserRole.id}
+			name=#{tbUser.name},
+			time=#{time},
 		WHERE id=#{id}
 	</update>
 	
@@ -26,13 +25,33 @@
 		WHERE id = #{id}
 	</select>
 	
-	<select id="countAllByName" resultType="int">
-		SELECT COUNT(*) FROM tb_user_log WHERE name=#{name}
+	<select id="countByName" resultType="int">
+		SELECT COUNT(*) FROM tb_user_log 
+		<where>
+			<if test="name != null and name !=''">
+				name=#{name}
+			</if>
+		</where>
 	</select>
 	
-	<select id="selectAllByName" resultMap="userLogResultMap">
+	<select id="selectByName" resultMap="userLogResultMap">
 		<include refid="selcet_user_log"/>
-		WHERE name=#{name} 
+		<where>
+			<if test="name != null and name !=''">
+				name=#{name}
+			</if>
+		</where>
+		ORDER BY id DESC
+		LIMIT #{offset}, #{size}
+	</select>
+	
+	<select id="countByLikeName" resultType="int">
+		SELECT COUNT(*) FROM tb_user_log WHERE name LIKE CONCAT('%', #{name},'%')
+	</select>
+	
+	<select id="selectByLikeName" resultMap="userLogResultMap">
+		<include refid="selcet_user_log"/>
+		WHERE name LIKE CONCAT('%', #{name},'%')
 		ORDER BY id DESC
 		LIMIT #{offset}, #{size}
 	</select>
@@ -45,7 +64,15 @@
 			<id property="name" column="name"/>
 			<result property="username" column="username"/>
 			<result property="password" column="password"/>
+			<result property="createDate" column="create_date"/> 
 		</association>
 	</resultMap>
 	
+	<!-- user -->
+	<resultMap type="TbUser" id="userRseultMap">
+			<id property="name" column="name"/>
+			<result property="username" column="username"/>
+			<result property="password" column="password"/>
+			<result property="createDate" column="create_date"/> 
+	</resultMap>
 </mapper>

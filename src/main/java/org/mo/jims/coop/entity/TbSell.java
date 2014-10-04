@@ -6,6 +6,7 @@
 package org.mo.jims.coop.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * 销售信息
@@ -18,7 +19,7 @@ public class TbSell implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	/**
-	 * 前缀"s",后缀1000格式
+	 * 前缀"sell",后缀1000格式
 	 * 
 	 * @pdOid 6ccf4dc8-fa6a-4003-af5c-030efd818fac
 	 */
@@ -62,6 +63,24 @@ public class TbSell implements Serializable{
 	private TbCustomerInfo tbCustomerInfo;
 	/** @pdRoleInfo migr=no name=TbUser assc=reference8 mult=0..1 side=A */
 	private TbUser tbUser;
+
+	public TbSell() {
+		super();
+	}
+
+	public TbSell(float unitCost, int amount, float sum, Date time,
+			String clearingForm, String headler) {
+		super();
+		long currentTimeMillis = System.currentTimeMillis();
+		Date date = new Date(currentTimeMillis);
+		this.id = "s" + date.toString();
+		this.unitCost = unitCost;
+		this.amount = amount;
+		this.sum = sum;
+		this.time = time;
+		this.clearingForm = clearingForm;
+		this.headler = headler;
+	}
 
 	public java.lang.String getId() {
 		return id;

@@ -22,12 +22,11 @@ import org.springframework.web.servlet.ModelAndView;
 public class UserController {
 
 	private UserService userService;
-	private UserDTO userDTO;
 
 	@RequestMapping(value = "caozuoyuanguanli.html/{page}/{size}", method = RequestMethod.GET)
 	public ModelAndView caoZuoYuanGuanLi(@PathVariable int page,
 			@PathVariable int size, ModelMap model) {
-		userDTO = new UserDTO();
+		UserDTO userDTO = new UserDTO();
 		Page<TbUser> allUserInfo = userService.getALLUserInfo(
 				userDTO.toObject(), page, size);
 		model.put("baseActive", "sysManage");

@@ -9,10 +9,15 @@ import org.springframework.stereotype.Repository;
 
 @Repository("userLogRepository")
 public interface UserLogRepository extends BaseRepository<TbUserLog, Long> {
-	
-	public int countAllByName(@Param("name")String name);
-	
-	public List<TbUserLog> selectAllByName(@Param("name") String name, @Param("offset") int offset, 
-			@Param("size") int size);
-	
+
+	public int countByName(@Param("name") String name);
+
+	public List<TbUserLog> selectByName(@Param("name") String name,
+			@Param("offset") int offset, @Param("size") int size);
+
+	public int countByLikeName(@Param("name") String name);
+
+	public List<TbUserLog> selectByLikeName(@Param("name") String name,
+			@Param("offset") int offset, @Param("size") int size);
+
 }

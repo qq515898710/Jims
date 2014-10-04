@@ -1,4 +1,4 @@
-package org.mo.open.common.util;
+package org.mo.open.common.barcode;
 
 import java.awt.image.BufferedImage;
 import java.io.FileOutputStream;

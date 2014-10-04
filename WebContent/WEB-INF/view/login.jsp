@@ -28,8 +28,8 @@
      <div class="col-sm-10 col-sm-offset-1"> 
       <div class="login-container"> 
        <div class="center"> 
-        <h1> <i class="icon-leaf green"></i> <span class="red">Ace</span> <span class="white">Application</span> </h1> 
-        <h4 class="blue">&copy; Company Name</h4> 
+        <h1> <i class="icon-leaf green"></i><span class="purple">进销存管理系统</span> </h1> 
+        <h4 class="blue">&copy; Company moziqi</h4> 
        </div> 
        <div class="space-6"></div> 
        <div class="position-relative"> 
@@ -39,11 +39,11 @@
            <h4 class="header blue lighter bigger"> <i class="icon-coffee green"></i> 欢迎使用 </h4> 
            <div class="space-6"></div> 
            <!-- 登录表单 --> 
-           <form id="login"> 
+           <form id="login" class="form-horizontal"> 
             <fieldset> 
              <label class="block clearfix"> <span class="block input-icon input-icon-right"> <input type="text" class="form-control" placeholder="请输入用户名" /> <i class="icon-user"></i> </span> </label> 
              <label class="block clearfix"> <span class="block input-icon input-icon-right"> <input type="password" class="form-control" placeholder="请输入密码" /> <i class="icon-lock"></i> </span> </label> 
-             <label class="block clearfix"> <span class="block input-icon input-icon-right"> <input type="text " class="form-control" placeholder="验证码" /> <i class="icon-lock"></i><img src="2code.jpg" alt="验证码" style="float: right;"/> </span></label> 
+             <label class="block clearfix"> <span class="block input-icon input-icon-right"> <input type="text " class="form-control"  placeholder="验证码" /><a href="javascript:void(0)"><img src="2code.jpg" alt="验证码" /></a> </span></label> 
              <div class="space"></div> 
              <div class="clearfix"> 
               <label class="inline"> <input type="checkbox" class="ace" /> <span class="lbl"> 记住</span> </label> 

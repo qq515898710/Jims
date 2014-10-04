@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.mo.jims.coop.repository.SellRepository">
+
+	<sql id="select_sell_info">
+		SELECT 
+			id,
+		 	gid, 
+		 	cid,
+		 	uid, 
+		 	unit_cost, 
+		 	amount, 
+		 	sum, 
+		 	time, 
+		 	clearing_form, 
+		 	headler
+		FROM tb_sell_info
+	</sql>
+
+	<insert id="insert" parameterType="TbSell">
+		INSERT INTO tb_sell_info(
+			id,
+		 	gid, 
+		 	cid,
+		 	uid, 
+		 	unit_cost, 
+		 	amount, 
+		 	sum, 
+		 	time, 
+		 	clearing_form, 
+		 	headler)
+		VALUE(#{id}, #{tbGoodInfo.id},#{tbCustomerInfo.id},#{tbUser.id}, #{unitCost},
+			#{amount},#{sum},#{time},#{clearingForm},#{headler})
+	</insert>
+
+	<update id="updateByPK" parameterType="TbSell">
+		UPDATE tb_sell_info SET
+		 	gid=#{tbGoodInfo.id}, 
+		 	cid=#{tbCustomerInfo.id},
+		 	uid=#{tbUser.id}, 
+		 	unit_cost=#{unitCost}, 
+		 	amount=#{amount}, 
+		 	sum=#{sum}, 
+		 	time=#{time}, 
+		 	clearing_form=#{clearingForm}, 
+		 	headler=#{headler}
+		WHERE
+			id=#{id}
+	</update>
+
+	<delete id="deleteByPK">
+		DELETE FROM tb_sell_info WHERE id=#{id}
+	</delete>
+
+	<select id="selectByPK" resultMap="sellResultMap">
+		<include refid="select_sell_info" />
+		WHERE id = #{id}
+	</select>
+
+
+	<!-- sell -->
+	<resultMap type="TbSell" id="sellResultMap">
+		<id property="id" column="id" />
+		<result property="unitCost" column="unit_cost" />
+		<result property="amount" column="amount" />
+		<result property="sum" column="sum" />
+		<result property="time" column="time" />
+		<result property="clearingForm" column="clearing_form" />
+		<result property="headler" column="headler" />
+				<association property="tbGoodInfo" javaType="TbGoodInfo">
+			<id property="id" column="gid"/>
+			<result property="gname" column="cname"/>
+		</association>
+		<association property="tbCustomerInfo" javaType="TbCustomerInfo">
+			<id property="id" column="cid"/>
+			<result property="cname" column="cname"/>
+		</association>
+		<association property="tbUser" javaType="TbUser">
+			<id property="id" column="uid"/>
+			<result property="uname" column="uname"/>
+		</association>
+	</resultMap>
+
+</mapper>

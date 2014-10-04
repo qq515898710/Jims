@@ -9648,7 +9648,7 @@ th .lbl:only-child, td .lbl:only-child {
 }
 
 .login-layout {
-	background-color: #1d2024
+	background-color: #CCCC99
 }
 
 .login-layout .main-container:after {
@@ -9674,7 +9674,7 @@ th .lbl:only-child, td .lbl:only-child {
 	border-bottom: 0;
 	box-shadow: none;
 	padding: 6px;
-	background-color: #394557;
+	background-color: #a069c3 !important;
 	-moz-transform: scale(0, 1) translate(-150px);
 	-webkit-transform: scale(0, 1) translate(-150px);
 	-o-transform: scale(0, 1) translate(-150px);

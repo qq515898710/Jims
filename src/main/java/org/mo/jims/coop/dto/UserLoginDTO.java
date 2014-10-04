@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import org.mo.jims.coop.entity.TbUser;
 
-public class UserDTO implements Serializable {
+public class UserLoginDTO implements Serializable {
 	/**
 	 * 
 	 */
@@ -16,8 +16,8 @@ public class UserDTO implements Serializable {
 	
 	private String password;
 	
-	private String repassword;
-
+	private String code;
+	
 	public TbUser toObject() {
 		TbUser tbUser = new TbUser();
 		tbUser.setName(name);
@@ -50,12 +50,12 @@ public class UserDTO implements Serializable {
 		this.password = password;
 	}
 
-	public String getRepassword() {
-		return repassword;
+	public String getCode() {
+		return code;
 	}
 
-	public void setRepassword(String repassword) {
-		this.repassword = repassword;
+	public void setCode(String code) {
+		this.code = code;
 	}
 
 }

@@ -2,7 +2,7 @@ package org.mo.jims.coop.controller;
 
 import javax.annotation.Resource;
 
-import org.mo.jims.coop.dto.UserDTO;
+import org.mo.jims.coop.dto.UserLoginDTO;
 import org.mo.jims.coop.entity.TbUser;
 import org.mo.jims.coop.service.UserService;
 import org.mo.open.common.util.JsonResponse;
@@ -26,7 +26,7 @@ public class UserController {
 	@RequestMapping(value = "caozuoyuanguanli.html/{page}/{size}", method = RequestMethod.GET)
 	public ModelAndView caoZuoYuanGuanLi(@PathVariable int page,
 			@PathVariable int size, ModelMap model) {
-		UserDTO userDTO = new UserDTO();
+		UserLoginDTO userDTO = new UserLoginDTO();
 		Page<TbUser> allUserInfo = userService.getALLUserInfo(
 				userDTO.toObject(), page, size);
 		model.put("baseActive", "sysManage");
@@ -40,7 +40,7 @@ public class UserController {
 	public JsonResponse showUserInfo(
 			@RequestParam(required = true, defaultValue = "10") int size,
 			@RequestParam(required = true, defaultValue = "1") int page,
-			@RequestBody(required = false) UserDTO userDTO) {
+			@RequestBody(required = false) UserLoginDTO userDTO) {
 		Page<TbUser> allUserInfo = userService.getALLUserInfo(
 				userDTO.toObject(), page, size);
 		return null;

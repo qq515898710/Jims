@@ -39,7 +39,7 @@
            <h4 class="header blue lighter bigger"> <i class="icon-coffee green"></i> 欢迎使用 </h4> 
            <div class="space-6"></div> 
            <!-- 登录表单 --> 
-           <form id="login" method="post" action="checklogin"> 
+           <form id="login" > 
             <fieldset> 
              <label class="block clearfix"> <span class="block input-icon input-icon-right"> 
                 <input type="text" class="form-control" placeholder="请输入用户名" id="name" name="name" /> <i class="icon-user"></i> </span> 
@@ -53,8 +53,8 @@
              </label> 
              <div class="space"></div> 
              <div class="clearfix"> 
-              <label class="inline"> <input type="checkbox" class="ace" /> <span class="lbl"> 记住</span> </label> 
-              <button type="submit" class="width-35 pull-right btn btn-sm btn-primary"> <i class="icon-key"></i>登录 </button> 
+              <label class="inline"> <input type="checkbox" class="ace"  id="remember" name="remember"/> <span class="lbl"> 记住</span> </label> 
+              <button type="button" class="width-35 pull-right btn btn-sm btn-primary" id="loginButton"> <i class="icon-key"></i>登录 </button> 
              </div> 
              <div class="space-4"></div> 
             </fieldset> 
@@ -135,20 +135,50 @@
    </div> 
    <!-- .main-content --> 
   </div> 
+  <img id="loading" src="assets/css/images/loading.gif" alt="正在加载中..."  />
   <!-- .main-container --> 
   <script src="assets/js/jquery-2.0.3.min.js"></script> 
+  <script src="assets/js/jquery.lazyload.js"></script> 
   <script type="text/javascript">
-	  $(function(){
+  	$(document).ready(function(){
+  	  	
 	      $('#codeImage').click(function () {//生成验证码
 	      	$(this).attr('src', 'captcha-image?' + Math.floor(Math.random()*100) ).fadeIn(); 
 	      })
-	      	
+
+	  	$("#loginButton").click(function() {
+			$.ajax({
+				type : "POST",
+				url : "checklogin",
+				contentType : "application/json", // 必须有
+	 			dataType : "json", // 表示返回值类型，不必须
+				data : JSON.stringify({
+					'name' : $("#name").val(),
+					'password' : $("#password").val(),
+					'code':$("#code").val()
+				}),
+				async: true,
+				success : function(data) {
+					if(data.info == 1){
+						location.href="home.html";
+					}else if(data.user_error ==2 ){
+						alert("帐号不存在或密码错误");
+					}else if(data.code_error == 3){
+						window.location.reload(true);
+						alert("验证码错误");
+					}
+				},
+				error : function(XMLHttpRequest, textStatus, errorThrown) {  
+	                 alert(XMLHttpRequest.status+"-"+XMLHttpRequest.readyState+"-"+textStatus);
+	            }
+			});
+		});
 	  });
 	  
-		function show_box(id) {
-			jQuery('.widget-box.visible').removeClass('visible');
-			jQuery('#' + id).addClass('visible');
-		}
+	function show_box(id) {
+		jQuery('.widget-box.visible').removeClass('visible');
+		jQuery('#' + id).addClass('visible');
+	}
 	</script>  
  </body>
 </html>

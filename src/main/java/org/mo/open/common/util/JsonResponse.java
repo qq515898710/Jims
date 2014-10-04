@@ -21,7 +21,7 @@ public class JsonResponse {
 		if (content == null) {
 			return String.format("{success:%b,message:'%s'}", success, message);
 		}
-		return null;
+		return JSonUtil.toJSon(content);
 	}
 
 	public boolean isSuccess() {

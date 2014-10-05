@@ -44,6 +44,6 @@
 		</property>
 	</bean>
 	
-	<!-- <import resource="security-Context.xml" /> -->
+	<import resource="springSecurity-Context.xml" />
 	<import resource="mysql-Context.xml"/>
 </beans>

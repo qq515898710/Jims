@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML >
 <html lang="zh-cn">
 <head>
@@ -18,6 +19,7 @@
   <link rel="stylesheet" href="assets/css/font-awesome.min.css" media="all" /> 
   <link rel="stylesheet" href="assets/css/ace.min.css" media="all" /> 
   <link rel="stylesheet" href="assets/css/ace-rtl.min.css" media="all" /> 
+  <link rel="stylesheet" href="assets/css/scm.css" media="all" /> 
   <link rel="icon" type="image/png" href="assets/images/favicon.ico" /> 
  </head> 
  <!-- 配色网站 http://tool.c7sky.com/webcolor/#hue_8 --> 
@@ -31,8 +33,16 @@
         <h1> <i class="icon-leaf green"></i><span class="purple">进销存管理系统</span> </h1> 
         <h4 class="blue">&copy; Company moziqi</h4> 
        </div> 
-       <div class="space-6"></div> 
-       <div class="position-relative"> 
+       <div class="space-6"></div>
+       <div class="position-relative">
+         <div class="close" role="alert" id="alert">
+           <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+            <strong><div id="error-info"></div></strong>
+        </div>
+         <div class="" role="alert" >
+           <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+            <strong>${sessionScope.SPRING_SECURITY_LAST_EXCEPTION.message } </strong>
+        </div>
         <div id="login-box" class="login-box visible widget-box no-border"> 
          <div class="widget-body"> 
           <div class="widget-main"> 
@@ -45,16 +55,16 @@
                 <input type="text" class="form-control" placeholder="请输入用户名" id="name" name="name" /> <i class="icon-user"></i> </span> 
              </label> 
              <label class="block clearfix"> <span class="block input-icon input-icon-right"> 
-                <input type="password" class="form-control" placeholder="请输入密码"  id="password" name="password"/> <i class="icon-lock"></i> </span> 
+                <input type="password" class="form-control" placeholder="请输入密码"  id="password" name="password" /> <i class="icon-lock"></i> </span> 
              </label> 
              <label class="block clearfix"> <span class="block input-icon input-icon-right"> 
-                <input type="text "  placeholder="验证码"  id="code" name="code"/>
-                <img src="captcha-image" alt="验证码" width="60 " height="30" style="margin-bottom: -3px"  id="codeImage"/></span>
+                <input type="text "  class="" placeholder="验证码"  id="code" name="code" />
+                <img src="captcha-image" alt="验证码" width="90 " height="30" style="margin-bottom: -3px"  id="codeImage"/></span>
              </label> 
              <div class="space"></div> 
              <div class="clearfix"> 
-              <label class="inline"> <input type="checkbox" class="ace"  id="remember" name="remember"/> <span class="lbl"> 记住</span> </label> 
-              <button type="button" class="width-35 pull-right btn btn-sm btn-primary" id="loginButton"> <i class="icon-key"></i>登录 </button> 
+              <label class="inline"> <input type="checkbox" class="ace"  id="remember" name="_spring_security_remember_me"/> <span class="lbl"> 记住</span> </label> 
+              <button type="button" class="width-35 pull-right btn btn-sm btn-primary" id="loginButton" autocomplete="off"  data-loading-text="正在处理中..." > <i class="icon-key"></i>登录 </button> 
              </div> 
              <div class="space-4"></div> 
             </fieldset> 
@@ -124,8 +134,8 @@
          </div> 
          <!-- /widget-body --> 
         </div> 
-        <!-- /signup-box --> 
-       </div> 
+        <!-- /signup-box -->
+       </div>
        <!-- /position-relative --> 
       </div> 
      </div> 
@@ -135,49 +145,91 @@
    </div> 
    <!-- .main-content --> 
   </div> 
-  <img id="loading" src="assets/css/images/loading.gif" alt="正在加载中..."  />
   <!-- .main-container --> 
-  <script src="assets/js/jquery-2.0.3.min.js"></script> 
+  <script src="assets/js/jquery-2.0.3.min.js"></script>
   <script src="assets/js/jquery.lazyload.js"></script> 
+  <script src="assets/js/bootstrap.min.js"></script>
   <script type="text/javascript">
-  	$(document).ready(function(){
-  	  	
-	      $('#codeImage').click(function () {//生成验证码
-	      	$(this).attr('src', 'captcha-image?' + Math.floor(Math.random()*100) ).fadeIn(); 
-	      })
-
-	  	$("#loginButton").click(function() {
-			$.ajax({
-				type : "POST",
-				url : "checklogin",
-				contentType : "application/json", // 必须有
-	 			dataType : "json", // 表示返回值类型，不必须
-				data : JSON.stringify({
-					'name' : $("#name").val(),
-					'password' : $("#password").val(),
-					'code':$("#code").val()
-				}),
-				async: true,
-				success : function(data) {
-					if(data.info == 1){
-						location.href="home.html";
-					}else if(data.user_error ==2 ){
-						alert("帐号不存在或密码错误");
-					}else if(data.code_error == 3){
-						window.location.reload(true);
-						alert("验证码错误");
-					}
-				},
-				error : function(XMLHttpRequest, textStatus, errorThrown) {  
-	                 alert(XMLHttpRequest.status+"-"+XMLHttpRequest.readyState+"-"+textStatus);
+  $(document).ready(function() {
+	    $('#codeImage').click(function() { //生成验证码
+	        $(this).attr('src', 'captcha-image?' + Math.floor(Math.random() * 100)).fadeIn();
+	    }) //codeImage.click
+	  //文本框失去焦点后
+	    $('form :input').blur(function() {//表单验证
+	        var $parent = $(this).parent();
+	        $parent.find(".formtips").remove();
+	        //验证用户名
+	        if ($(this).is('#name')) {
+	            if (this.value == "" || this.value.length < 6) {
+	                var errorMsg = '请输入至少6位的用户名.';
+	                $parent.append('<span class="formtips onError">' + errorMsg + '</span>');
 	            }
-			});
-		});
-	  });
-	  
+	        }
+	        //验证密码
+	        if ($(this).is('#password')) {
+	            if ( this.value.length >= 6 && this.value.length <= 20) {
+		            // 
+	            } else {
+	                var errorMsg = '密码应该为6-20位之间.';
+	                $parent.append('<span class="formtips onError">' + errorMsg + '</span>');
+	            }
+	        }
+	        //验证密码
+	        if ($(this).is('#code')) {
+	            if (this.value == "") {
+	                var errorMsg = '验证码不能为空.';
+	                $parent.append('<span class="formtips onError">' + errorMsg + '</span>');
+	            }
+	        }
+	    }).keyup(function() {
+	        $(this).triggerHandler("blur");
+	    }).focus(function() {
+	        $(this).triggerHandler("blur");
+	    }); //end blur
+	    $("#loginButton").on('click',function() { //登录事件
+	    	$("form :input").trigger('blur');
+	    	var numError = $('form .onError').length;
+            if(numError){
+                return false;
+            }
+	        var $btn = $(this).button('loading');
+	        $.ajax({
+	            type: "POST",
+	            url: "checklogin",
+	            contentType: "application/json",
+	            // 必须有
+	            dataType: "json",
+	            // 表示返回值类型，不必须
+	            data: JSON.stringify({
+	                'name': $("#name").val().trim(),
+	                'password': $("#password").val().trim(),
+	                'code': $("#code").val().trim()
+	            }),
+	            async: true,
+	            success: function(data) {
+	                if (data.info == 1) {
+	                    location.href = "home.html";
+	                } else if (data.user_error == 2) {
+	                    $("#error-info").text("");
+	                    $("#error-info").append("<b>不存在用户或密码错误</b>");
+	                    $("#alert").removeClass("close").addClass("alert alert-danger fade in");
+	                } else if (data.code_error == 3) {
+	                    $("#error-info").text("");
+	                    $("#error-info").append("<b>验证码错误</b>");
+	                    $("#alert").removeClass("close").addClass("alert alert-danger fade in");
+	                }
+	            },
+	            error: function(XMLHttpRequest, textStatus, errorThrown) {
+	                alert(XMLHttpRequest.status + "-" + XMLHttpRequest.readyState + "-" + textStatus);
+	            }
+	        }).always(function() {
+	            $btn.button('reset')
+	        }); //ajax
+	    }); //loginButton.click
+	});//全ready
 	function show_box(id) {
-		jQuery('.widget-box.visible').removeClass('visible');
-		jQuery('#' + id).addClass('visible');
+	    jQuery('.widget-box.visible').removeClass('visible');
+	    jQuery('#' + id).addClass('visible');
 	}
 	</script>  
  </body>

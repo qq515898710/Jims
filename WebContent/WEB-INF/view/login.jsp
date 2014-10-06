@@ -52,15 +52,15 @@
            <form id="login" > 
             <fieldset> 
              <label class="block clearfix"> <span class="block input-icon input-icon-right"> 
-                <input type="text" class="form-control" placeholder="请输入用户名" id="name" name="name" /> <i class="icon-user"></i> </span> 
+                <input type="text" class="form-control" placeholder="请输入用户名" id="name" name="j_username" value="${sessionScope['SPRING_SECURITY_LAST_USERNAME']}" /> <i class="icon-user"></i> </span> 
              </label> 
              <label class="block clearfix"> <span class="block input-icon input-icon-right"> 
-                <input type="password" class="form-control" placeholder="请输入密码"  id="password" name="password" /> <i class="icon-lock"></i> </span> 
+                <input type="password" class="form-control" placeholder="请输入密码"  id="password" name="j_password" /> <i class="icon-lock"></i> </span> 
              </label> 
              <label class="block clearfix"> <span class="block input-icon input-icon-right"> 
                 <input type="text "  class="" placeholder="验证码"  id="code" name="code" />
                 <img src="captcha-image" alt="验证码" width="90 " height="30" style="margin-bottom: -3px"  id="codeImage"/></span>
-             </label> 
+             </label>
              <div class="space"></div> 
              <div class="clearfix"> 
               <label class="inline"> <input type="checkbox" class="ace"  id="remember" name="_spring_security_remember_me"/> <span class="lbl"> 记住</span> </label> 

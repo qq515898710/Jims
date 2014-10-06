@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mo.jims.coop.entity.UserLog;
+import org.mo.open.common.entity.UserLog;
 import org.mo.open.common.util.BaseTest;
 import org.mo.open.common.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;

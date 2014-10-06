@@ -6,6 +6,8 @@
 package org.mo.jims.coop.entity;
 
 import java.io.Serializable;
+
+import org.mo.open.common.entity.User;
 import org.mo.open.common.util.Sequence;
 
 /**

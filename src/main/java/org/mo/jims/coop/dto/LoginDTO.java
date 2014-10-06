@@ -2,7 +2,7 @@ package org.mo.jims.coop.dto;
 
 import java.io.Serializable;
 
-import org.mo.jims.coop.entity.User;
+import org.mo.open.common.entity.User;
 
 public class LoginDTO implements Serializable {
 	

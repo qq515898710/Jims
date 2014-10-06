@@ -2,7 +2,7 @@ package org.mo.open.common.security;
 
 import java.util.Collection;
 
-import org.mo.jims.coop.entity.User;
+import org.mo.open.common.entity.User;
 import org.springframework.security.core.GrantedAuthority;
 
 /**

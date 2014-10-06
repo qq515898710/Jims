@@ -3,7 +3,7 @@
  * Author:  YK
  * Purpose: Defines the Class TbUserRole
  ***********************************************************************/
-package org.mo.jims.coop.entity;
+package org.mo.open.common.entity;
 
 import java.io.Serializable;
 

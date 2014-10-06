@@ -4,8 +4,8 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.mo.jims.coop.entity.UserRole;
 import org.mo.jims.coop.repository.UserRoleRepository;
+import org.mo.open.common.entity.UserRole;
 import org.mo.open.common.service.BaseService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;

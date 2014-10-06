@@ -3,8 +3,8 @@ package org.mo.jims.coop.controller;
 import javax.annotation.Resource;
 
 import org.mo.jims.coop.dto.LoginDTO;
-import org.mo.jims.coop.entity.User;
 import org.mo.jims.coop.service.UserService;
+import org.mo.open.common.entity.User;
 import org.mo.open.common.util.JsonResponse;
 import org.mo.open.common.util.Page;
 import org.springframework.stereotype.Controller;

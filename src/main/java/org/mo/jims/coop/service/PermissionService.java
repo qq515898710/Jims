@@ -4,10 +4,9 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.mo.jims.coop.entity.Permission;
-import org.mo.jims.coop.entity.Permission;
 import org.mo.jims.coop.repository.PermissionRepository;
 import org.mo.jims.coop.repository.PermissionRepository;
+import org.mo.open.common.entity.Permission;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;

@@ -7,8 +7,8 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.junit.Test;
-import org.mo.jims.coop.entity.User;
-import org.mo.jims.coop.entity.UserRole;
+import org.mo.open.common.entity.User;
+import org.mo.open.common.entity.UserRole;
 import org.mo.open.common.util.BaseTest;
 
 public class UserRepositoryTest extends BaseTest {

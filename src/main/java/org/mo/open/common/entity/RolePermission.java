@@ -1,4 +1,4 @@
-package org.mo.jims.coop.entity;
+package org.mo.open.common.entity;
 
 /**
  * 角色与权限关联表

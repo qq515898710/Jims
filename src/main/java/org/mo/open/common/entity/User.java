@@ -3,12 +3,17 @@
  * Author:  YK
  * Purpose: Defines the Class TbUser
  ***********************************************************************/
-package org.mo.jims.coop.entity;
+package org.mo.open.common.entity;
 
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import org.mo.jims.coop.entity.InventoryInfo;
+import org.mo.jims.coop.entity.Sell;
+import org.mo.jims.coop.entity.SellReturn;
+import org.mo.jims.coop.entity.Stock;
+import org.mo.jims.coop.entity.StockReturn;
 import org.mo.open.common.util.Sequence;
 
 /**

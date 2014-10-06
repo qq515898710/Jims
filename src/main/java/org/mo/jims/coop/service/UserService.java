@@ -5,10 +5,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.mo.jims.coop.entity.User;
-import org.mo.jims.coop.entity.UserLog;
 import org.mo.jims.coop.repository.UserLogRepository;
 import org.mo.jims.coop.repository.UserRepository;
+import org.mo.open.common.entity.User;
+import org.mo.open.common.entity.UserLog;
 import org.mo.open.common.service.BaseService;
 import org.mo.open.common.util.Page;
 import org.springframework.stereotype.Service;

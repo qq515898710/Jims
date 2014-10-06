@@ -1,14 +1,15 @@
-package org.mo.jims.coop.entity;
+package org.mo.open.common.entity;
 
 import java.util.List;
 
 /**
- * 角色表
+ * 用户权限
  * 
  * @author moziqi
  *
  */
-public class Role implements java.io.Serializable {
+public class Permission implements java.io.Serializable {
+
 	private static final long serialVersionUID = 1L;
 
 	private java.lang.Long id;
@@ -16,11 +17,9 @@ public class Role implements java.io.Serializable {
 	private java.lang.String name;
 
 	private java.lang.String description;
-
-	private List<User> user;
-
-	private List<Permission> permission;
 	
+	private List<Role> role;
+
 	public java.lang.Long getId() {
 		return id;
 	}
@@ -45,20 +44,12 @@ public class Role implements java.io.Serializable {
 		this.description = description;
 	}
 
-	public List<User> getUser() {
-		return user;
+	public List<Role> getRole() {
+		return role;
 	}
 
-	public void setUser(List<User> user) {
-		this.user = user;
-	}
-
-	public List<Permission> getPermission() {
-		return permission;
-	}
-
-	public void setPermission(List<Permission> permission) {
-		this.permission = permission;
+	public void setRole(List<Role> role) {
+		this.role = role;
 	}
 
 }

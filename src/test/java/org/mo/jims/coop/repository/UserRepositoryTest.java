@@ -9,6 +9,7 @@ import javax.annotation.Resource;
 import org.junit.Test;
 import org.mo.open.common.entity.User;
 import org.mo.open.common.entity.UserRole;
+import org.mo.open.common.repository.UserRepository;
 import org.mo.open.common.util.BaseTest;
 
 public class UserRepositoryTest extends BaseTest {

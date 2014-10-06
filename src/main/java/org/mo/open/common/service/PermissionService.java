@@ -1,12 +1,11 @@
-package org.mo.jims.coop.service;
+package org.mo.open.common.service;
 
 import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.mo.jims.coop.repository.PermissionRepository;
-import org.mo.jims.coop.repository.PermissionRepository;
 import org.mo.open.common.entity.Permission;
+import org.mo.open.common.repository.PermissionRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;

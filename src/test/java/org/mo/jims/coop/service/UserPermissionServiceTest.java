@@ -3,6 +3,7 @@ package org.mo.jims.coop.service;
 import java.util.List;
 
 import org.junit.Test;
+import org.mo.open.common.service.PermissionService;
 import org.mo.open.common.util.BaseTest;
 import org.springframework.beans.factory.annotation.Autowired;
 

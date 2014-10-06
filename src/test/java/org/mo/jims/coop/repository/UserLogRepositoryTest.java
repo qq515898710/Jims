@@ -5,6 +5,7 @@ import javax.annotation.Resource;
 import org.junit.Before;
 import org.junit.Test;
 import org.mo.open.common.entity.UserLog;
+import org.mo.open.common.repository.UserLogRepository;
 import org.mo.open.common.util.BaseTest;
 
 public class UserLogRepositoryTest extends BaseTest {

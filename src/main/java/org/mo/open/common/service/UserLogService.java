@@ -1,11 +1,11 @@
-package org.mo.jims.coop.service;
+package org.mo.open.common.service;
 
 import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.mo.jims.coop.repository.UserLogRepository;
 import org.mo.open.common.entity.UserLog;
+import org.mo.open.common.repository.UserLogRepository;
 import org.mo.open.common.util.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;

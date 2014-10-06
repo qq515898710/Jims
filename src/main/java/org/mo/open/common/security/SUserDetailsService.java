@@ -5,11 +5,11 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.mo.jims.coop.repository.UserLogRepository;
-import org.mo.jims.coop.repository.PermissionRepository;
-import org.mo.jims.coop.repository.UserRepository;
 import org.mo.open.common.entity.Permission;
 import org.mo.open.common.entity.User;
+import org.mo.open.common.repository.PermissionRepository;
+import org.mo.open.common.repository.UserLogRepository;
+import org.mo.open.common.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.GrantedAuthority;

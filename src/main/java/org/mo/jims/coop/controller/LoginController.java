@@ -7,7 +7,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
 import org.mo.jims.coop.dto.LoginDTO;
-import org.mo.jims.coop.service.UserService;
+import org.mo.open.common.service.UserService;
 import org.mo.open.common.util.JsonResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

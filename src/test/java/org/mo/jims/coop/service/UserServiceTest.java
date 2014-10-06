@@ -6,6 +6,7 @@ import javax.annotation.Resource;
 
 import org.junit.Test;
 import org.mo.open.common.entity.User;
+import org.mo.open.common.service.UserService;
 import org.mo.open.common.util.BaseTest;
 import org.mo.open.common.util.Page;
 

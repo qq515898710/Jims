@@ -2,44 +2,31 @@ package org.mo.jims.coop.dto;
 
 import java.io.Serializable;
 
-import org.mo.jims.coop.entity.TbUser;
+import org.mo.jims.coop.entity.User;
 
 public class LoginDTO implements Serializable {
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
-	
-	private String name;
-	
-	private String username;
-	
+
+	private String account;
+
 	private String password;
-	
+
 	private String code;
-	
-	public TbUser toObject() {
-		TbUser tbUser = new TbUser();
-		tbUser.setName(name);
-		tbUser.setUsername(username);
-		tbUser.setPassword(password);
-		return tbUser;
+
+	public User toObject() {
+		User user = new User();
+		user.setAccount(account);
+		user.setPassword(password);
+		return user;
 	}
 
-	public String getName() {
-		return name;
+	public String getAccount() {
+		return account;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
+	public void setAccount(String account) {
+		this.account = account;
 	}
 
 	public String getPassword() {

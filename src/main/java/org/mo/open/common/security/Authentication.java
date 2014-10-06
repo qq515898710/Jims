@@ -2,7 +2,7 @@ package org.mo.open.common.security;
 
 import java.util.Collection;
 
-import org.mo.jims.coop.entity.TbUser;
+import org.mo.jims.coop.entity.User;
 import org.springframework.security.core.GrantedAuthority;
 
 /**
@@ -15,28 +15,28 @@ public class Authentication extends org.springframework.security.core.userdetail
 
 	private static final long serialVersionUID = 1L;
 	
-	private TbUser tbUser;
+	private User user;
 	
 	private boolean expired; // 检验是否过期的
 
 	private String latestMessage; // 最新消息
 	
-	public Authentication(TbUser tbUser, String username, String password,
+	public Authentication(User user, String username, String password,
 			boolean enabled, boolean accountNonExpired,
 			boolean credentialsNonExpired, boolean accountNonLocked,
 			Collection<? extends GrantedAuthority> authorities) {
 		super(username, password, enabled, accountNonExpired,
 				credentialsNonExpired, accountNonLocked, authorities);
-		this.tbUser = tbUser;
+		this.user = user;
 		this.expired =false;
 	}
 
-	public TbUser getTbUser() {
-		return tbUser;
+	public User getTbUser() {
+		return user;
 	}
 
-	public void setTbUser(TbUser tbUser) {
-		this.tbUser = tbUser;
+	public void setTbUser(User tbUser) {
+		this.user = tbUser;
 	}
 
 	public boolean isExpired() {

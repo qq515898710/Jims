@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.mo.jims.coop.entity.TbProviderInfo;
+import org.mo.jims.coop.entity.ProviderInfo;
 import org.mo.jims.coop.repository.ProviderInfoRepository;
 import org.mo.open.common.util.Page;
 import org.springframework.stereotype.Service;
@@ -17,8 +17,8 @@ public class ProviderInfoService {
 	private ProviderInfoRepository providerInfoRepository;
 
 	@Transactional(readOnly = true, propagation = Propagation.NOT_SUPPORTED)
-	public TbProviderInfo getProviderInfoByName(String name) {
-		TbProviderInfo selcetByName = null;
+	public ProviderInfo getProviderInfoByName(String name) {
+		ProviderInfo selcetByName = null;
 		selcetByName = providerInfoRepository.selcetByName(name);
 		if (selcetByName == null) {
 			return null;
@@ -27,33 +27,33 @@ public class ProviderInfoService {
 	}
 	
 	@Transactional(readOnly = true, propagation = Propagation.NOT_SUPPORTED)
-	public Page<TbProviderInfo> getProviderInfoByNameOrAbbreviation(String name, int page, int pageSize) {
-		Page<TbProviderInfo> providerInfoPage = new Page<TbProviderInfo>();
+	public Page<ProviderInfo> getProviderInfoByNameOrAbbreviation(String name, int page, int pageSize) {
+		Page<ProviderInfo> providerInfoPage = new Page<ProviderInfo>();
 		providerInfoPage.setTotalElement(providerInfoRepository.countAllByNameOrAbbreviation(name), pageSize);
 		if(providerInfoPage.getTotalElement() == 0){
 			return providerInfoPage;
 		}
 		providerInfoPage.setPageSize(pageSize);
 		providerInfoPage.setCurrentPage(page);
-		List<TbProviderInfo> selectAllByNameOrAbbreviation = 
+		List<ProviderInfo> selectAllByNameOrAbbreviation = 
 				providerInfoRepository.selectAllByNameOrAbbreviation(name, (page - 1) * pageSize, pageSize);
 		providerInfoPage.setContent(selectAllByNameOrAbbreviation);
 		return providerInfoPage;
 	}
 
 	@Transactional(readOnly = true, propagation = Propagation.NOT_SUPPORTED)
-	public TbProviderInfo getByPK(String id) {
+	public ProviderInfo getByPK(String id) {
 		return providerInfoRepository.selectByPK(id);
 	}
 
 	@Transactional(noRollbackFor = Exception.class)
-	public boolean save(TbProviderInfo entity) {
+	public boolean save(ProviderInfo entity) {
 		providerInfoRepository.insert(entity);
 		return true;
 	}
 
 	@Transactional(noRollbackFor = Exception.class)
-	public boolean alter(TbProviderInfo entity) {
+	public boolean alter(ProviderInfo entity) {
 		providerInfoRepository.updateByPK(entity);
 		return true;
 	}

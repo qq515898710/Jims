@@ -4,7 +4,7 @@ import javax.annotation.Resource;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mo.jims.coop.entity.TbUserLog;
+import org.mo.jims.coop.entity.UserLog;
 import org.mo.open.common.util.BaseTest;
 
 public class UserLogRepositoryTest extends BaseTest {
@@ -48,7 +48,7 @@ public class UserLogRepositoryTest extends BaseTest {
 
 	@Test
 	public void testSelectByPK() {
-		TbUserLog selectByPK = userLogRepository.selectByPK(new Long(1));
+		UserLog selectByPK = userLogRepository.selectByPK(new Long(1));
 		System.out.println(selectByPK.getTime());
 	}
 

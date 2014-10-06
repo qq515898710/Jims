@@ -5,8 +5,8 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.mo.jims.coop.entity.TbUser;
-import org.mo.jims.coop.entity.TbUserLog;
+import org.mo.jims.coop.entity.User;
+import org.mo.jims.coop.entity.UserLog;
 import org.mo.jims.coop.repository.UserLogRepository;
 import org.mo.jims.coop.repository.UserRepository;
 import org.mo.open.common.service.BaseService;
@@ -21,9 +21,9 @@ public class UserService {
 	private UserRepository userRepository;
 	private UserLogRepository userLogRepository;
 
-	public boolean checkLogin(TbUser user){
-		TbUser login = null;
-		login = userRepository.selectUserByNameAndPassword(user.getName(), user.getPassword());
+	public boolean checkLogin(User user){
+		User login = null;
+		login = userRepository.selectUserByNameAndPassword(user.getAccount(), user.getPassword());
 		if (login != null) {
 			return true;
 		}
@@ -37,17 +37,17 @@ public class UserService {
 	 * @return
 	 */
 	@Transactional(readOnly = true, propagation = Propagation.NOT_SUPPORTED)
-	public Page<TbUser> getALLUserInfo(TbUser user, int page, int pageSize) {
-		Page<TbUser> userPage = new Page<TbUser>();
+	public Page<User> getALLUserInfo(User user, int page, int pageSize) {
+		Page<User> userPage = new Page<User>();
 		userPage.setCurrentPage(page);
 		userPage.setPageSize(pageSize);
 		userPage.setTotalElement(
-				userRepository.countAll(user.getName(), user.getUsername()),
+				userRepository.countAll(user.getAccount(), user.getUsername()),
 				pageSize);
 		if (userPage.getTotalElement() == 0) {
 			return userPage;
 		}
-		List<TbUser> selectAll = userRepository.selectAll(user.getName(),
+		List<User> selectAll = userRepository.selectAll(user.getAccount(),
 				user.getUsername(), (page - 1) * pageSize, pageSize);
 		userPage.setContent(selectAll);
 		return userPage;
@@ -56,12 +56,12 @@ public class UserService {
 	/**
 	 * 保存用户登录日志信息
 	 * 
-	 * @param tbUser
+	 * @param user
 	 */
 	@Transactional(noRollbackFor = Exception.class)
-	private void saveUserLoginLog(TbUser tbUser) {
-		TbUserLog entity = new TbUserLog();
-		entity.setTbUser(tbUser);
+	private void saveUserLoginLog(User user) {
+		UserLog entity = new UserLog();
+		entity.setUser(user);
 		entity.setTime(new Date(System.currentTimeMillis()));
 		userLogRepository.insert(entity);
 	}
@@ -73,21 +73,21 @@ public class UserService {
 	 * @return
 	 */
 	@Transactional(readOnly = true, propagation = Propagation.NOT_SUPPORTED)
-	public TbUser getByPK(String name) {
-		TbUser tbUser = null;
-		tbUser = userRepository.selcetByName(name);
-		return tbUser;
+	public User getByPK(String account) {
+		User user = null;
+		user = userRepository.selcetByName(account);
+		return user;
 	}
 
 	/**
 	 * 保存用户信息,返回true保存成功,返回false用户名存在保存失败
 	 * 
-	 * @param tbUser
+	 * @param entity
 	 * @return
 	 */
 	@Transactional(noRollbackFor = Exception.class)
-	public boolean save(TbUser entity) {
-		TbUser userByName = this.getByPK(entity.getName());
+	public boolean save(User entity) {
+		User userByName = this.getByPK(entity.getAccount());
 		if (userByName != null) {
 			return false;
 		}
@@ -102,7 +102,7 @@ public class UserService {
 	 * @param tbUser
 	 */
 	@Transactional(noRollbackFor = Exception.class)
-	public boolean alter(TbUser entity) {
+	public boolean alter(User entity) {
 		userRepository.updateByPK(entity);
 		return true;
 	}

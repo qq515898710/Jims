@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.mo.jims.coop.entity.TbUserLog;
+import org.mo.jims.coop.entity.UserLog;
 import org.mo.jims.coop.repository.UserLogRepository;
 import org.mo.open.common.util.Page;
 import org.springframework.stereotype.Service;
@@ -25,8 +25,8 @@ public class UserLogService {
 	 * @return
 	 */
 	@Transactional(readOnly = true, propagation = Propagation.NOT_SUPPORTED)
-	public Page<TbUserLog> getUserLogByName(String name, int page, int pageSize) {
-		Page<TbUserLog> userLogPage = new Page<TbUserLog>();
+	public Page<UserLog> getUserLogByName(String name, int page, int pageSize) {
+		Page<UserLog> userLogPage = new Page<UserLog>();
 		userLogPage.setCurrentPage(page);
 		userLogPage.setPageSize(pageSize);
 		userLogPage.setTotalElement(userLogRepository.countByName(name),pageSize);
@@ -46,8 +46,8 @@ public class UserLogService {
 	 * @return
 	 */
 	@Transactional(readOnly = true, propagation = Propagation.NOT_SUPPORTED)
-	public Page<TbUserLog> getUserLogByLikeName(String name, int page, int pageSize) {
-		Page<TbUserLog> userLogPage = new Page<TbUserLog>();
+	public Page<UserLog> getUserLogByLikeName(String name, int page, int pageSize) {
+		Page<UserLog> userLogPage = new Page<UserLog>();
 		userLogPage.setCurrentPage(page);
 		userLogPage.setPageSize(pageSize);
 		userLogPage.setTotalElement(userLogRepository.countByLikeName(name),pageSize);
@@ -59,18 +59,18 @@ public class UserLogService {
 	}
 
 	@Transactional(readOnly = true, propagation = Propagation.NOT_SUPPORTED)
-	public TbUserLog getByPK(Long id) {
+	public UserLog getByPK(Long id) {
 		return userLogRepository.selectByPK(id);
 	}
 
 	@Transactional(noRollbackFor = Exception.class)
-	public boolean save(TbUserLog entity) {
+	public boolean save(UserLog entity) {
 		userLogRepository.insert(entity);
 		return true;
 	}
 
 	@Transactional(noRollbackFor = Exception.class)
-	public boolean alter(TbUserLog entity) {
+	public boolean alter(UserLog entity) {
 		userLogRepository.updateByPK(entity);
 		return true;
 	}

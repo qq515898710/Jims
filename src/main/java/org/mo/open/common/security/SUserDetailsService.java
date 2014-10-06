@@ -5,11 +5,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.aspectj.weaver.SimpleAnnotationValue;
-import org.mo.jims.coop.entity.TbUser;
-import org.mo.jims.coop.entity.TbUserPermission;
+import org.mo.jims.coop.entity.User;
+import org.mo.jims.coop.entity.Permission;
 import org.mo.jims.coop.repository.UserLogRepository;
-import org.mo.jims.coop.repository.UserPermissionRepository;
+import org.mo.jims.coop.repository.PermissionRepository;
 import org.mo.jims.coop.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,36 +24,36 @@ public class SUserDetailsService implements UserDetailsService {
 	
 	protected static Logger logger = LoggerFactory.getLogger(SUserDetailsService.class);
 
-	private UserPermissionRepository userPermissionRepository;
+	private PermissionRepository permissionRepository;
 	private UserLogRepository userLogRepository;
 	private UserRepository userRepository;
 
 	@Override
 	public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
 		UserDetails userDetails = null;
-		TbUser selcetByName = userRepository.selcetByName(name);
+		User selcetByName = userRepository.selcetByName(name);
 		if (selcetByName == null) {
 			throw new UsernameNotFoundException("该" + name + "不存在");
 		}
-		userDetails = new Authentication(selcetByName, selcetByName.getName(),
+		userDetails = new Authentication(selcetByName, selcetByName.getAccount(),
 				selcetByName.getPassword(), true, true, true, true, grantAuthorities(selcetByName));
 		return null;
 	}
-	private List<GrantedAuthority> grantAuthorities(TbUser tbUser){
+	private List<GrantedAuthority> grantAuthorities(User user){
 		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-		long id = tbUser.getTbUserRole().getId();
-		TbUserPermission selectByPK = userPermissionRepository.selectByPK(id);
+//		long id = user.getRole().get
+//		Permission selectByPK = permissionRepository.selectByPK(id);
 //		authorities.add(new SimpleGrantedAuthority(role));
 		return null;
 	}
 
-	public UserPermissionRepository getUserPermissionRepository() {
-		return userPermissionRepository;
+	public PermissionRepository getPermissionRepository() {
+		return permissionRepository;
 	}
 
-	@Resource(name = "userPermissionRepository")
-	public void setUserPermissionRepository(UserPermissionRepository userPermissionRepository) {
-		this.userPermissionRepository = userPermissionRepository;
+	@Resource(name = "permissionRepository")
+	public void setPermissionRepository(PermissionRepository permissionRepository) {
+		this.permissionRepository = permissionRepository;
 	}
 
 	public UserLogRepository getUserLogRepository() {

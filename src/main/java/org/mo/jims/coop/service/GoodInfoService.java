@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.mo.jims.coop.entity.TbGoodInfo;
+import org.mo.jims.coop.entity.GoodInfo;
 import org.mo.jims.coop.repository.GoodInfoRepository;
 import org.mo.open.common.util.Page;
 import org.springframework.stereotype.Service;
@@ -17,8 +17,8 @@ public class GoodInfoService {
 	private GoodInfoRepository goodInfoRepository;
 
 	@Transactional(readOnly = true, propagation = Propagation.NOT_SUPPORTED)
-	public TbGoodInfo getGoodInfoByName(String name) {
-		TbGoodInfo selcetByName = null;
+	public GoodInfo getGoodInfoByName(String name) {
+		GoodInfo selcetByName = null;
 		selcetByName = goodInfoRepository.selcetByName(name);
 		if (selcetByName == null) {
 			return null;
@@ -27,33 +27,33 @@ public class GoodInfoService {
 	}
 	
 	@Transactional(readOnly = true, propagation = Propagation.NOT_SUPPORTED)
-	public Page<TbGoodInfo> getGoodInfoByNameOrAbbreviation(String name, int page, int pageSize) {
-		Page<TbGoodInfo> goodInfoPage = new Page<TbGoodInfo>();
+	public Page<GoodInfo> getGoodInfoByNameOrAbbreviation(String name, int page, int pageSize) {
+		Page<GoodInfo> goodInfoPage = new Page<GoodInfo>();
 		goodInfoPage.setTotalElement(goodInfoRepository.countAllByNameOrAbbreviation(name), pageSize);
 		if(goodInfoPage.getTotalElement() == 0){
 			return goodInfoPage;
 		}
 		goodInfoPage.setPageSize(pageSize);
 		goodInfoPage.setCurrentPage(page);
-		List<TbGoodInfo> selectAllByNameOrAbbreviation = 
+		List<GoodInfo> selectAllByNameOrAbbreviation = 
 				goodInfoRepository.selectAllByNameOrAbbreviation(name, (page - 1) * pageSize, pageSize);
 		goodInfoPage.setContent(selectAllByNameOrAbbreviation);
 		return goodInfoPage;
 	}
 
 	@Transactional(readOnly = true, propagation = Propagation.NOT_SUPPORTED)
-	public TbGoodInfo getByPK(String id) {
+	public GoodInfo getByPK(String id) {
 		return goodInfoRepository.selectByPK(id);
 	}
 
 	@Transactional(noRollbackFor = Exception.class)
-	public boolean save(TbGoodInfo entity) {
+	public boolean save(GoodInfo entity) {
 		goodInfoRepository.insert(entity);
 		return true;
 	}
 
 	@Transactional(noRollbackFor = Exception.class)
-	public boolean alter(TbGoodInfo entity) {
+	public boolean alter(GoodInfo entity) {
 		goodInfoRepository.updateByPK(entity);
 		return true;
 	}

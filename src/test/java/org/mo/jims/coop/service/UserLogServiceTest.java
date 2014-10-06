@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mo.jims.coop.entity.TbUserLog;
+import org.mo.jims.coop.entity.UserLog;
 import org.mo.open.common.util.BaseTest;
 import org.mo.open.common.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,25 +26,25 @@ public class UserLogServiceTest extends BaseTest {
 
 	@Test
 	public void testGetUserLogByName() {
-		Page<TbUserLog> userLogByName = userLogService.getUserLogByName(name,
+		Page<UserLog> userLogByName = userLogService.getUserLogByName(name,
 				page, pageSize);
 		Assert.notNull(userLogByName, "userLogByName不为null");
-		List<TbUserLog> content = userLogByName.getContent();
+		List<UserLog> content = userLogByName.getContent();
 		for(int i=0;i<content.size();i++){
-			TbUserLog tbUserLog = content.get(i);
-			System.out.println(tbUserLog.getId()+"--"+tbUserLog.getTime()+"--"+tbUserLog.getTbUser().getName());
+			UserLog tbUserLog = content.get(i);
+//			System.out.println(tbUserLog.getId()+"--"+tbUserLog.getTime()+"--"+tbUserLog.getTbUser().getName());
 		}
 	}
 
 	@Test
 	public void testGetUserLogByLikeName() {
-		Page<TbUserLog> userLogByName = userLogService.getUserLogByLikeName(name,
+		Page<UserLog> userLogByName = userLogService.getUserLogByLikeName(name,
 				page, pageSize);
 		Assert.notNull(userLogByName, "userLogByName不为null");
-		List<TbUserLog> content = userLogByName.getContent();
+		List<UserLog> content = userLogByName.getContent();
 		for(int i=0;i<content.size();i++){
-			TbUserLog tbUserLog = content.get(i);
-			System.out.println(tbUserLog.getId()+"--"+tbUserLog.getTime()+"--"+tbUserLog.getTbUser().getName());
+			UserLog tbUserLog = content.get(i);
+//			System.out.println(tbUserLog.getId()+"--"+tbUserLog.getTime()+"--"+tbUserLog.getTbUser().getName());
 		}
 	}
 

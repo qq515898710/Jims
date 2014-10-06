@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.mo.jims.coop.entity.TbInventoryInfo;
+import org.mo.jims.coop.entity.InventoryInfo;
 import org.mo.jims.coop.repository.InventoryInfoRepository;
 import org.mo.open.common.util.Page;
 import org.springframework.stereotype.Service;
@@ -17,8 +17,8 @@ public class InventoryInfoService {
 	private InventoryInfoRepository inventoryInfoRepository;
 
 	@Transactional(readOnly = true, propagation = Propagation.NOT_SUPPORTED)
-	public TbInventoryInfo getInventoryInfoByName(String name) {
-		TbInventoryInfo selcetByName = null;
+	public InventoryInfo getInventoryInfoByName(String name) {
+		InventoryInfo selcetByName = null;
 		selcetByName = inventoryInfoRepository.selcetByName(name);
 		if (selcetByName == null) {
 			return null;
@@ -27,33 +27,33 @@ public class InventoryInfoService {
 	}
 	
 	@Transactional(readOnly = true, propagation = Propagation.NOT_SUPPORTED)
-	public Page<TbInventoryInfo> getInventoryInfoByNameOrAbbreviation(String name, int page, int pageSize) {
-		Page<TbInventoryInfo> inventoryInfoPage = new Page<TbInventoryInfo>();
+	public Page<InventoryInfo> getInventoryInfoByNameOrAbbreviation(String name, int page, int pageSize) {
+		Page<InventoryInfo> inventoryInfoPage = new Page<InventoryInfo>();
 		inventoryInfoPage.setTotalElement(inventoryInfoRepository.countAllByNameOrAbbreviation(name), pageSize);
 		if(inventoryInfoPage.getTotalElement() == 0){
 			return inventoryInfoPage;
 		}
 		inventoryInfoPage.setPageSize(pageSize);
 		inventoryInfoPage.setCurrentPage(page);
-		List<TbInventoryInfo> selectAllByNameOrAbbreviation = 
+		List<InventoryInfo> selectAllByNameOrAbbreviation = 
 				inventoryInfoRepository.selectAllByNameOrAbbreviation(name, (page - 1) * pageSize, pageSize);
 		inventoryInfoPage.setContent(selectAllByNameOrAbbreviation);
 		return inventoryInfoPage;
 	}
 
 	@Transactional(readOnly = true, propagation = Propagation.NOT_SUPPORTED)
-	public TbInventoryInfo getByPK(String id) {
+	public InventoryInfo getByPK(String id) {
 		return inventoryInfoRepository.selectByPK(id);
 	}
 
 	@Transactional(noRollbackFor = Exception.class)
-	public boolean save(TbInventoryInfo entity) {
+	public boolean save(InventoryInfo entity) {
 		inventoryInfoRepository.insert(entity);
 		return true;
 	}
 
 	@Transactional(noRollbackFor = Exception.class)
-	public boolean alter(TbInventoryInfo entity) {
+	public boolean alter(InventoryInfo entity) {
 		inventoryInfoRepository.updateByPK(entity);
 		return true;
 	}

@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.mo.jims.coop.entity.TbUserRole;
+import org.mo.jims.coop.entity.UserRole;
 import org.mo.jims.coop.repository.UserRoleRepository;
 import org.mo.open.common.service.BaseService;
 import org.springframework.stereotype.Service;
@@ -16,23 +16,23 @@ public class UserRoleService  {
 	private UserRoleRepository userRoleRepository;
 
 	@Transactional(readOnly = true, propagation = Propagation.NOT_SUPPORTED)
-	public List<TbUserRole> gettAll() {
+	public List<UserRole> gettAll() {
 		return userRoleRepository.selectAll();
 	}
 
 	@Transactional(readOnly = true, propagation = Propagation.NOT_SUPPORTED)
-	public TbUserRole getByPK(Long id) {
+	public UserRole getByPK(Long id) {
 		return userRoleRepository.selectByPK(id);
 	}
 
 	@Transactional(noRollbackFor = Exception.class)
-	public boolean save(TbUserRole entity) {
+	public boolean save(UserRole entity) {
 		userRoleRepository.insert(entity);
 		return true;
 	}
 
 	@Transactional(noRollbackFor = Exception.class)
-	public boolean alter(TbUserRole entity) {
+	public boolean alter(UserRole entity) {
 		userRoleRepository.updateByPK(entity);
 		return true;
 	}

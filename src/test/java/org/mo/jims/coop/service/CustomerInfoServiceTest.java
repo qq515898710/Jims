@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.mo.jims.coop.entity.TbCustomerInfo;
+import org.mo.jims.coop.entity.CustomerInfo;
 import org.mo.open.common.util.BaseTest;
 import org.mo.open.common.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,25 +17,25 @@ public class CustomerInfoServiceTest extends BaseTest {
 
 	@Test
 	public void testGetCustomerInfoByName() {
-		TbCustomerInfo customerInfoByName = customerInfoService.getCustomerInfoByName("东莞理工学院城市学院");
+		CustomerInfo customerInfoByName = customerInfoService.getCustomerInfoByName("东莞理工学院城市学院");
 		Assert.assertNotNull("customerInfoByName is null", customerInfoByName);
 	}
 
 	@Test
 	public void testGetCustomerInfoByNameOrAbbreviation() {
-		Page<TbCustomerInfo> customerInfoByNameOrAbbreviation = customerInfoService.getCustomerInfoByNameOrAbbreviation("城", 1, 10);
+		Page<CustomerInfo> customerInfoByNameOrAbbreviation = customerInfoService.getCustomerInfoByNameOrAbbreviation("城", 1, 10);
 		Assert.assertNotNull("customerInfoByNameOrAbbreviation is null", customerInfoByNameOrAbbreviation);
-		List<TbCustomerInfo> content = customerInfoByNameOrAbbreviation.getContent();
+		List<CustomerInfo> content = customerInfoByNameOrAbbreviation.getContent();
 		Assert.assertNotNull("content is null", customerInfoByNameOrAbbreviation);
 		for(int i=0;i<content.size();i++){
-			TbCustomerInfo tbCustomerInfo = content.get(i);
-			System.out.println(tbCustomerInfo.getCname());
+			CustomerInfo tbCustomerInfo = content.get(i);
+			System.out.println(tbCustomerInfo.getName());
 		}
 	}
 
 	@Test
 	public void testGetByPK() {
-		TbCustomerInfo tbCustomerInfo = customerInfoService.getByPK("cFri Oct 03 18:07:32 CST 2014");
+		CustomerInfo tbCustomerInfo = customerInfoService.getByPK("cFri Oct 03 18:07:32 CST 2014");
 		Assert.assertNotNull("tbCustomerInfo is null",tbCustomerInfo);
 	}
 
@@ -52,7 +52,7 @@ public class CustomerInfoServiceTest extends BaseTest {
 		String email="mo@163.com";
 		String depositBank="东莞银行";
 		String accountBank="5345 3453 3453 6565";
-		TbCustomerInfo tbCustomerInfo = new TbCustomerInfo( cname, abbreviation, address, postalCode, phone, fax, contacts, telephone, email, depositBank, accountBank);
+		CustomerInfo tbCustomerInfo = new CustomerInfo( cname, abbreviation, address, postalCode, phone, fax, contacts, telephone, email, depositBank, accountBank);
 		customerInfoService.save(tbCustomerInfo);
 	}
 
